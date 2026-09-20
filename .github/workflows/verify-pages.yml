@@ -23,20 +23,20 @@ jobs:
           npm install playwright@1.55.0 >/dev/null 2>&1
           npx playwright install --with-deps chromium >/dev/null 2>&1
 
-      - name: Verify deployed mobile redesign
+      - name: Verify deployed luxury v3
         run: |
           cat > verify-live.mjs <<'NODE'
           import { chromium } from 'playwright';
 
           const base='https://gartrem.github.io/yxomedved/';
-          const expected='20260921-mobile-v2';
+          const expected='20260921-luxe-v3';
           const browser=await chromium.launch({headless:true});
-          const report={checkedAt:new Date().toISOString(),expected,desktop:{},mobile:{},checks:{},pass:false};
+          const report={checkedAt:new Date().toISOString(),expected,desktop:{},mobile390:{},mobile430:{},checks:{},pass:false};
 
           async function waitForDeploy(){
             const page=await browser.newPage({viewport:{width:390,height:844}});
             let marker=null,status=null;
-            for(let i=0;i<12;i++){
+            for(let i=0;i<18;i++){
               const response=await page.goto(base+'?verify='+Date.now(),{waitUntil:'networkidle',timeout:90000});
               status=response?.status()||null;
               marker=await page.locator('meta[name="build-version"]').getAttribute('content').catch(()=>null);
@@ -53,19 +53,23 @@ jobs:
             await page.waitForTimeout(1200);
             const data=await page.evaluate(()=>{
               const q=s=>document.querySelector(s);
+              const qa=s=>[...document.querySelectorAll(s)];
               const cs=s=>q(s)?getComputedStyle(q(s)):null;
               const rect=s=>q(s)?q(s).getBoundingClientRect():null;
               const logo=q('.brand img');
               const h1=rect('.hero h1');
               const dock=rect('.mobile-actions');
               const header=rect('.site-header');
+              const menu=rect('.menu-btn');
+              const center=rect('.mobile-reserve');
+              const side=rect('.mobile-action-side');
               const heroBg=rect('.hero-bg');
+              const reserve=rect('.reserve-hero');
               return {
                 buildVersion:q('meta[name="build-version"]')?.content||null,
                 viewportWidth:innerWidth,viewportHeight:innerHeight,
-                documentWidth:document.documentElement.scrollWidth,
+                docWidth:document.documentElement.scrollWidth,
                 headerHeight:header?.height||null,
-                headerTop:header?.top||null,
                 logoNaturalWidth:logo?.naturalWidth||null,
                 logoNaturalHeight:logo?.naturalHeight||null,
                 logoRenderedWidth:rect('.brand img')?.width||null,
@@ -73,21 +77,40 @@ jobs:
                 navDisplay:cs('.desktop-nav')?.display||null,
                 headerSideDisplay:cs('.header-side')?.display||null,
                 menuDisplay:cs('.menu-btn')?.display||null,
-                menuLineCount:document.querySelectorAll('.menu-lines i').length,
-                menuOrbit:!!q('.menu-orbit'),
+                menuWidth:menu?.width||null,
+                menuRadius:cs('.menu-btn')?.borderRadius||null,
+                menuLines:qa('.menu-lines i').length,
+                menuRing:!!q('.menu-ring'),
+                menuCrosshair:!!q('.menu-crosshair'),
                 heroBgTop:heroBg?.top||null,
+                heroBackground:cs('.hero-bg')?.backgroundImage||null,
                 heroH1:q('.hero h1')?.innerText||null,
                 heroH1Top:h1?.top||null,
                 heroH1Bottom:h1?.bottom||null,
-                mobileDockDisplay:cs('.mobile-actions')?.display||null,
-                mobileDockHeight:dock?.height||null,
-                mobileActionSvgCount:document.querySelectorAll('.mobile-actions svg').length,
-                signatureCards:document.querySelectorAll('.signature-card').length,
-                signatureSvgCount:document.querySelectorAll('.signature-card svg').length
+                reserveHeroWidth:reserve?.width||null,
+                reserveOrbCount:qa('.reserve-orb').length,
+                dockDisplay:cs('.mobile-actions')?.display||null,
+                dockTop:dock?.top||null,
+                dockHeight:dock?.height||null,
+                dockRadius:cs('.mobile-actions')?.borderRadius||null,
+                centerWidth:center?.width||null,
+                centerHeight:center?.height||null,
+                centerRadius:cs('.mobile-reserve')?.borderRadius||null,
+                sideWidth:side?.width||null,
+                mobileSvgCount:qa('.mobile-actions svg').length,
+                signatureCards:qa('.signature-card').length,
+                signatureSvgCount:qa('.signature-card svg').length,
+                imageAssetOk:false
               };
             });
             data.httpStatus=response?.status()||null;
-            data.noHorizontalOverflow=data.documentWidth<=data.viewportWidth+1;
+            data.noHorizontalOverflow=data.docWidth<=data.viewportWidth+1;
+            data.imageAssetOk=await page.evaluate(async()=>{
+              try{
+                const r=await fetch('assets/hero-premium.webp?check='+Date.now(),{cache:'no-store'});
+                return r.ok && Number(r.headers.get('content-length')||0)>500000;
+              }catch{return false}
+            });
             await page.close();
             report[mode]=data;
           }
@@ -95,23 +118,26 @@ jobs:
           try{
             report.deploy=await waitForDeploy();
             await inspect({width:1440,height:900},'desktop');
-            await inspect({width:390,height:844},'mobile');
-            const d=report.desktop,m=report.mobile;
+            await inspect({width:390,height:844},'mobile390');
+            await inspect({width:430,height:932},'mobile430');
+            const d=report.desktop,m=report.mobile390,m2=report.mobile430;
             report.checks={
               deployed:report.deploy.marker===expected,
-              httpOk:d.httpStatus===200&&m.httpStatus===200,
-              cleanSvgLogo:(m.logoSrc||'').includes('logo.svg')&&m.logoNaturalWidth>0&&m.logoRenderedWidth>=95&&m.logoRenderedWidth<=120,
-              compactMobileHeader:m.headerHeight<=76&&m.headerHeight>=60,
-              customMenu:m.menuDisplay!=='none'&&m.menuLineCount===2&&m.menuOrbit,
-              desktopHeader:d.navDisplay!=='none'&&d.headerSideDisplay!=='none',
-              mobileHeader:m.navDisplay==='none'&&m.headerSideDisplay==='none',
-              heroStartsBehindHeader:m.heroBgTop<=1,
-              heroTitleVisible:m.heroH1Top>=0&&m.heroH1Bottom<m.viewportHeight-80,
-              customMobileIcons:m.mobileActionSvgCount===3,
-              compactMobileDock:m.mobileDockDisplay!=='none'&&m.mobileDockHeight<=82,
-              bespokeFeatureIcons:m.signatureCards===4&&m.signatureSvgCount===4,
+              httpOk:d.httpStatus===200&&m.httpStatus===200&&m2.httpStatus===200,
+              heroImageServed:d.imageAssetOk&&m.imageAssetOk,
+              cleanSvgLogo:(m.logoSrc||'').includes('logo.svg')&&m.logoNaturalWidth>0&&m.logoRenderedWidth>=100,
+              desktopNavigation:d.navDisplay!=='none'&&d.headerSideDisplay!=='none',
+              mobileNavigation:m.navDisplay==='none'&&m.headerSideDisplay==='none',
+              customMenu:m.menuDisplay!=='none'&&m.menuLines===2&&m.menuRing&&m.menuCrosshair&&m.menuWidth>=46,
+              customReserveSystem:d.reserveOrbCount>=4&&d.reserveHeroWidth>=270,
+              mobileDock:m.dockDisplay!=='none'&&m.dockHeight>=78&&m.dockHeight<=84,
+              elevatedCenterAction:m.centerHeight>=66&&m.centerWidth>m.sideWidth,
+              customMobileIcons:m.mobileSvgCount===3,
+              heroClearOfDock:m.heroH1Bottom<m.dockTop-20,
+              heroClearOfDock430:m2.heroH1Bottom<m2.dockTop-20,
+              bespokeFeatureIcons:m.signatureCards===4&&m.signatureSvgCount===8,
               noDesktopOverflow:d.noHorizontalOverflow,
-              noMobileOverflow:m.noHorizontalOverflow
+              noMobileOverflow:m.noHorizontalOverflow&&m2.noHorizontalOverflow
             };
             report.pass=Object.values(report.checks).every(Boolean);
           }finally{
