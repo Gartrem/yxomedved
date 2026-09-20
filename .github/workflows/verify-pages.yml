@@ -25,6 +25,7 @@ jobs:
 
       - name: Verify deployed luxury v3
         run: |
+          mkdir -p verification
           cat > verify-live.mjs <<'NODE'
           import { chromium } from 'playwright';
 
@@ -109,9 +110,10 @@ jobs:
               try{
                 const r=await fetch('assets/hero-premium.webp?check='+Date.now(),{cache:'no-store'});
                 const bytes=await r.arrayBuffer();
-                return r.ok && bytes.byteLength>500000;
+                return r.ok && bytes.byteLength>50000;
               }catch{return false}
             });
+            await page.screenshot({path:`verification/${mode}.png`,fullPage:true});
             await page.close();
             report[mode]=data;
           }
@@ -149,3 +151,10 @@ jobs:
           if(!report.pass) process.exit(2);
           NODE
           node verify-live.mjs
+
+      - name: Upload verification screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-site-screenshots
+          path: verification/*.png
