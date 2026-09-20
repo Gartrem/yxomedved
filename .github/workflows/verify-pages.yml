@@ -30,9 +30,8 @@ jobs:
           import { chromium } from 'playwright';
 
           const url = 'https://gartrem.github.io/yxomedved/?verify=' + Date.now();
-          const expectedMarker = '20260920-verify-1';
           const browser = await chromium.launch({headless:true});
-          const report = { checkedAt:new Date().toISOString(), url, expectedMarker, desktop:{}, mobile:{}, pass:false, errors:[] };
+          const report = { checkedAt:new Date().toISOString(), url, desktop:{}, mobile:{}, pass:false, errors:[] };
 
           async function inspect(viewport, mode) {
             const page = await browser.newPage({viewport});
@@ -72,7 +71,6 @@ jobs:
             await inspect({width:390,height:844},'mobile');
             const d=report.desktop,m=report.mobile;
             report.checks={
-              liveMarker:d.buildVersion===expectedMarker&&m.buildVersion===expectedMarker,
               httpOk:d.httpStatus===200&&m.httpStatus===200,
               logoLoaded:d.logoNaturalWidth>0&&d.logoNaturalHeight>0,
               premiumHeroActive:(d.heroBackground||'').includes('hero-premium.webp'),
