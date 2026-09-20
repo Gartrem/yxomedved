@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -24,67 +23,100 @@ jobs:
           npm install playwright@1.55.0 >/dev/null 2>&1
           npx playwright install --with-deps chromium >/dev/null 2>&1
 
-      - name: Verify live page
+      - name: Verify deployed mobile redesign
         run: |
           cat > verify-live.mjs <<'NODE'
           import { chromium } from 'playwright';
 
-          const url = 'https://gartrem.github.io/yxomedved/?verify=' + Date.now();
-          const browser = await chromium.launch({headless:true});
-          const report = { checkedAt:new Date().toISOString(), url, desktop:{}, mobile:{}, pass:false, errors:[] };
+          const base='https://gartrem.github.io/yxomedved/';
+          const expected='20260921-mobile-v2';
+          const browser=await chromium.launch({headless:true});
+          const report={checkedAt:new Date().toISOString(),expected,desktop:{},mobile:{},checks:{},pass:false};
 
-          async function inspect(viewport, mode) {
-            const page = await browser.newPage({viewport});
-            const response = await page.goto(url,{waitUntil:'networkidle',timeout:90000});
+          async function waitForDeploy(){
+            const page=await browser.newPage({viewport:{width:390,height:844}});
+            let marker=null,status=null;
+            for(let i=0;i<12;i++){
+              const response=await page.goto(base+'?verify='+Date.now(),{waitUntil:'networkidle',timeout:90000});
+              status=response?.status()||null;
+              marker=await page.locator('meta[name="build-version"]').getAttribute('content').catch(()=>null);
+              if(marker===expected) break;
+              await page.waitForTimeout(10000);
+            }
+            await page.close();
+            return {marker,status};
+          }
+
+          async function inspect(viewport,mode){
+            const page=await browser.newPage({viewport});
+            const response=await page.goto(base+'?verify='+Date.now(),{waitUntil:'networkidle',timeout:90000});
             await page.waitForTimeout(1200);
-            const data = await page.evaluate(() => {
+            const data=await page.evaluate(()=>{
               const q=s=>document.querySelector(s);
               const cs=s=>q(s)?getComputedStyle(q(s)):null;
-              const cards=[...document.querySelectorAll('.signature-card')];
+              const rect=s=>q(s)?q(s).getBoundingClientRect():null;
               const logo=q('.brand img');
+              const h1=rect('.hero h1');
+              const dock=rect('.mobile-actions');
+              const header=rect('.site-header');
+              const heroBg=rect('.hero-bg');
               return {
-                title:document.title,
                 buildVersion:q('meta[name="build-version"]')?.content||null,
-                viewportWidth:innerWidth,
+                viewportWidth:innerWidth,viewportHeight:innerHeight,
                 documentWidth:document.documentElement.scrollWidth,
-                headerHeight:q('.site-header')?.getBoundingClientRect().height||null,
+                headerHeight:header?.height||null,
+                headerTop:header?.top||null,
                 logoNaturalWidth:logo?.naturalWidth||null,
                 logoNaturalHeight:logo?.naturalHeight||null,
+                logoRenderedWidth:rect('.brand img')?.width||null,
+                logoSrc:logo?.getAttribute('src')||null,
                 navDisplay:cs('.desktop-nav')?.display||null,
                 headerSideDisplay:cs('.header-side')?.display||null,
-                menuButtonDisplay:cs('.menu-btn')?.display||null,
-                heroBackground:cs('.hero-bg')?.backgroundImage||null,
-                signatureCards:cards.length,
-                inlineSvgIcons:cards.reduce((n,c)=>n+c.querySelectorAll('svg').length,0),
+                menuDisplay:cs('.menu-btn')?.display||null,
+                menuLineCount:document.querySelectorAll('.menu-lines i').length,
+                menuOrbit:!!q('.menu-orbit'),
+                heroBgTop:heroBg?.top||null,
                 heroH1:q('.hero h1')?.innerText||null,
-                reserveButtons:document.querySelectorAll('.reserve').length
+                heroH1Top:h1?.top||null,
+                heroH1Bottom:h1?.bottom||null,
+                mobileDockDisplay:cs('.mobile-actions')?.display||null,
+                mobileDockHeight:dock?.height||null,
+                mobileActionSvgCount:document.querySelectorAll('.mobile-actions svg').length,
+                signatureCards:document.querySelectorAll('.signature-card').length,
+                signatureSvgCount:document.querySelectorAll('.signature-card svg').length
               };
             });
             data.httpStatus=response?.status()||null;
             data.noHorizontalOverflow=data.documentWidth<=data.viewportWidth+1;
-            report[mode]=data;
             await page.close();
+            report[mode]=data;
           }
 
           try{
+            report.deploy=await waitForDeploy();
             await inspect({width:1440,height:900},'desktop');
             await inspect({width:390,height:844},'mobile');
             const d=report.desktop,m=report.mobile;
             report.checks={
+              deployed:report.deploy.marker===expected,
               httpOk:d.httpStatus===200&&m.httpStatus===200,
-              logoLoaded:d.logoNaturalWidth>0&&d.logoNaturalHeight>0,
-              premiumHeroActive:(d.heroBackground||'').includes('hero-premium.webp'),
-              bespokeIcons:d.signatureCards===4&&d.inlineSvgIcons===4,
+              cleanSvgLogo:(m.logoSrc||'').includes('logo.svg')&&m.logoNaturalWidth>0&&m.logoRenderedWidth>=95&&m.logoRenderedWidth<=120,
+              compactMobileHeader:m.headerHeight<=76&&m.headerHeight>=60,
+              customMenu:m.menuDisplay!=='none'&&m.menuLineCount===2&&m.menuOrbit,
               desktopHeader:d.navDisplay!=='none'&&d.headerSideDisplay!=='none',
-              mobileHeader:m.navDisplay==='none'&&m.headerSideDisplay==='none'&&m.menuButtonDisplay!=='none',
+              mobileHeader:m.navDisplay==='none'&&m.headerSideDisplay==='none',
+              heroStartsBehindHeader:m.heroBgTop<=1,
+              heroTitleVisible:m.heroH1Top>=0&&m.heroH1Bottom<m.viewportHeight-80,
+              customMobileIcons:m.mobileActionSvgCount===3,
+              compactMobileDock:m.mobileDockDisplay!=='none'&&m.mobileDockHeight<=82,
+              bespokeFeatureIcons:m.signatureCards===4&&m.signatureSvgCount===4,
               noDesktopOverflow:d.noHorizontalOverflow,
-              noMobileOverflow:m.noHorizontalOverflow,
-              heroCopyPresent:/Больше/.test(d.heroH1||''),
-              bookingPresent:d.reserveButtons>=3
+              noMobileOverflow:m.noHorizontalOverflow
             };
             report.pass=Object.values(report.checks).every(Boolean);
-          }catch(e){report.errors.push(String(e?.stack||e));}
-          finally{await browser.close();}
+          }finally{
+            await browser.close();
+          }
 
           console.log('PAGES_VERIFY_REPORT='+JSON.stringify(report));
           if(!report.pass) process.exit(2);
