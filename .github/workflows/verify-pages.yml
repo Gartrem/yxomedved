@@ -26,7 +26,7 @@ jobs:
 
       - name: Verify live page
         run: |
-          cat > /tmp/verify.mjs <<'NODE'
+          cat > verify-live.mjs <<'NODE'
           import { chromium } from 'playwright';
 
           const url = 'https://gartrem.github.io/yxomedved/?verify=' + Date.now();
@@ -91,4 +91,4 @@ jobs:
           console.log('PAGES_VERIFY_REPORT='+JSON.stringify(report));
           if(!report.pass) process.exit(2);
           NODE
-          node /tmp/verify.mjs
+          node verify-live.mjs
