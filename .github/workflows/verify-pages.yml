@@ -30,7 +30,7 @@ jobs:
           import { chromium } from 'playwright';
 
           const base='https://gartrem.github.io/yxomedved/';
-          const expected='20260921-luxe-v3';
+          const expected='20260921-logo-v4';
           const browser=await chromium.launch({headless:true});
           const report={checkedAt:new Date().toISOString(),expected,desktop:{},mobile390:{},mobile430:{},checks:{},pass:false};
 
