@@ -108,7 +108,8 @@ jobs:
             data.imageAssetOk=await page.evaluate(async()=>{
               try{
                 const r=await fetch('assets/hero-premium.webp?check='+Date.now(),{cache:'no-store'});
-                return r.ok && Number(r.headers.get('content-length')||0)>500000;
+                const bytes=await r.arrayBuffer();
+                return r.ok && bytes.byteLength>500000;
               }catch{return false}
             });
             await page.close();
