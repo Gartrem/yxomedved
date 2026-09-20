@@ -1,0 +1,137 @@
+name: Verify live GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/verify-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+
+      - name: Verify live page
+        run: |
+          mkdir -p verification
+          cat > /tmp/verify.mjs <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'fs';
+
+          const url = 'https://gartrem.github.io/yxomedved/?verify=' + Date.now();
+          const expectedMarker = '20260920-verify-1';
+          const browser = await chromium.launch({headless:true});
+          const report = {
+            checkedAt: new Date().toISOString(),
+            url,
+            expectedMarker,
+            desktop: {},
+            mobile: {},
+            pass: false,
+            errors: []
+          };
+
+          async function inspect(viewport, mode) {
+            const page = await browser.newPage({ viewportSize: viewport });
+            const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
+            await page.waitForTimeout(1500);
+            const data = await page.evaluate(() => {
+              const header = document.querySelector('.site-header');
+              const logo = document.querySelector('.brand img');
+              const nav = document.querySelector('.desktop-nav');
+              const headerSide = document.querySelector('.header-side');
+              const menuBtn = document.querySelector('.menu-btn');
+              const hero = document.querySelector('.hero-bg');
+              const signatureCards = [...document.querySelectorAll('.signature-card')];
+              const build = document.querySelector('meta[name="build-version"]')?.content || null;
+              const css = el => el ? getComputedStyle(el) : null;
+              return {
+                title: document.title,
+                buildVersion: build,
+                bodyScrollWidth: document.body.scrollWidth,
+                docScrollWidth: document.documentElement.scrollWidth,
+                viewportWidth: innerWidth,
+                headerHeight: header?.getBoundingClientRect().height || null,
+                logoNaturalWidth: logo?.naturalWidth || null,
+                logoNaturalHeight: logo?.naturalHeight || null,
+                logoRenderedWidth: logo?.getBoundingClientRect().width || null,
+                logoRenderedHeight: logo?.getBoundingClientRect().height || null,
+                navDisplay: css(nav)?.display || null,
+                headerSideDisplay: css(headerSide)?.display || null,
+                menuButtonDisplay: css(menuBtn)?.display || null,
+                heroBackground: css(hero)?.backgroundImage || null,
+                signatureCards: signatureCards.length,
+                inlineSvgIcons: signatureCards.reduce((n,c)=>n+c.querySelectorAll('svg').length,0),
+                heroH1: document.querySelector('.hero h1')?.innerText || null,
+                reserveButtons: document.querySelectorAll('.reserve').length
+              };
+            });
+            data.httpStatus = response?.status() || null;
+            data.noHorizontalOverflow = data.docScrollWidth <= data.viewportWidth + 1;
+            await page.close();
+            report[mode] = data;
+          }
+
+          try {
+            await inspect({width:1440,height:900}, 'desktop');
+            await inspect({width:390,height:844}, 'mobile');
+
+            const d = report.desktop;
+            const m = report.mobile;
+            const checks = {
+              liveMarker: d.buildVersion === expectedMarker && m.buildVersion === expectedMarker,
+              httpOk: d.httpStatus === 200 && m.httpStatus === 200,
+              titleOk: /Ухо.*Медведь/.test(d.title || ''),
+              logoLoaded: d.logoNaturalWidth > 0 && d.logoNaturalHeight > 0,
+              premiumHeroActive: (d.heroBackground || '').includes('hero-premium.webp'),
+              bespokeIcons: d.signatureCards === 4 && d.inlineSvgIcons === 4,
+              desktopHeader: d.navDisplay !== 'none' && d.headerSideDisplay !== 'none',
+              mobileHeader: m.navDisplay === 'none' && m.headerSideDisplay === 'none' && m.menuButtonDisplay !== 'none',
+              noDesktopOverflow: d.noHorizontalOverflow,
+              noMobileOverflow: m.noHorizontalOverflow,
+              heroCopyPresent: /Больше/.test(d.heroH1 || ''),
+              bookingPresent: d.reserveButtons >= 3
+            };
+            report.checks = checks;
+            report.pass = Object.values(checks).every(Boolean);
+          } catch (e) {
+            report.errors.push(String(e?.stack || e));
+          } finally {
+            await browser.close();
+          }
+
+          fs.writeFileSync('verification/pages-report.json', JSON.stringify(report, null, 2));
+          console.log(JSON.stringify(report, null, 2));
+          if (!report.pass) process.exitCode = 2;
+          NODE
+
+          set +e
+          node /tmp/verify.mjs
+          VERIFY_CODE=$?
+          set -e
+
+          git config user.name "pages-verifier"
+          git config user.email "pages-verifier@users.noreply.github.com"
+          git add verification/pages-report.json
+          git commit -m "Record live Pages verification" || true
+          git push origin HEAD:main
+
+          exit $VERIFY_CODE
