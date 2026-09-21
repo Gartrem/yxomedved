@@ -3,34 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#090807">
+  <meta name="theme-color" content="#050403">
   <meta name="description" content="Меню кухни и барная карта Ухо & Медведь.">
   <title>Меню — Ухо & Медведь</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/logo-glossy.png?v=concept-v2">
-  <link rel="stylesheet" href="catalog.css?v=restored-sprites-v7">
+  <link rel="icon" type="image/png" href="assets/logo-glossy.png">
+  <link rel="stylesheet" href="catalog.css?v=catalog-art-v10">
 </head>
 <body>
   <header class="catalog-header">
-    <a class="catalog-logo" href="index.html"><img src="assets/logo-glossy.png?v=concept-v2" alt="Ухо & Медведь"></a>
-    <div class="catalog-head-actions"><a class="back" href="index.html#menu">← На главную</a><a class="book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Бронь</a></div>
+    <a class="catalog-logo" href="index.html" aria-label="На главную"><img src="assets/logo-glossy.png" alt="Ухо & Медведь"></a>
+    <div class="catalog-head-actions">
+      <a class="back" href="index.html#menu">← На главную</a>
+      <a class="book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Бронь</a>
+    </div>
   </header>
+
   <main class="catalog-shell">
     <section class="catalog-hero">
-      <p class="kicker">УХО & МЕДВЕДЬ · НОВОСИБИРСК</p>
-      <h1>Еда для вечера.<br><em>Напитки для ночи.</em></h1>
-      <p class="lead">Один каталог. Быстрый поиск. Понятные категории.</p>
-      <div class="main-switch" role="tablist" aria-label="Раздел меню"><button class="active" data-tab="food" role="tab">Еда</button><button data-tab="bar" role="tab">Напитки</button></div>
+      <div class="catalog-hero-copy">
+        <p class="kicker">КУХНЯ & БАР · УХО & МЕДВЕДЬ</p>
+        <h1>Меню<br><em>для вечера.</em></h1>
+        <p class="lead">Кухня и напитки в одном каталоге. Выберите раздел, категорию или воспользуйтесь поиском.</p>
+        <div class="main-switch" role="tablist" aria-label="Раздел меню">
+          <button class="active" data-tab="food" role="tab" aria-selected="true">Кухня</button>
+          <button data-tab="bar" role="tab" aria-selected="false">Напитки</button>
+        </div>
+      </div>
+      <div class="catalog-featured">
+        <figure class="feature-main"><img id="featureMain" src="assets/menu/items/food-025.jpg" alt="" fetchpriority="high"><figcaption><small id="featureMainEyebrow">КУХНЯ</small><b id="featureMainTitle">Выбор кухни</b></figcaption></figure>
+        <figure class="feature-side"><img id="featureSide" src="assets/menu/items/food-031.jpg" alt=""><figcaption><small id="featureSideEyebrow">РОЛЛЫ</small><b id="featureSideTitle">Для компании</b></figcaption></figure>
+      </div>
     </section>
-    <section class="catalog-featured">
-      <figure><img id="featureMain" src="assets/menu/items/food-025.jpg" alt=""><figcaption><small id="featureMainEyebrow">ГОРЯЧЕЕ</small><b id="featureMainTitle">Выбор кухни</b></figcaption></figure>
-      <figure><img id="featureSide" src="assets/menu/items/food-031.jpg" alt=""><figcaption><small id="featureSideEyebrow">РОЛЛЫ</small><b id="featureSideTitle">Для компании</b></figcaption></figure>
+
+    <section class="catalog-controls" aria-label="Фильтры меню">
+      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Найти блюдо или напиток" autocomplete="off"></label>
+      <b id="resultCount"></b>
     </section>
-    <section class="catalog-tools"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Найти блюдо или напиток" autocomplete="off"></label><b id="resultCount"></b></section>
-    <nav class="group-nav" id="groupNav" aria-label="Группы меню"></nav><nav class="category-nav" id="categoryNav" aria-label="Категории"></nav>
-    <div id="status" class="status" hidden></div><div id="catalog" class="catalog"><section class="catalog-section food-section" id="cat-salads" data-tab="food" data-cat="salads" data-title="Салаты">
+    <nav class="group-nav" id="groupNav" aria-label="Группы напитков"></nav>
+    <nav class="category-nav" id="categoryNav" aria-label="Категории меню"></nav>
+
+    <div id="catalog" class="catalog"><section class="catalog-section food-section" id="cat-salads" data-tab="food" data-cat="salads" data-title="Салаты">
     <header class="catalog-section-header"><span>01</span><h2>Салаты</h2></header>
     <div class="items-grid"><article class="menu-item food" data-search="оливье с сёмгой слабого посола салаты">
     <figure class="item-media"><img src="assets/menu/items/food-001.jpg" alt="Оливье" loading="eager" decoding="async" fetchpriority="high"></figure>
@@ -275,32 +290,32 @@
 <section class="catalog-section bar-section" id="cat-beer" data-tab="bar" data-cat="beer" data-title="Пиво" hidden>
     <header class="catalog-section-header"><span>01</span><h2>Пиво</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="spaten hell 450 мл пиво">
-    <figure class="item-media"><img src="assets/bar/items/bar-001.jpg" alt="Spaten Hell" loading="eager" decoding="async" fetchpriority="high"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Spaten Hell</h3><p>450 мл</p></div>
     <strong>540 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="corona extra 330 мл пиво">
-    <figure class="item-media"><img src="assets/bar/items/bar-002.jpg" alt="Corona Extra" loading="eager" decoding="async" fetchpriority="high"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Corona Extra</h3><p>330 мл</p></div>
     <strong>680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="abbe blonde 330 мл пиво">
-    <figure class="item-media"><img src="assets/bar/items/bar-003.jpg" alt="Abbe Blonde" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Abbe Blonde</h3><p>330 мл</p></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="abbe brune 330 мл пиво">
-    <figure class="item-media"><img src="assets/bar/items/bar-004.jpg" alt="Abbe Brune" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Abbe Brune</h3><p>330 мл</p></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="hoegaarden 440 мл пиво">
-    <figure class="item-media"><img src="assets/bar/items/bar-005.jpg" alt="Hoegaarden" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Hoegaarden</h3><p>440 мл</p></div>
     <strong>620 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="stella artois non-alcohol 440 мл пиво">
-    <figure class="item-media"><img src="assets/bar/items/bar-006.jpg" alt="Stella Artois Non-Alcohol" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Stella Artois Non-Alcohol</h3><p>440 мл</p></div>
     <strong>480 ₽</strong>
   </article></div>
@@ -308,87 +323,87 @@
 <section class="catalog-section bar-section" id="cat-soft" data-tab="bar" data-cat="soft" data-title="Безалкогольные напитки" hidden>
     <header class="catalog-section-header"><span>02</span><h2>Безалкогольные напитки</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="апельсиновый fresh 200 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-007.jpg" alt="Апельсиновый fresh" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Апельсиновый fresh</h3><p>200 мл</p></div>
     <strong>440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="грейпфрутовый fresh 200 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-008.jpg" alt="Грейпфрутовый fresh" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Грейпфрутовый fresh</h3><p>200 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="морковный fresh 200 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-009.jpg" alt="Морковный fresh" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Морковный fresh</h3><p>200 мл</p></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="яблочный fresh 200 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-010.jpg" alt="Яблочный fresh" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Яблочный fresh</h3><p>200 мл</p></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="bonaqua 330 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-011.jpg" alt="BonAqua" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>BonAqua</h3><p>330 мл</p></div>
     <strong>340 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="shambala 330 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-012.jpg" alt="Shambala" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Shambala</h3><p>330 мл</p></div>
     <strong>440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="rich cola 330 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-013.jpg" alt="Rich Cola" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Rich Cola</h3><p>330 мл</p></div>
     <strong>420 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="rich tonic 330 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-014.jpg" alt="Rich Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Rich Tonic</h3><p>330 мл</p></div>
     <strong>420 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="coca cola original 330 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-015.jpg" alt="Coca Cola Original" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Coca Cola Original</h3><p>330 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="red bull 250 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-016.jpg" alt="Red Bull" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Red Bull</h3><p>250 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="морс брусничный 200 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-017.jpg" alt="Морс брусничный" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Морс брусничный</h3><p>200 мл</p></div>
     <strong>220 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="сок il primo: апельсин / вишня / томат / яблоко / персик 200 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-018.jpg" alt="Сок IL PRIMO: апельсин / вишня / томат / яблоко / персик" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Сок IL PRIMO: апельсин / вишня / томат / яблоко / персик</h3><p>200 мл</p></div>
     <strong>340 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="лимонад классический 300 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-019.jpg" alt="Лимонад классический" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Лимонад классический</h3><p>300 мл</p></div>
     <strong>360 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="лимонад арбуз-мята 300 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-020.jpg" alt="Лимонад арбуз-мята" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Лимонад арбуз-мята</h3><p>300 мл</p></div>
     <strong>320 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="лимонад голубика-смородина 300 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-021.jpg" alt="Лимонад голубика-смородина" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Лимонад голубика-смородина</h3><p>300 мл</p></div>
     <strong>320 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="мохито б/а 300 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-022.jpg" alt="Мохито Б/А" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Мохито Б/А</h3><p>300 мл</p></div>
     <strong>460 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="пина колада б/а 300 мл безалкогольные напитки">
-    <figure class="item-media"><img src="assets/bar/items/bar-023.jpg" alt="Пина Колада Б/А" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Пина Колада Б/А</h3><p>300 мл</p></div>
     <strong>360 ₽</strong>
   </article></div>
@@ -396,47 +411,47 @@
 <section class="catalog-section bar-section" id="cat-coffee-tea" data-tab="bar" data-cat="coffee-tea" data-title="Кофе и чай" hidden>
     <header class="catalog-section-header"><span>03</span><h2>Кофе и чай</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="эспрессо / американо  кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-024.jpg" alt="Эспрессо / Американо" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Эспрессо / Американо</h3></div>
     <strong>240 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="латте / капучино  кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-025.jpg" alt="Латте / Капучино" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Латте / Капучино</h3></div>
     <strong>360 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="чай чёрный 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-026.jpg" alt="Чай чёрный" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Чай чёрный</h3><p>800 мл</p></div>
     <strong>360 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="чай зелёный 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-027.jpg" alt="Чай зелёный" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Чай зелёный</h3><p>800 мл</p></div>
     <strong>360 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="молочный улун 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-028.jpg" alt="Молочный улун" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Молочный улун</h3><p>800 мл</p></div>
     <strong>360 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="эрл грей 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-029.jpg" alt="Эрл Грей" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Эрл Грей</h3><p>800 мл</p></div>
     <strong>360 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="облепиха-апельсин 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-030.jpg" alt="Облепиха-Апельсин" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Облепиха-Апельсин</h3><p>800 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="имбирь-грейпфрут 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-031.jpg" alt="Имбирь-Грейпфрут" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Имбирь-Грейпфрут</h3><p>800 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="таёжные ягоды 800 мл кофе и чай">
-    <figure class="item-media"><img src="assets/bar/items/bar-032.jpg" alt="Таёжные ягоды" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Таёжные ягоды</h3><p>800 мл</p></div>
     <strong>480 ₽</strong>
   </article></div>
@@ -444,27 +459,27 @@
 <section class="catalog-section bar-section" id="cat-glass" data-tab="bar" data-cat="glass" data-title="Вина по бокалам" hidden>
     <header class="catalog-section-header"><span>04</span><h2>Вина по бокалам</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="alfabeto brut | альфабето брют 125 мл вина по бокалам">
-    <figure class="item-media"><img src="assets/bar/items/bar-033.jpg" alt="Alfabeto Brut | Альфабето Брют" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Alfabeto Brut | Альфабето Брют</h3><p>125 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="alma romana pinot grigio | альма романа пино гриджио 125 мл вина по бокалам">
-    <figure class="item-media"><img src="assets/bar/items/bar-034.jpg" alt="Alma Romana Pinot Grigio | Альма Романа Пино Гриджио" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Alma Romana Pinot Grigio | Альма Романа Пино Гриджио</h3><p>125 мл</p></div>
     <strong>640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="sauvignon blanc by golubitskoe estate | совиньон блан от поместье голубицкое 125 мл вина по бокалам">
-    <figure class="item-media"><img src="assets/bar/items/bar-035.jpg" alt="Sauvignon Blanc by Golubitskoe Estate | Совиньон Блан от Поместье Голубицкое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Sauvignon Blanc by Golubitskoe Estate | Совиньон Блан от Поместье Голубицкое</h3><p>125 мл</p></div>
     <strong>740 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="bruni montepulciano d&#39;abruzzo | бруни монтепульчано д&#39;абруццо 125 мл вина по бокалам">
-    <figure class="item-media"><img src="assets/bar/items/bar-036.jpg" alt="Bruni Montepulciano d&#39;Abruzzo | Бруни Монтепульчано д&#39;Абруццо" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Bruni Montepulciano d&#39;Abruzzo | Бруни Монтепульчано д&#39;Абруццо</h3><p>125 мл</p></div>
     <strong>840 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="kindzmarauli by askaneli brothers | киндзмараули от братьев асканели 125 мл вина по бокалам">
-    <figure class="item-media"><img src="assets/bar/items/bar-037.jpg" alt="Kindzmarauli by Askaneli Brothers | Киндзмараули от Братьев Асканели" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Kindzmarauli by Askaneli Brothers | Киндзмараули от Братьев Асканели</h3><p>125 мл</p></div>
     <strong>740 ₽</strong>
   </article></div>
@@ -472,17 +487,17 @@
 <section class="catalog-section bar-section" id="cat-champagne" data-tab="bar" data-cat="champagne" data-title="Шампанское" hidden>
     <header class="catalog-section-header"><span>05</span><h2>Шампанское</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="drappier carte d&#39;or brut | драпье карт д&#39;ор брют  шампанское">
-    <figure class="item-media"><img src="assets/bar/items/bar-038.jpg" alt="Drappier Carte d&#39;Or Brut | Драпье Карт д&#39;Ор Брют" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Drappier Carte d&#39;Or Brut | Драпье Карт д&#39;Ор Брют</h3></div>
     <strong>24 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="champagne pierre gimonnet &amp; fils rose de blancs 1er cru brut | шампань пьер жимоне э фис розе де блан премье крю брют  шампанское">
-    <figure class="item-media"><img src="assets/bar/items/bar-039.jpg" alt="Champagne Pierre Gimonnet &amp; Fils Rose de Blancs 1er Cru Brut | Шампань Пьер Жимоне э Фис Розе де Блан Премье Крю Брют" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Champagne Pierre Gimonnet &amp; Fils Rose de Blancs 1er Cru Brut | Шампань Пьер Жимоне э Фис Розе де Блан Премье Крю Брют</h3></div>
     <strong>29 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="laurent godard ores rose brut | лоран годар оре розе брют  шампанское">
-    <figure class="item-media"><img src="assets/bar/items/bar-040.jpg" alt="Laurent Godard Ores Rose Brut | Лоран Годар Оре Розе Брют" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Laurent Godard Ores Rose Brut | Лоран Годар Оре Розе Брют</h3></div>
     <strong>21 980 ₽</strong>
   </article></div>
@@ -490,52 +505,52 @@
 <section class="catalog-section bar-section" id="cat-sparkling" data-tab="bar" data-cat="sparkling" data-title="Игристое" hidden>
     <header class="catalog-section-header"><span>06</span><h2>Игристое</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="prosecco valdobbiadene superiore by villa sandi | просекко вальдобьядене супериоре  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-041.jpg" alt="Prosecco Valdobbiadene Superiore by Villa Sandi | Просекко Вальдобьядене Супериоре" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Prosecco Valdobbiadene Superiore by Villa Sandi | Просекко Вальдобьядене Супериоре</h3></div>
     <strong>5 680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="riesling sekt zimmermann-graeff &amp; müller | рислинг зект циммерманн-граефф &amp; мюллер  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-042.jpg" alt="Riesling Sekt Zimmermann-Graeff &amp; Müller | Рислинг Зект Циммерманн-Граефф &amp; Мюллер" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Riesling Sekt Zimmermann-Graeff &amp; Müller | Рислинг Зект Циммерманн-Граефф &amp; Мюллер</h3></div>
     <strong>6 680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="freschello frizzante bianco | фрескелло фризанте бьянко  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-043.jpg" alt="Freschello Frizzante Bianco | Фрескелло Фризанте Бьянко" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Freschello Frizzante Bianco | Фрескелло Фризанте Бьянко</h3></div>
     <strong>4 680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="cava castell llord | кава кастель льорд  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-044.jpg" alt="Cava Castell Llord | Кава Кастель Льорд" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Cava Castell Llord | Кава Кастель Льорд</h3></div>
     <strong>5 440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="bio bio bubbles | био био бабблс  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-045.jpg" alt="Bio Bio Bubbles | Био Био Бабблс" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Bio Bio Bubbles | Био Био Бабблс</h3></div>
     <strong>5 880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martini prosecco rose | мартини просекко розе  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-046.jpg" alt="Martini Prosecco Rose | Мартини Просекко Розе" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Prosecco Rose | Мартини Просекко Розе</h3></div>
     <strong>4 680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="tete de cheval brut | тет де шеваль брют  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-047.jpg" alt="Tete de Cheval Brut | Тет де шеваль Брют" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Tete de Cheval Brut | Тет де шеваль Брют</h3></div>
     <strong>4 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="montevi dolce | монтеви дольче, полусладкое  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-048.jpg" alt="Montevi Dolce | Монтеви Дольче, полусладкое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Montevi Dolce | Монтеви Дольче, полусладкое</h3></div>
     <strong>3 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="asti perlino | асти перлино, сладкое  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-049.jpg" alt="Asti Perlino | Асти Перлино, сладкое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Asti Perlino | Асти Перлино, сладкое</h3></div>
     <strong>6 640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="tete de cheval brut rose | тет де шеваль брют розе  игристое">
-    <figure class="item-media"><img src="assets/bar/items/bar-050.jpg" alt="Tete de Cheval Brut Rose | Тет де шеваль Брют Розе" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Tete de Cheval Brut Rose | Тет де шеваль Брют Розе</h3></div>
     <strong>5 480 ₽</strong>
   </article></div>
@@ -543,17 +558,17 @@
 <section class="catalog-section bar-section" id="cat-wine-color" data-tab="bar" data-cat="wine-color" data-title="Оранжевое и розовое" hidden>
     <header class="catalog-section-header"><span>07</span><h2>Оранжевое и розовое</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="rkatsiteli orange by esse | ркацетели оранжевое  оранжевое и розовое">
-    <figure class="item-media"><img src="assets/bar/items/bar-051.jpg" alt="Rkatsiteli Orange by Esse | Ркацетели Оранжевое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Rkatsiteli Orange by Esse | Ркацетели Оранжевое</h3></div>
     <strong>4 680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="paddle creek riesling rose | паддл крик рислинг розе  оранжевое и розовое">
-    <figure class="item-media"><img src="assets/bar/items/bar-052.jpg" alt="Paddle Creek Riesling Rose | Паддл Крик Рислинг Розе" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Paddle Creek Riesling Rose | Паддл Крик Рислинг Розе</h3></div>
     <strong>6 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="alla moda pinot grigio rose | алла мода пино гриджио розе  оранжевое и розовое">
-    <figure class="item-media"><img src="assets/bar/items/bar-053.jpg" alt="Alla Moda Pinot Grigio Rose | Алла Мода Пино Гриджио Розе" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Alla Moda Pinot Grigio Rose | Алла Мода Пино Гриджио Розе</h3></div>
     <strong>3 480 ₽</strong>
   </article></div>
@@ -561,62 +576,62 @@
 <section class="catalog-section bar-section" id="cat-white-wine" data-tab="bar" data-cat="white-wine" data-title="Белое вино" hidden>
     <header class="catalog-section-header"><span>08</span><h2>Белое вино</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="sauvignon blanc by golubitskoe estate | совиньон блан от поместье голубицкое  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-054.jpg" alt="Sauvignon Blanc by Golubitskoe Estate | Совиньон Блан от Поместье Голубицкое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Sauvignon Blanc by Golubitskoe Estate | Совиньон Блан от Поместье Голубицкое</h3></div>
     <strong>4 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="jardin de la taur marsanne sauvignon blanc | жарден де ла тор марсан совиньон блан  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-055.jpg" alt="Jardin de la Taur Marsanne Sauvignon Blanc | Жарден де ла Тор Марсан Совиньон Блан" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Jardin de la Taur Marsanne Sauvignon Blanc | Жарден де ла Тор Марсан Совиньон Блан</h3></div>
     <strong>4 280 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="cielo pinot grigio delle venezie | чело пино гриджо делле венецие  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-056.jpg" alt="Cielo Pinot Grigio Delle Venezie | Чело Пино Гриджо Делле Венецие" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Cielo Pinot Grigio Delle Venezie | Чело Пино Гриджо Делле Венецие</h3></div>
     <strong>4 280 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="cielo frescello bianco | сиело фрескело бьянко  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-057.jpg" alt="Cielo Frescello Bianco | Сиело Фрескело Бьянко" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Cielo Frescello Bianco | Сиело Фрескело Бьянко</h3></div>
     <strong>3 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="rigo rigo chenin blanc | риго риго шенен блан  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-058.jpg" alt="Rigo Rigo Chenin Blanc | Риго Риго Шенен Блан" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Rigo Rigo Chenin Blanc | Риго Риго Шенен Блан</h3></div>
     <strong>3 880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="trapiche sauvignon blanc | трапиче совиньон блан  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-059.jpg" alt="Trapiche Sauvignon Blanc | Трапиче Совиньон Блан" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Trapiche Sauvignon Blanc | Трапиче Совиньон Блан</h3></div>
     <strong>4 880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="medusa albarino | медуса альбариньо  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-060.jpg" alt="Medusa Albarino | Медуса Альбариньо" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Medusa Albarino | Медуса Альбариньо</h3></div>
     <strong>7 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="point gruner veltliner | нигл поинт грюнер вельтлинер  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-061.jpg" alt="Point Gruner Veltliner | Нигл Поинт Грюнер Вельтлинер" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Point Gruner Veltliner | Нигл Поинт Грюнер Вельтлинер</h3></div>
     <strong>7 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="pfefferer | пфефферер  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-062.jpg" alt="PFEFFERER | Пфефферер" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>PFEFFERER | Пфефферер</h3></div>
     <strong>7 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="gavi la scolca | гави ла сколька  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-063.jpg" alt="Gavi La Scolca | Гави Ла Сколька" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Gavi La Scolca | Гави Ла Сколька</h3></div>
     <strong>10 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="gruner veltliner berg koing | грюнер вельтлинер берг кёних  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-064.jpg" alt="Gruner Veltliner Berg Koing | Грюнер Вельтлинер Берг Кёних" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Gruner Veltliner Berg Koing | Грюнер Вельтлинер Берг Кёних</h3></div>
     <strong>4 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="taka sauvignon blanc | така совиньон блан  белое вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-065.jpg" alt="Taka Sauvignon Blanc | Така Совиньон Блан" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Taka Sauvignon Blanc | Така Совиньон Блан</h3></div>
     <strong>5 980 ₽</strong>
   </article></div>
@@ -624,67 +639,67 @@
 <section class="catalog-section bar-section" id="cat-red-wine" data-tab="bar" data-cat="red-wine" data-title="Красное вино" hidden>
     <header class="catalog-section-header"><span>09</span><h2>Красное вино</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="cabernet sauvignon by golubitskoe estate | каберне совиньон от поместье голубицкое  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-066.jpg" alt="Cabernet Sauvignon by Golubitskoe Estate | Каберне Совиньон от Поместье Голубицкое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Cabernet Sauvignon by Golubitskoe Estate | Каберне Совиньон от Поместье Голубицкое</h3></div>
     <strong>4 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="merlo by golubitskoe estate | мерло от поместье голубицкое  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-067.jpg" alt="Merlo by Golubitskoe Estate | Мерло от Поместье Голубицкое" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Merlo by Golubitskoe Estate | Мерло от Поместье Голубицкое</h3></div>
     <strong>4 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="kindzmarauli by askaneli brothers | киндзмараули от братьев асканели  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-068.jpg" alt="Kindzmarauli by Askaneli Brothers | Киндзмараули от Братьев Асканели" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Kindzmarauli by Askaneli Brothers | Киндзмараули от Братьев Асканели</h3></div>
     <strong>4 440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="fortius roble | фортиус робле  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-069.jpg" alt="Fortius Roble | Фортиус Робле" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Fortius Roble | Фортиус Робле</h3></div>
     <strong>4 440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="trapiche malbec | трапиче мальбек  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-070.jpg" alt="Trapiche Malbec | Трапиче Мальбек" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Trapiche Malbec | Трапиче Мальбек</h3></div>
     <strong>4 440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="jardin de la taur grenache syrah | жарден де ла тор гренаш сира  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-071.jpg" alt="Jardin de la Taur Grenache Syrah | Жарден де ла Тор Гренаш Сира" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Jardin de la Taur Grenache Syrah | Жарден де ла Тор Гренаш Сира</h3></div>
     <strong>4 440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="chianti conti serristori | кьянти конти серристори  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-072.jpg" alt="Chianti Conti Serristori | Кьянти Конти Серристори" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Chianti Conti Serristori | Кьянти Конти Серристори</h3></div>
     <strong>4 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="primasole primitivo puglia | примасоле примитиво апулия  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-073.jpg" alt="Primasole Primitivo Puglia | Примасоле Примитиво Апулия" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Primasole Primitivo Puglia | Примасоле Примитиво Апулия</h3></div>
     <strong>5 680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="sassi chiusi toscana | сасси кьюзи тоскана  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-074.jpg" alt="Sassi Chiusi Toscana | Сасси Кьюзи Тоскана" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Sassi Chiusi Toscana | Сасси Кьюзи Тоскана</h3></div>
     <strong>14 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="domini veneti valpolicella classico | домини венети вальполичелла классико  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-075.jpg" alt="Domini Veneti Valpolicella Classico | Домини Венети Вальполичелла Классико" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Domini Veneti Valpolicella Classico | Домини Венети Вальполичелла Классико</h3></div>
     <strong>9 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="barolo mauro molino | бароло мауро молино  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-076.jpg" alt="Barolo Mauro Molino | Бароло Мауро Молино" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Barolo Mauro Molino | Бароло Мауро Молино</h3></div>
     <strong>24 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="altitud by alto horizonte | алтитьюд от альто горизонте  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-077.jpg" alt="Altitud by Alto Horizonte | Алтитьюд от Альто Горизонте" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Altitud by Alto Horizonte | Алтитьюд от Альто Горизонте</h3></div>
     <strong>9 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="paddleboard cellars zinfandel | падлборд селлез зинфандель  красное вино">
-    <figure class="item-media"><img src="assets/bar/items/bar-078.jpg" alt="Paddleboard Cellars Zinfandel | Падлборд Селлез Зинфандель" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Paddleboard Cellars Zinfandel | Падлборд Селлез Зинфандель</h3></div>
     <strong>6 980 ₽</strong>
   </article></div>
@@ -692,122 +707,122 @@
 <section class="catalog-section bar-section" id="cat-cocktails" data-tab="bar" data-cat="cocktails" data-title="Коктейли" hidden>
     <header class="catalog-section-header"><span>10</span><h2>Коктейли</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="б-52  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-079.jpg" alt="Б-52" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Б-52</h3></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="long island ice tea  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-080.jpg" alt="Long Island Ice Tea" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Long Island Ice Tea</h3></div>
     <strong>980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="aperol spritz  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-081.jpg" alt="Aperol Spritz" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Aperol Spritz</h3></div>
     <strong>880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="negroni  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-082.jpg" alt="Negroni" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Negroni</h3></div>
     <strong>740 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martini fiero&amp;tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-083.jpg" alt="Martini Fiero&amp;Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Fiero&amp;Tonic</h3></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martini fiero&amp;tonic set три коктейля коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-084.jpg" alt="Martini Fiero&amp;Tonic SET" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Fiero&amp;Tonic SET</h3><p>три коктейля</p></div>
     <strong>1 160 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga botanicals pear&amp;tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-085.jpg" alt="Beluga Botanicals Pear&amp;Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Botanicals Pear&amp;Tonic</h3></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga botanicals rose&amp;tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-086.jpg" alt="Beluga Botanicals Rose&amp;Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Botanicals Rose&amp;Tonic</h3></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga botanicals cucumber&amp;tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-087.jpg" alt="Beluga Botanicals Cucumber&amp;Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Botanicals Cucumber&amp;Tonic</h3></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="old fashioned  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-088.jpg" alt="Old Fashioned" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Old Fashioned</h3></div>
     <strong>740 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="whiskey sour  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-089.jpg" alt="Whiskey Sour" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Whiskey Sour</h3></div>
     <strong>880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="whiskey&amp;cola  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-090.jpg" alt="Whiskey&amp;Cola" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Whiskey&amp;Cola</h3></div>
     <strong>680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="daiquiri  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-091.jpg" alt="Daiquiri" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Daiquiri</h3></div>
     <strong>680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="mai-tai  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-092.jpg" alt="Mai-Tai" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Mai-Tai</h3></div>
     <strong>740 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="mojito  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-093.jpg" alt="Mojito" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Mojito</h3></div>
     <strong>680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="oakheart&amp;cola  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-094.jpg" alt="Oakheart&amp;Cola" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Oakheart&amp;Cola</h3></div>
     <strong>640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="pina colada  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-095.jpg" alt="Pina Colada" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Pina Colada</h3></div>
     <strong>640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="margarita  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-096.jpg" alt="Margarita" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Margarita</h3></div>
     <strong>840 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="paloma  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-097.jpg" alt="Paloma" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Paloma</h3></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="broom pink tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-098.jpg" alt="Broom Pink Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Broom Pink Tonic</h3></div>
     <strong>560 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="bombay&amp;tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-099.jpg" alt="Bombay&amp;Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Bombay&amp;Tonic</h3></div>
     <strong>720 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="white lady  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-100.jpg" alt="White lady" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>White lady</h3></div>
     <strong>560 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="gimlet  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-101.jpg" alt="Gimlet" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Gimlet</h3></div>
     <strong>560 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="gin&amp;tonic  коктейли">
-    <figure class="item-media"><img src="assets/bar/items/bar-102.jpg" alt="Gin&amp;Tonic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Gin&amp;Tonic</h3></div>
     <strong>560 ₽</strong>
   </article></div>
@@ -815,37 +830,37 @@
 <section class="catalog-section bar-section" id="cat-infusions" data-tab="bar" data-cat="infusions" data-title="Фирменные настойки" hidden>
     <header class="catalog-section-header"><span>11</span><h2>Фирменные настойки</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="лимончело  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-103.jpg" alt="Лимончело" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Лимончело</h3></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="малиновая  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-104.jpg" alt="Малиновая" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Малиновая</h3></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="смородиновая  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-105.jpg" alt="Смородиновая" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Смородиновая</h3></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="брусничная  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-106.jpg" alt="Брусничная" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Брусничная</h3></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="хреновуха  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-107.jpg" alt="Хреновуха" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Хреновуха</h3></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="крыжовник  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-108.jpg" alt="Крыжовник" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Крыжовник</h3></div>
     <strong>380 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="дегустационный сет  фирменные настойки">
-    <figure class="item-media"><img src="assets/bar/items/bar-109.jpg" alt="Дегустационный сет" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Дегустационный сет</h3></div>
     <strong>1 840 ₽</strong>
   </article></div>
@@ -853,32 +868,32 @@
 <section class="catalog-section bar-section" id="cat-aperitif" data-tab="bar" data-cat="aperitif" data-title="Аперитивы и вермуты" hidden>
     <header class="catalog-section-header"><span>12</span><h2>Аперитивы и вермуты</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="martini fiero 50 мл аперитивы и вермуты">
-    <figure class="item-media"><img src="assets/bar/items/bar-110.jpg" alt="Martini Fiero" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Fiero</h3><p>50 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martini bianco 50 мл аперитивы и вермуты">
-    <figure class="item-media"><img src="assets/bar/items/bar-111.jpg" alt="Martini Bianco" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Bianco</h3><p>50 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martini rosso 50 мл аперитивы и вермуты">
-    <figure class="item-media"><img src="assets/bar/items/bar-112.jpg" alt="Martini Rosso" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Rosso</h3><p>50 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martini extra dry 50 мл аперитивы и вермуты">
-    <figure class="item-media"><img src="assets/bar/items/bar-113.jpg" alt="Martini Extra Dry" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martini Extra Dry</h3><p>50 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="aperol 40 мл аперитивы и вермуты">
-    <figure class="item-media"><img src="assets/bar/items/bar-114.jpg" alt="Aperol" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Aperol</h3><p>40 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="campari 40 мл аперитивы и вермуты">
-    <figure class="item-media"><img src="assets/bar/items/bar-115.jpg" alt="Campari" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Campari</h3><p>40 мл</p></div>
     <strong>580 ₽</strong>
   </article></div>
@@ -886,17 +901,17 @@
 <section class="catalog-section bar-section" id="cat-liqueurs" data-tab="bar" data-cat="liqueurs" data-title="Ликёры" hidden>
     <header class="catalog-section-header"><span>13</span><h2>Ликёры</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="hunting herbal bitter 50 мл ликёры">
-    <figure class="item-media"><img src="assets/bar/items/bar-116.jpg" alt="Hunting Herbal Bitter" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Hunting Herbal Bitter</h3><p>50 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="hunting berry bitter 50 мл ликёры">
-    <figure class="item-media"><img src="assets/bar/items/bar-117.jpg" alt="Hunting Berry Bitter" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Hunting Berry Bitter</h3><p>50 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="jagermeister 50 мл ликёры">
-    <figure class="item-media"><img src="assets/bar/items/bar-118.jpg" alt="Jagermeister" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Jagermeister</h3><p>50 мл</p></div>
     <strong>680 ₽</strong>
   </article></div>
@@ -904,37 +919,37 @@
 <section class="catalog-section bar-section" id="cat-rum" data-tab="bar" data-cat="rum" data-title="Ром" hidden>
     <header class="catalog-section-header"><span>14</span><h2>Ром</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="barcelo blanco 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-119.jpg" alt="Barcelo Blanco" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Barcelo Blanco</h3><p>40 мл</p></div>
     <strong>720 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="barcelo dorado 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-120.jpg" alt="Barcelo Dorado" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Barcelo Dorado</h3><p>40 мл</p></div>
     <strong>720 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="oakheart original 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-121.jpg" alt="OAKHEART Original" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>OAKHEART Original</h3><p>40 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="viejo de caldas roble blanco 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-122.jpg" alt="Viejo de Caldas Roble Blanco" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Viejo de Caldas Roble Blanco</h3><p>40 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="viejo de caldas tradicional 3 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-123.jpg" alt="Viejo de Caldas Tradicional 3" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Viejo de Caldas Tradicional 3</h3><p>40 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="viejo de caldas juan de la cruz 5 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-124.jpg" alt="Viejo de Caldas Juan de La Cruz 5" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Viejo de Caldas Juan de La Cruz 5</h3><p>40 мл</p></div>
     <strong>580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="rumbarum spiced 40 мл ром">
-    <figure class="item-media"><img src="assets/bar/items/bar-125.jpg" alt="Rumbarum Spiced" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Rumbarum Spiced</h3><p>40 мл</p></div>
     <strong>580 ₽</strong>
   </article></div>
@@ -942,47 +957,47 @@
 <section class="catalog-section bar-section" id="cat-cognac" data-tab="bar" data-cat="cognac" data-title="Коньяк и бренди" hidden>
     <header class="catalog-section-header"><span>15</span><h2>Коньяк и бренди</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="courvoisier vs 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-126.jpg" alt="Courvoisier VS" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Courvoisier VS</h3><p>40 мл</p></div>
     <strong>1 480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="hennessy vs 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-127.jpg" alt="Hennessy VS" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Hennessy VS</h3><p>40 мл</p></div>
     <strong>1 280 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="remu martin vsop 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-128.jpg" alt="Remu Martin VSOP" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Remu Martin VSOP</h3><p>40 мл</p></div>
     <strong>1 880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="martel vsop 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-129.jpg" alt="Martel VSOP" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Martel VSOP</h3><p>40 мл</p></div>
     <strong>1 640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="prunier vs 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-130.jpg" alt="Prunier VS" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Prunier VS</h3><p>40 мл</p></div>
     <strong>2 040 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="prunier vsop 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-131.jpg" alt="Prunier VSOP" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Prunier VSOP</h3><p>40 мл</p></div>
     <strong>2 120 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="roullet vs 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-132.jpg" alt="Roullet VS" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Roullet VS</h3><p>40 мл</p></div>
     <strong>1 120 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="roullet cadet xo 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-133.jpg" alt="Roullet Cadet XO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Roullet Cadet XO</h3><p>40 мл</p></div>
     <strong>2 120 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="ной традиционный 5 лет 40 мл коньяк и бренди">
-    <figure class="item-media"><img src="assets/bar/items/bar-134.jpg" alt="Ной Традиционный 5 лет" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Ной Традиционный 5 лет</h3><p>40 мл</p></div>
     <strong>740 ₽</strong>
   </article></div>
@@ -990,17 +1005,17 @@
 <section class="catalog-section bar-section" id="cat-tequila" data-tab="bar" data-cat="tequila" data-title="Текила" hidden>
     <header class="catalog-section-header"><span>16</span><h2>Текила</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="olmeca blanco 40 мл текила">
-    <figure class="item-media"><img src="assets/bar/items/bar-135.jpg" alt="Olmeca Blanco" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Olmeca Blanco</h3><p>40 мл</p></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="rancho alegre blanco 40 мл текила">
-    <figure class="item-media"><img src="assets/bar/items/bar-136.jpg" alt="Rancho Alegre Blanco" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Rancho Alegre Blanco</h3><p>40 мл</p></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="newton blanc/joven 40 мл текила">
-    <figure class="item-media"><img src="assets/bar/items/bar-137.jpg" alt="Newton Blanc/Joven" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Newton Blanc/Joven</h3><p>40 мл</p></div>
     <strong>780 ₽</strong>
   </article></div>
@@ -1008,37 +1023,37 @@
 <section class="catalog-section bar-section" id="cat-gin" data-tab="bar" data-cat="gin" data-title="Джин" hidden>
     <header class="catalog-section-header"><span>17</span><h2>Джин</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="bombay sapphire 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-138.jpg" alt="Bombay Sapphire" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Bombay Sapphire</h3><p>40 мл</p></div>
     <strong>640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="hendrick’s 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-139.jpg" alt="Hendrick’s" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Hendrick’s</h3><p>40 мл</p></div>
     <strong>1 280 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="green baboon (classic, pink, citrius) 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-140.jpg" alt="Green Baboon (classic, pink, citrius)" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Green Baboon (classic, pink, citrius)</h3><p>40 мл</p></div>
     <strong>540 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="barrister bartender edition 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-141.jpg" alt="Barrister Bartender Edition" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Barrister Bartender Edition</h3><p>40 мл</p></div>
     <strong>540 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="barrister dry 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-142.jpg" alt="Barrister dry" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Barrister dry</h3><p>40 мл</p></div>
     <strong>440 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="barrister mumdai 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-143.jpg" alt="Barrister Mumdai" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Barrister Mumdai</h3><p>40 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="broom pink 40 мл джин">
-    <figure class="item-media"><img src="assets/bar/items/bar-144.jpg" alt="Broom Pink" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Broom Pink</h3><p>40 мл</p></div>
     <strong>480 ₽</strong>
   </article></div>
@@ -1046,47 +1061,47 @@
 <section class="catalog-section bar-section" id="cat-vodka" data-tab="bar" data-cat="vodka" data-title="Водка" hidden>
     <header class="catalog-section-header"><span>18</span><h2>Водка</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="beluga gold line 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-145.jpg" alt="Beluga Gold Line" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Gold Line</h3><p>50 мл</p></div>
     <strong>1 240 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga noble 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-146.jpg" alt="Beluga Noble" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Noble</h3><p>50 мл</p></div>
     <strong>880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="царская в ассортименте оригинальная, груша, малина · 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-147.jpg" alt="Царская в ассортименте" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Царская в ассортименте</h3><p>оригинальная, груша, малина · 50 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="parka 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-148.jpg" alt="Parka" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Parka</h3><p>50 мл</p></div>
     <strong>420 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="siberian express 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-149.jpg" alt="Siberian Express" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Siberian Express</h3><p>50 мл</p></div>
     <strong>640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="onegin 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-150.jpg" alt="Onegin" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Onegin</h3><p>50 мл</p></div>
     <strong>960 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga botanicals pear and linden 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-151.jpg" alt="Beluga Botanicals Pear and Linden" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Botanicals Pear and Linden</h3><p>50 мл</p></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga botanicals rose and lime 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-152.jpg" alt="Beluga Botanicals Rose and Lime" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Botanicals Rose and Lime</h3><p>50 мл</p></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="beluga botanicals cucumber and mint 50 мл водка">
-    <figure class="item-media"><img src="assets/bar/items/bar-153.jpg" alt="Beluga Botanicals Cucumber and Mint" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Beluga Botanicals Cucumber and Mint</h3><p>50 мл</p></div>
     <strong>780 ₽</strong>
   </article></div>
@@ -1094,42 +1109,42 @@
 <section class="catalog-section bar-section" id="cat-single-malt" data-tab="bar" data-cat="single-malt" data-title="Односолодовый виски" hidden>
     <header class="catalog-section-header"><span>19</span><h2>Односолодовый виски</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="aberfeldy 12 yo 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-154.jpg" alt="Aberfeldy 12 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Aberfeldy 12 YO</h3><p>40 мл</p></div>
     <strong>1 540 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="macallan 12 yo 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-155.jpg" alt="Macallan 12 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Macallan 12 YO</h3><p>40 мл</p></div>
     <strong>2 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="loch lomond original singl malt 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-156.jpg" alt="Loch lomond Original Singl Malt" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Loch lomond Original Singl Malt</h3><p>40 мл</p></div>
     <strong>980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="loch lomond singl malt 12 yo 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-157.jpg" alt="Loch lomond Singl Malt 12 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Loch lomond Singl Malt 12 YO</h3><p>40 мл</p></div>
     <strong>1 480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="glen moray our classic 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-158.jpg" alt="Glen Moray Our Classic" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Glen Moray Our Classic</h3><p>40 мл</p></div>
     <strong>1 120 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="glenfiddich 12 yo 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-159.jpg" alt="Glenfiddich 12 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Glenfiddich 12 YO</h3><p>40 мл</p></div>
     <strong>2 580 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="the observatory 20 yo 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-160.jpg" alt="The Observatory 20 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>The Observatory 20 YO</h3><p>40 мл</p></div>
     <strong>1 980 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="the matsui the san-in 40 мл односолодовый виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-161.jpg" alt="The Matsui The San-In" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>The Matsui The San-In</h3><p>40 мл</p></div>
     <strong>2 180 ₽</strong>
   </article></div>
@@ -1137,37 +1152,37 @@
 <section class="catalog-section bar-section" id="cat-scotch" data-tab="bar" data-cat="scotch" data-title="Шотландский купажированный" hidden>
     <header class="catalog-section-header"><span>20</span><h2>Шотландский купажированный</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="dewar’s white label 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-162.jpg" alt="Dewar’s White Label" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Dewar’s White Label</h3><p>40 мл</p></div>
     <strong>540 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="dewar’s 8 yo 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-163.jpg" alt="Dewar’s 8 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Dewar’s 8 YO</h3><p>40 мл</p></div>
     <strong>640 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="dewar’s 12 yo 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-164.jpg" alt="Dewar’s 12 YO" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Dewar’s 12 YO</h3><p>40 мл</p></div>
     <strong>880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="chivas regal 12 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-165.jpg" alt="Chivas Regal 12" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Chivas Regal 12</h3><p>40 мл</p></div>
     <strong>880 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="troublemaker 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-166.jpg" alt="Troublemaker" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Troublemaker</h3><p>40 мл</p></div>
     <strong>480 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="red label 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-167.jpg" alt="Red Label" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Red Label</h3><p>40 мл</p></div>
     <strong>940 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="black beast 40 мл шотландский купажированный">
-    <figure class="item-media"><img src="assets/bar/items/bar-168.jpg" alt="Black Beast" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Black Beast</h3><p>40 мл</p></div>
     <strong>480 ₽</strong>
   </article></div>
@@ -1175,17 +1190,17 @@
 <section class="catalog-section bar-section" id="cat-bourbon" data-tab="bar" data-cat="bourbon" data-title="Бурбон" hidden>
     <header class="catalog-section-header"><span>21</span><h2>Бурбон</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="jim beam 40 мл бурбон">
-    <figure class="item-media"><img src="assets/bar/items/bar-169.jpg" alt="Jim Beam" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Jim Beam</h3><p>40 мл</p></div>
     <strong>720 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="jim beam apple 40 мл бурбон">
-    <figure class="item-media"><img src="assets/bar/items/bar-170.jpg" alt="Jim Beam Apple" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Jim Beam Apple</h3><p>40 мл</p></div>
     <strong>780 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="old virginia 40 мл бурбон">
-    <figure class="item-media"><img src="assets/bar/items/bar-171.jpg" alt="Old Virginia" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Old Virginia</h3><p>40 мл</p></div>
     <strong>680 ₽</strong>
   </article></div>
@@ -1193,24 +1208,33 @@
 <section class="catalog-section bar-section" id="cat-irish" data-tab="bar" data-cat="irish" data-title="Ирландский виски" hidden>
     <header class="catalog-section-header"><span>22</span><h2>Ирландский виски</h2></header>
     <div class="items-grid"><article class="menu-item bar" data-search="jameson 40 мл ирландский виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-172.jpg" alt="Jameson" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>Jameson</h3><p>40 мл</p></div>
     <strong>680 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="the whistler double oaked 40 мл ирландский виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-173.jpg" alt="The Whistler Double Oaked" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>The Whistler Double Oaked</h3><p>40 мл</p></div>
     <strong>840 ₽</strong>
   </article>
 <article class="menu-item bar" data-search="the whistler oloroso sherry cask 40 мл ирландский виски">
-    <figure class="item-media"><img src="assets/bar/items/bar-174.jpg" alt="The Whistler Oloroso Sherry Cask" loading="lazy" decoding="async"></figure>
+    <div class="bar-mark" aria-hidden="true"></div>
     <div class="item-copy"><h3>The Whistler Oloroso Sherry Cask</h3><p>40 мл</p></div>
     <strong>980 ₽</strong>
   </article></div>
   </section></div>
-    <section class="catalog-cta"><small>ВЫБРАЛИ?</small><h2>Теперь можно<br><em>выбрать стол.</em></h2><a href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол ↗</a></section>
+
+    <section class="catalog-cta">
+      <p class="kicker">БРОНИРОВАНИЕ</p>
+      <h2>Выбрали?<br><em>Осталось встретиться.</em></h2>
+      <a href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол <span>→</span></a>
+    </section>
   </main>
-  <footer class="catalog-footer"><img src="assets/logo-glossy.png?v=concept-v2" alt="Ухо & Медведь"><span>Советская, 33 · +7 (383) 292-89-01</span></footer>
-  <script src="catalog.js?v=restored-sprites-v7"></script>
+
+  <footer class="catalog-footer">
+    <img src="assets/logo-glossy.png" alt="Ухо & Медведь">
+    <span>Советская, 33 · +7 (383) 292-89-01</span>
+  </footer>
+  <script src="catalog.js?v=catalog-art-v10"></script>
 </body>
 </html>
