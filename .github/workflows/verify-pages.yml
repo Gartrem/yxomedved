@@ -1,4 +1,4 @@
-name: Verify mobile newline fix
+name: Verify integrated menus
 
 on:
   pull_request:
@@ -21,41 +21,52 @@ jobs:
           npm init -y >/dev/null 2>&1
           npm install playwright@1.55.0 >/dev/null 2>&1
           npx playwright install --with-deps chromium >/dev/null 2>&1
-      - name: Check live mobile page
+      - name: Check live menu pages
         run: |
           cat > check.mjs <<'NODE'
           import { chromium } from 'playwright';
           const browser=await chromium.launch({headless:true});
-          try{
+          const base='https://gartrem.github.io/yxomedved/';
+          async function inspect(path,expectedTitle,minItems,searchTerm){
             const page=await browser.newPage({viewport:{width:390,height:844}});
-            const res=await page.goto('https://gartrem.github.io/yxomedved/?newline='+Date.now(),{waitUntil:'networkidle',timeout:60000});
+            const res=await page.goto(base+path+'?check='+Date.now(),{waitUntil:'networkidle',timeout:60000});
             await page.waitForTimeout(1200);
-            const data=await page.evaluate(()=>{
-              const bodyText=document.body.innerText||'';
-              const html=document.documentElement.outerHTML;
-              const header=document.querySelector('.site-header');
-              const logo=document.querySelector('.brand img');
-              return {
-                marker:document.querySelector('meta[name="build-version"]')?.content||null,
-                hasLiteralEscapedNewline:bodyText.includes('\\n'),
-                htmlHasLiteralEscapedNewline:html.includes('\\n'),
-                topText:bodyText.slice(0,80),
-                logoSrc:logo?.getAttribute('src')||null,
-                headerTop:header?.getBoundingClientRect().top||0,
-                overflow:document.documentElement.scrollWidth>innerWidth+1
-              };
-            });
-            data.http=res?.status()||null;
-            console.log('NEWLINE_FIX_LIVE='+JSON.stringify(data));
-            const ok=data.http===200
-              && data.marker==='20260921-mobile-newline-fix'
-              && !data.hasLiteralEscapedNewline
-              && !data.htmlHasLiteralEscapedNewline
-              && data.logoSrc.includes('logo-glossy.png')
-              && !data.overflow;
-            if(!ok) throw new Error('Mobile newline fix failed: '+JSON.stringify(data));
-          } finally {
-            await browser.close();
+            const before=await page.evaluate(()=>({
+              title:document.title,
+              h1:document.querySelector('.mp-hero h1')?.innerText||'',
+              items:document.querySelectorAll('.item').length,
+              logo:document.querySelector('.mp-head img')?.getAttribute('src')||'',
+              overflow:document.documentElement.scrollWidth>innerWidth+1
+            }));
+            await page.locator('#q').fill(searchTerm);
+            await page.waitForTimeout(200);
+            const after=await page.evaluate(()=>({
+              visible:[...document.querySelectorAll('.item')].filter(x=>!x.hidden).length,
+              emptyHidden:document.querySelector('#empty')?.hidden
+            }));
+            console.log(path.toUpperCase()+'='+JSON.stringify({http:res?.status(),before,after}));
+            const ok=res?.status()===200
+              && before.title.includes(expectedTitle)
+              && before.items>=minItems
+              && before.logo.includes('logo-glossy.png')
+              && !before.overflow
+              && after.visible>=1
+              && after.emptyHidden===true;
+            if(!ok) throw new Error(path+' failed: '+JSON.stringify({before,after,http:res?.status()}));
+            await page.close();
           }
+          try{
+            const home=await browser.newPage({viewport:{width:390,height:844}});
+            const hr=await home.goto(base+'?menus='+Date.now(),{waitUntil:'networkidle',timeout:60000});
+            const links=await home.evaluate(()=>({
+              kitchen:document.querySelector('.menu-actions a[href="menu.html"]')?.getAttribute('href')||null,
+              bar:document.querySelector('.menu-actions a[href="bar.html"]')?.getAttribute('href')||null
+            }));
+            console.log('HOME_LINKS='+JSON.stringify({http:hr?.status(),links}));
+            if(hr?.status()!==200||!links.kitchen||!links.bar) throw new Error('Homepage menu links missing');
+            await home.close();
+            await inspect('menu.html','Меню кухни',35,'том ям');
+            await inspect('bar.html','Барная карта',90,'negroni');
+          }finally{await browser.close();}
           NODE
           node check.mjs
