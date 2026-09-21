@@ -36,7 +36,8 @@ jobs:
           set -euo pipefail
           sudo apt-get update -qq
           sudo apt-get install -y -qq poppler-utils
-          mkdir -p assets/menu
+          mkdir -p assets/menu assets/menu/items
+          python3 -m pip install --quiet pillow
 
           python3 - <<'PY' > /tmp/yandex_download_url.txt
           import json, urllib.parse, urllib.request
@@ -48,25 +49,54 @@ jobs:
 
           curl -fL --retry 3 "$(cat /tmp/yandex_download_url.txt)" -o /tmp/kitchen-menu.pdf
 
-          render_page () {
-            local page="$1"
-            local name="$2"
-            pdftoppm -f "$page" -l "$page" -singlefile -jpeg -r 105 -jpegopt quality=82 /tmp/kitchen-menu.pdf "/tmp/$name"
-            mv "/tmp/$name.jpg" "assets/menu/$name.jpg"
-          }
+          pdftoppm -jpeg -r 120 -jpegopt quality=88 /tmp/kitchen-menu.pdf /tmp/food-page >/dev/null 2>&1
 
-          render_page 2 food-2
-          render_page 4 food-4
-          render_page 6 food-6
-          render_page 7 food-7
-          render_page 8 food-8
-          render_page 11 food-11
-          render_page 13 food-13
-          render_page 15 food-15
-          render_page 16 food-16
+          python3 - <<'PY'
+          from PIL import Image, ImageOps, ImageFilter
+          from pathlib import Path
 
-          test -s assets/menu/food-2.jpg
-          test -s assets/menu/food-16.jpg
+          out=Path("assets/menu")
+          items=out/"items"
+          items.mkdir(parents=True,exist_ok=True)
+
+          # Keep full-page images used by category headers.
+          pages=[2,3,4,5,6,7,8,9,10,11,13,14,15,16,17]
+          for p in pages:
+              src=Path(f"/tmp/food-page-{p:02d}.jpg")
+              if src.exists():
+                  Image.open(src).convert("RGB").save(out/f"food-{p}.jpg",quality=82,optimize=True)
+
+          # 43 item crops in the same order as menu.html.
+          crops=[
+          (2,(.46,.02,.99,.34)),(2,(.02,.31,.49,.66)),(2,(.28,.23,.79,.58)),(2,(.45,.54,.99,.96)),(3,(.10,.20,.97,.94)),
+          (4,(.43,.02,.99,.43)),(4,(.23,.46,.99,.97)),(5,(.08,.02,.91,.35)),(5,(.08,.33,.91,.66)),(5,(.08,.63,.91,.97)),
+          (6,(.02,.18,.51,.55)),(6,(.44,.02,.99,.42)),(6,(.49,.48,.99,.98)),(6,(.02,.52,.52,.98)),
+          (7,(.01,.06,.55,.49)),(7,(.46,.12,.99,.59)),(7,(.01,.53,.64,.98)),
+          (8,(.10,.60,.98,.99)),(8,(.12,.01,.98,.40)),(8,(.16,.31,.99,.70)),
+          (9,(.08,.02,.95,.38)),(9,(.08,.31,.95,.69)),(9,(.05,.61,.98,.99)),
+          (10,(.08,.02,.95,.38)),(10,(.08,.31,.95,.70)),(10,(.08,.63,.95,.99)),
+          (11,(.02,.05,.70,.47)),(11,(.44,.27,.99,.66)),(11,(.01,.52,.58,.99)),(11,(.44,.54,.99,.99)),
+          (13,(.02,.01,.91,.39)),(13,(.02,.29,.83,.70)),(13,(.04,.60,.94,.99)),
+          (14,(.06,.48,.99,.99)),(15,(.01,.50,.58,.88)),(15,(.12,.27,.90,.63)),(15,(.38,.01,.99,.38)),(15,(.08,.28,.94,.66)),(15,(.01,.52,.66,.89)),(15,(.18,.66,.99,.99)),
+          (16,(.05,.06,.98,.98)),(17,(.04,.01,.97,.58)),(17,(.03,.46,.98,.99))
+          ]
+          def cover(im,size=(720,500)):
+              w,h=size; r=max(w/im.width,h/im.height)
+              im=im.resize((round(im.width*r),round(im.height*r)),Image.Resampling.LANCZOS)
+              l=(im.width-w)//2; t=(im.height-h)//2
+              return im.crop((l,t,l+w,t+h))
+          for i,(p,b) in enumerate(crops,1):
+              src=Image.open(f"/tmp/food-page-{p:02d}.jpg").convert("RGB")
+              W,H=src.size
+              x0,y0,x1,y1=b
+              crop=src.crop((int(W*x0),int(H*y0),int(W*x1),int(H*y1)))
+              crop=cover(crop).filter(ImageFilter.UnsharpMask(radius=.8,percent=115,threshold=3))
+              crop.save(items/f"food-{i:03d}.jpg",quality=86,optimize=True)
+          print("generated",len(crops),"food item images")
+          PY
+
+          test -s assets/menu/items/food-001.jpg
+          test -s assets/menu/items/food-043.jpg
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
