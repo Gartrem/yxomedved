@@ -1,10 +1,22 @@
 const header=document.querySelector('.site-header');
 const burger=document.querySelector('.burger');
 const drawer=document.querySelector('.menu-drawer');
-const closeBtn=drawer?.querySelector('button');
-const setDrawer=open=>{drawer?.classList.toggle('open',open);drawer?.setAttribute('aria-hidden',String(!open));burger?.setAttribute('aria-expanded',String(open));document.body.classList.toggle('lock',open)};
+const closeButton=document.querySelector('.drawer-close');
+
+function setDrawer(open){
+  if(!drawer||!burger)return;
+  drawer.classList.toggle('open',open);
+  drawer.setAttribute('aria-hidden',String(!open));
+  burger.setAttribute('aria-expanded',String(open));
+  document.body.classList.toggle('lock',open);
+  if(open) drawer.querySelector('a')?.focus();
+}
+
 burger?.addEventListener('click',()=>setDrawer(true));
-closeBtn?.addEventListener('click',()=>setDrawer(false));
-drawer?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setDrawer(false)));
-const onScroll=()=>header?.classList.toggle('scrolled',scrollY>24);addEventListener('scroll',onScroll,{passive:true});onScroll();
-if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+closeButton?.addEventListener('click',()=>setDrawer(false));
+drawer?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setDrawer(false)));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')setDrawer(false)});
+
+function syncHeader(){header?.classList.toggle('scrolled',window.scrollY>24)}
+window.addEventListener('scroll',syncHeader,{passive:true});
+syncHeader();
