@@ -3,197 +3,201 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#070504">
-  <meta name="description" content="Ухо & Медведь — караоке-бар в Новосибирске. Сцена, кухня, бар и VIP-зал.">
+  <meta name="theme-color" content="#050403">
+  <meta name="description" content="Ухо & Медведь — караоке-бар в Новосибирске. Сцена, кухня, бар, большой зал и VIP-пространство.">
   <title>Ухо & Медведь — караоке-бар</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Marck+Script&family=Prata&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/logo-glossy.png?v=concept-v2">
-  <link rel="stylesheet" href="redesign.css?v=reference-build-v7">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo-glossy.png">
+  <link rel="stylesheet" href="redesign.css?v=art-direction-v10">
 </head>
 <body>
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Ухо & Медведь"><img src="assets/logo-glossy.png?v=concept-v2" alt="Ухо & Медведь"></a>
-    <nav class="desktop-nav" aria-label="Навигация">
-      <a href="#about">О нас</a>
-      <a href="catalog.html">Меню</a>
+    <a class="brand" href="#top" aria-label="Ухо & Медведь">
+      <img src="assets/logo-glossy.png" alt="Ухо & Медведь">
+    </a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="#experience">Атмосфера</a>
       <a href="#events">События</a>
       <a href="#halls">Залы</a>
-      <a href="#gallery">Галерея</a>
+      <a href="#menu">Меню</a>
+      <a href="#gallery">Фото</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <div class="header-side">
-      <div class="header-location"><span>⌖</span><small>Новосибирск<br>Советская, 33</small></div>
-      <a class="header-book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол</a>
+    <div class="header-actions">
+      <a class="header-address" href="#contacts">Советская, 33</a>
+      <a class="button button-primary button-compact" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать</a>
     </div>
     <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-photo"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-copy reveal">
-          <p class="hero-kicker">Место,<br>где голос звучит громче</p>
-          <h1>УХО &amp;<br>МЕДВЕДЬ</h1>
-          <div class="hero-subtitle"><span></span>КАРАОКЕ-БАР<span></span></div>
-          <p class="hero-script">Больше, чем караоке</p>
-          <p class="hero-description">Голос. Люди. Истории.<br>В одном месте.</p>
-          <div class="hero-actions">
-            <a class="btn btn-red" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол <b>→</b></a>
-            <a class="btn-play" href="#about"><span>▶</span><small>Почувствовать<br>атмосферу</small></a>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">КАРАОКЕ-БАР · НОВОСИБИРСК</p>
+          <h1 id="hero-title">Голос.<br>Свет. <em>Ночь.</em></h1>
+          <p class="script-accent">Больше, чем караоке</p>
+          <p class="hero-lead">Сцена, кухня, бар и приватное пространство — в одном вечере.</p>
+          <div class="hero-cta">
+            <a class="button button-primary" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол <span>→</span></a>
+            <a class="button button-secondary" href="catalog.html">Смотреть меню <span>→</span></a>
           </div>
         </div>
-        <div class="hero-note">
-          <span>Музыка</span><span>Кухня</span><span>Коктейли</span><span>Эмоции</span><span>Ты</span>
-        </div>
-        <div class="hero-address">
-          <span>⌖</span>
-          <p>Новосибирск<br>Советская, 33<br><b>19:00 — 06:00</b></p>
-        </div>
+
+        <aside class="hero-facts" aria-label="Информация о заведении">
+          <div><small>АДРЕС</small><strong>Советская, 33</strong></div>
+          <div><small>ВТ–ЧТ</small><strong>19:00 — 04:00</strong></div>
+          <div><small>ПТ–СБ</small><strong>19:00 — 06:00</strong></div>
+        </aside>
+      </div>
+      <div class="hero-caption"><span>VOICE</span><i></i><span>PEOPLE</span><i></i><span>STORIES</span></div>
+    </section>
+
+    <section class="benefits" aria-label="Особенности Ухо & Медведь">
+      <article>
+        <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 17h3m2-6v12m4-17v20m4-14v8m4-11v14m4-8v4m2-2h3"/></svg></span>
+        <div><small>01</small><b>Профессиональный звук</b></div>
+      </article>
+      <article>
+        <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="11" y="4" width="10" height="15" rx="5"/><path d="M7 15v1a9 9 0 0 0 18 0v-1M16 25v4m-5 0h10"/></svg></span>
+        <div><small>02</small><b>Бэк-вокал и звукорежиссёр</b></div>
+      </article>
+      <article>
+        <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 24h20M9 22a7 7 0 0 1 14 0M16 8v3m-3-2 1 3m5-3-1 3"/></svg></span>
+        <div><small>03</small><b>Кухня и бар</b></div>
+      </article>
+      <article>
+        <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m16 4 4 6 7 2-5 5 1 7-7-3-7 3 1-7-5-5 7-2z"/></svg></span>
+        <div><small>04</small><b>Большой зал и VIP</b></div>
+      </article>
+    </section>
+
+    <section class="experience editorial-section" id="experience">
+      <div class="section-copy">
+        <p class="eyebrow">01 / EXPERIENCE</p>
+        <h2>Почувствуй<br><em>себя артистом.</em></h2>
+        <p>Настоящая сцена, профессиональный звук и атмосфера, в которой хочется петь, жить и оставаться дольше.</p>
+        <a class="text-link" href="#halls">Посмотреть залы <span>→</span></a>
+      </div>
+      <figure class="experience-visual">
+        <img src="assets/interior-1100.webp" alt="Интерьер и сцена караоке-бара" loading="lazy" decoding="async">
+        <figcaption class="script-accent">Ты звезда здесь</figcaption>
+        <div class="visual-index"><span>01</span><i></i><span>03</span></div>
+      </figure>
+    </section>
+
+    <section class="events section-shell" id="events">
+      <header class="section-heading">
+        <div><p class="eyebrow">02 / EVENTS</p><h2>Ближайшие<br><em>события.</em></h2></div>
+        <p>Афиша обновляется. Здесь будут появляться актуальные даты, специальные вечера и события.</p>
+      </header>
+      <div class="events-grid" aria-label="Места для ближайших событий">
+        <article class="event-poster event-one"><div class="event-no">01</div><div><small>EVENT</small><h3>Афиша<br>обновляется</h3></div></article>
+        <article class="event-poster event-two"><div class="event-no">02</div><div><small>EVENT</small><h3>Новые вечера<br>скоро</h3></div></article>
+        <article class="event-poster event-three"><div class="event-no">03</div><div><small>EVENT</small><h3>Следите<br>за анонсами</h3></div></article>
       </div>
     </section>
 
-    <section class="feature-strip" aria-label="Преимущества">
-      <article><img src="assets/ui/experience-stage.svg?v=1" alt=""><div><b>Профессиональный<br>концертный звук</b></div></article>
-      <article><img src="assets/ui/experience-stage.svg?v=1" alt=""><div><b>Бэк-вокал<br>и звукорежиссёр</b></div></article>
-      <article><img src="assets/ui/experience-bar.svg?v=1" alt=""><div><b>200 000+<br>песен в каталоге</b></div></article>
-      <article><img src="assets/ui/experience-vip.svg?v=1" alt=""><div><b>Большой зал<br>и VIP-зал</b></div></article>
-    </section>
-
-    <section class="artist-section" id="about">
-      <div class="artist-copy">
-        <p class="section-label">01 / ATMOSPHERE</p>
-        <h2>Почувствуй<br>себя артистом</h2>
-        <p>Настоящая сцена. Профессиональный звук. Бэк-вокал. Атмосфера, в которой хочется петь, жить и быть собой.</p>
-        <a class="btn btn-outline" href="#halls">Узнать больше <b>→</b></a>
-      </div>
-      <div class="artist-photo">
-        <div class="artist-script">Ты звезда здесь</div>
-        <div class="artist-counter"><span>←</span><b>01 / 03</b><span>→</span></div>
-      </div>
-    </section>
-
-    <section class="events-section" id="events">
-      <div class="section-title-row">
-        <div>
-          <p class="section-label">02 / EVENTS</p>
-          <h2>Ближайшие события</h2>
-        </div>
-        <a href="#contacts">Все события →</a>
-      </div>
-      <div class="events-grid">
-        <article class="event-card event-a">
-          <div class="event-bg"></div>
-          <div class="event-content"><small>ПЯТНИЦА / СУББОТА</small><h3>Karaoke<br>Show Night</h3><p>Ведущий · бэк-вокал · DJ</p><a href="#contacts">Подробнее →</a></div>
-        </article>
-        <article class="event-card event-b">
-          <div class="event-bg"></div>
-          <div class="event-content"><small>LIVE NIGHT</small><h3>Живой вокал<br>&amp; Karaoke</h3><p>Специальные гости</p><a href="#contacts">Подробнее →</a></div>
-        </article>
-        <article class="event-card event-c">
-          <div class="event-bg"></div>
-          <div class="event-content"><small>PRIVATE NIGHT</small><h3>Девичник<br>на сцене</h3><p>Коктейли · фото · шоу</p><a href="#contacts">Подробнее →</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="halls-section" id="halls">
-      <div class="section-title-row">
-        <div>
-          <p class="section-label">03 / HALLS</p>
-          <h2>Наши залы</h2>
-        </div>
-        <span>Выбери свою атмосферу</span>
-      </div>
+    <section class="halls section-shell" id="halls">
+      <header class="section-heading compact">
+        <div><p class="eyebrow">03 / HALLS</p><h2>Наши <em>залы.</em></h2></div>
+        <p>Общий ритм — разный формат вечера.</p>
+      </header>
       <div class="halls-grid">
-        <article class="hall-card hall-main">
-          <div class="hall-bg"></div>
-          <div class="hall-content">
+        <article class="hall hall-main">
+          <img src="assets/interior-640.webp" alt="Большой зал Ухо & Медведь" loading="lazy" decoding="async">
+          <div class="hall-shade"></div>
+          <div class="hall-copy">
             <small>MAIN ROOM</small>
             <h3>Большой зал</h3>
-            <p>Для ярких вечеров и больших компаний. Простор, сцена, энергия.</p>
-            <div class="hall-meta"><span>◌ До 120 гостей</span><span>♫ Сцена</span><span>◉ Бар</span></div>
-            <a class="btn btn-red" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать <b>→</b></a>
+            <p>Сцена, бар и пространство для большого вечера.</p>
+            <a class="button button-primary button-small" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать <span>→</span></a>
           </div>
         </article>
-        <article class="hall-card hall-vip">
-          <div class="hall-bg"></div>
-          <div class="hall-content">
+        <article class="hall hall-vip">
+          <div class="vip-art" aria-hidden="true"><span>PRIVATE</span><strong>VIP</strong><i></i><span>ROOM</span></div>
+          <div class="hall-copy">
             <small>PRIVATE ROOM</small>
             <h3>VIP-зал</h3>
-            <p>Уют, приватность и премиальный сервис для особенных вечеров.</p>
-            <div class="hall-meta"><span>◌ Своя компания</span><span>♛ Private</span><span>◎ Сервис</span></div>
-            <a class="btn btn-red" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20VIP-%D0%B7%D0%B0%D0%BB" target="_blank" rel="noopener">Забронировать <b>→</b></a>
+            <p>Отдельное пространство для своей компании и приватного вечера.</p>
+            <a class="button button-primary button-small" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20VIP-%D0%B7%D0%B0%D0%BB" target="_blank" rel="noopener">Узнать условия <span>→</span></a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="menu-section" id="menu">
-      <div class="menu-copy">
-        <p class="section-label">04 / KITCHEN & BAR</p>
-        <h2>Вкус задаёт<br>ритм вечеру</h2>
-        <p>Кухня и бар — часть общей атмосферы. Всё меню собрано в одном каталоге.</p>
-        <div class="menu-actions">
-          <a href="catalog.html?tab=food">Кухня <b>→</b></a>
-          <a href="catalog.html?tab=bar">Бар <b>→</b></a>
+    <section class="menu-preview editorial-section" id="menu">
+      <div class="section-copy">
+        <p class="eyebrow">04 / KITCHEN & BAR</p>
+        <h2>Вкус тоже<br><em>задаёт тон.</em></h2>
+        <p>Кухня и напитки продолжают настроение вечера. Подробности, состав и цены — в едином каталоге.</p>
+        <div class="menu-links">
+          <a href="catalog.html?tab=food"><span>Смотреть кухню</span><b>→</b></a>
+          <a href="catalog.html?tab=bar"><span>Смотреть бар</span><b>→</b></a>
         </div>
       </div>
-      <div class="menu-visuals">
-        <a href="catalog.html?tab=food"><img src="assets/menu/items/food-025.jpg" alt="Кухня"><span>Кухня</span></a>
-        <a href="catalog.html?tab=bar"><img src="assets/cocktail-960.webp" alt="Бар"><span>Бар</span></a>
+      <div class="menu-visual-grid">
+        <a class="menu-shot menu-shot-food" href="catalog.html?tab=food">
+          <img src="assets/menu/items/food-025.jpg" alt="Блюдо кухни" loading="lazy" decoding="async">
+          <span><small>KITCHEN</small><strong>Кухня</strong></span>
+        </a>
+        <a class="menu-shot menu-shot-bar" href="catalog.html?tab=bar">
+          <img src="assets/cocktail-960.webp" alt="Напиток из бара" loading="lazy" decoding="async">
+          <span><small>BAR</small><strong>Напитки</strong></span>
+        </a>
       </div>
     </section>
 
-    <section class="gallery-banner" id="gallery">
-      <div class="gallery-copy">
-        <h2>Больше<br>ярких моментов</h2>
-        <p>в хорошей компании</p>
+    <section class="gallery section-shell" id="gallery">
+      <header class="section-heading compact">
+        <div><p class="eyebrow">05 / GALLERY</p><h2>Вечер проходит.<br><em>История остаётся.</em></h2></div>
+        <a class="text-link" href="https://2gis.ru/novosibirsk/firm/141265769806977/tab/photos" target="_blank" rel="noopener">Все фото <span>↗</span></a>
+      </header>
+      <div class="gallery-grid">
+        <figure class="gallery-large"><img src="assets/hero.jpg" alt="Атмосфера Ухо & Медведь" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/cocktail-520.webp" alt="Барная атмосфера" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/menu/items/food-031.jpg" alt="Кухня Ухо & Медведь" loading="lazy" decoding="async"></figure>
+        <p class="script-accent gallery-script">Больше ярких моментов</p>
       </div>
-      <div class="gallery-thumbs">
-        <div class="thumb thumb-1"></div>
-        <div class="thumb thumb-2"></div>
-        <div class="thumb thumb-3"></div>
-      </div>
-      <a href="https://2gis.ru/novosibirsk/firm/141265769806977/tab/photos" target="_blank" rel="noopener">Смотреть<br>галерею <b>→</b></a>
     </section>
 
-    <section class="contacts-section" id="contacts">
-      <div>
-        <p class="section-label">05 / CONTACTS</p>
-        <h2>Сегодня вечером<br>увидимся здесь.</h2>
+    <section class="contacts section-shell" id="contacts">
+      <header class="contacts-heading">
+        <p class="eyebrow">06 / CONTACTS</p>
+        <h2>Сегодня вечером<br><em>увидимся здесь.</em></h2>
+      </header>
+      <div class="contact-grid">
+        <a href="tel:+73832928901"><small>ТЕЛЕФОН</small><strong>+7 (383) 292-89-01</strong></a>
+        <a href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2033" target="_blank" rel="noopener"><small>АДРЕС</small><strong>Советская, 33</strong></a>
+        <div><small>ВТ–ЧТ</small><strong>19:00 — 04:00</strong></div>
+        <div><small>ПТ–СБ</small><strong>19:00 — 06:00</strong></div>
       </div>
-      <div class="contacts-grid">
-        <a href="tel:+73832928901"><small>ТЕЛЕФОН</small><b>+7 (383) 292-89-01</b></a>
-        <a href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2033" target="_blank" rel="noopener"><small>АДРЕС</small><b>Советская, 33</b></a>
-        <div><small>РЕЖИМ</small><b>Вт–Чт 19:00–04:00<br>Пт–Сб 19:00–06:00</b></div>
-      </div>
-      <a class="final-book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener"><span>Ваш вечер начинается здесь</span><b>Забронировать стол</b><i>→</i></a>
+      <a class="final-cta" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener"><span><small>ВАШ ВЕЧЕР НАЧИНАЕТСЯ ЗДЕСЬ</small><strong>Забронировать стол</strong></span><b>→</b></a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <img src="assets/logo-glossy.png?v=concept-v2" alt="Ухо & Медведь">
-    <nav><a href="#about">О нас</a><a href="catalog.html">Меню</a><a href="#events">События</a><a href="#halls">Залы</a><a href="#gallery">Галерея</a><a href="#contacts">Контакты</a></nav>
-    <div><span>Новосибирск, Советская, 33</span><a href="tel:+73832928901">+7 (383) 292-89-01</a></div>
+    <img src="assets/logo-glossy.png" alt="Ухо & Медведь">
+    <nav><a href="#experience">Атмосфера</a><a href="catalog.html">Меню</a><a href="#halls">Залы</a><a href="#gallery">Фото</a><a href="#contacts">Контакты</a></nav>
+    <span>Новосибирск · Советская, 33</span>
   </footer>
 
-  <div class="mobile-bar">
-    <a href="tel:+73832928901">☎<small>Позвонить</small></a>
-    <a href="catalog.html">≡<small>Меню</small></a>
-    <a class="mobile-book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">●<small>Бронь</small></a>
-    <a href="#contacts">⌖<small>Как проехать</small></a>
-    <a href="#top">↑<small>Наверх</small></a>
+  <div class="mobile-dock" aria-label="Быстрые действия">
+    <a href="tel:+73832928901"><span>☎</span><small>Позвонить</small></a>
+    <a href="catalog.html"><span>≡</span><small>Меню</small></a>
+    <a class="mobile-book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener"><span>●</span><small>Бронь</small></a>
+    <a href="#contacts"><span>⌖</span><small>Адрес</small></a>
+    <a href="#top"><span>↑</span><small>Наверх</small></a>
   </div>
 
   <div class="menu-drawer" aria-hidden="true">
-    <button type="button" aria-label="Закрыть меню">×</button>
-    <nav><a href="#about">О нас</a><a href="catalog.html">Меню</a><a href="#events">События</a><a href="#halls">Залы</a><a href="#gallery">Галерея</a><a href="#contacts">Контакты</a></nav>
+    <button class="drawer-close" type="button" aria-label="Закрыть меню">×</button>
+    <nav><a href="#experience">Атмосфера</a><a href="#events">События</a><a href="#halls">Залы</a><a href="catalog.html">Меню</a><a href="#gallery">Фото</a><a href="#contacts">Контакты</a></nav>
   </div>
-
-  <script src="redesign.js?v=concept-v2"></script>
+  <script src="redesign.js?v=art-direction-v10"></script>
 </body>
 </html>
