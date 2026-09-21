@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/logo-glossy.png?v=concept-v2">
-  <link rel="stylesheet" href="redesign.css?v=concept-v2">
+  <link rel="stylesheet" href="redesign.css?v=luxe-ui-v3">
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -22,7 +22,7 @@
     </nav>
     <div class="header-actions">
       <a class="phone" href="tel:+73832928901">+7 (383) 292-89-01</a>
-      <a class="button button-small" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать</a>
+      <a class="header-book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener"><span>Бронь</span><i>↗</i></a>
     </div>
     <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
   </header>
@@ -36,8 +36,14 @@
           <h1>Больше,<br><em>чем караоке.</em></h1>
           <p class="hero-text">Профессиональный звук, кухня и бар, большой зал и VIP-пространство — всё для вечера, который не хочется заканчивать.</p>
           <div class="hero-actions">
-            <a class="button" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол <span>↗</span></a>
-            <a class="text-link" href="catalog.html">Смотреть меню <span>→</span></a>
+            <a class="luxe-btn luxe-btn-primary" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">
+              <span class="luxe-btn-copy"><small>СТОЛ НА СЕГОДНЯ</small><b>Забронировать стол</b></span>
+              <span class="luxe-btn-orb">↗</span>
+            </a>
+            <a class="luxe-btn luxe-btn-ghost hero-menu-btn" href="catalog.html">
+              <span class="luxe-btn-copy"><small>КУХНЯ & БАР</small><b>Смотреть меню</b></span>
+              <span class="luxe-btn-orb">→</span>
+            </a>
           </div>
         </div>
         <div class="hero-meta reveal delay">
@@ -89,14 +95,40 @@
       </div>
     </section>
 
-    <section class="section vip" id="vip">
-      <div class="vip-photo"></div>
-      <div class="vip-copy">
+    <section class="section vip vip-premium" id="vip">
+      <div class="vip-media">
+        <div class="vip-photo" role="img" aria-label="VIP-зал Ухо и Медведь"></div>
+        <div class="vip-media-shade" aria-hidden="true"></div>
+        <div class="vip-media-badge"><span>PRIVATE</span><b>VIP ROOM</b></div>
+        <div class="vip-photo-note">
+          <small>ПРИВАТНЫЙ ФОРМАТ</small>
+          <strong>Своя компания.<br>Своя сцена.</strong>
+        </div>
+      </div>
+
+      <div class="vip-copy vip-panel">
         <div class="section-mark">04 / PRIVATE ROOM</div>
         <h2>Своя компания.<br><em>Свои правила.</em></h2>
-        <p>Приватный формат для компании, праздника или вечера, когда хочется отдельного пространства и персонального сервиса.</p>
-        <ul class="vip-list"><li>Private karaoke</li><li>Персональный сервис</li><li>Своя атмосфера</li></ul>
-        <a class="button" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20VIP-%D0%B7%D0%B0%D0%BB" target="_blank" rel="noopener">Узнать условия VIP <span>↗</span></a>
+        <p>Отдельное пространство для дня рождения, личной встречи или вечера, который хочется провести только со своими — с караоке, сервисом и атмосферой без компромиссов.</p>
+
+        <div class="vip-benefits">
+          <article><span>01</span><div><b>Приватность</b><small>Отдельное пространство без лишнего шума и посторонних гостей.</small></div></article>
+          <article><span>02</span><div><b>Персональный сервис</b><small>Своя подача вечера и внимание команды именно к вашей компании.</small></div></article>
+          <article><span>03</span><div><b>Караоке внутри</b><small>Не теряете главный сценарий вечера — музыка остаётся с вами.</small></div></article>
+        </div>
+
+        <div class="vip-actions">
+          <a class="luxe-btn luxe-btn-gold" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20VIP-%D0%B7%D0%B0%D0%BB" target="_blank" rel="noopener">
+            <span class="luxe-btn-copy"><small>PRIVATE ROOM</small><b>Забронировать VIP-зал</b></span>
+            <span class="luxe-btn-orb">↗</span>
+          </a>
+          <a class="luxe-btn luxe-btn-ghost" href="tel:+73832928901"><span class="luxe-btn-copy"><small>БЫСТРЫЙ КОНТАКТ</small><b>Позвонить</b></span><span class="luxe-btn-orb">→</span></a>
+        </div>
+
+        <div class="vip-occasion">
+          <small>ИДЕАЛЬНО ДЛЯ</small>
+          <span>дней рождения</span><i></i><span>частных вечеринок</span><i></i><span>особых поводов</span>
+        </div>
       </div>
     </section>
 
@@ -104,7 +136,7 @@
       <div class="section-mark">05 / ФОТООТЧЁТЫ</div>
       <div class="section-heading"><h2>Вечер заканчивается.<br><em>История остаётся.</em></h2></div>
       <div class="gallery-grid"><div class="gallery-shot shot-a"></div><div class="gallery-shot shot-b"></div><div class="gallery-shot shot-c"></div></div>
-      <a class="outline-button" href="https://2gis.ru/novosibirsk/firm/141265769806977/tab/photos" target="_blank" rel="noopener">Все фото в 2ГИС <span>↗</span></a>
+      <a class="luxe-btn luxe-btn-ghost gallery-cta" href="https://2gis.ru/novosibirsk/firm/141265769806977/tab/photos" target="_blank" rel="noopener"><span class="luxe-btn-copy"><small>PHOTO REPORTS</small><b>Все фото в 2ГИС</b></span><span class="luxe-btn-orb">↗</span></a>
     </section>
 
     <section class="contacts" id="contacts">
@@ -115,7 +147,7 @@
         <a href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2033" target="_blank" rel="noopener"><small>АДРЕС</small><strong>Советская, 33</strong></a>
         <div><small>РЕЖИМ</small><strong>Вт–Чт до 04:00<br>Пт–Сб до 06:00</strong></div>
       </div>
-      <a class="reservation-banner" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener"><span><small>ВАШ ВЕЧЕР НАЧИНАЕТСЯ ЗДЕСЬ</small><b>Забронировать стол</b></span><i>↗</i></a>
+      <a class="reservation-banner reservation-banner-luxe" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener"><span><small>ВАШ ВЕЧЕР НАЧИНАЕТСЯ ЗДЕСЬ</small><b>Забронировать стол</b><em>Советская, 33 · сегодня</em></span><i>↗</i></a>
     </section>
   </main>
 
