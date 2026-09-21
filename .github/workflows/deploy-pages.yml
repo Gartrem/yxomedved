@@ -1,4 +1,4 @@
-name: Build and publish site
+name: Build menu image assets
 
 on:
   push:
@@ -16,11 +16,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: publish-gh-pages
+  group: build-menu-assets
   cancel-in-progress: true
 
 jobs:
-  build_publish:
+  build_assets:
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[generated-assets]')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
@@ -215,14 +216,17 @@ jobs:
           test -s assets/bar/items/bar-001.jpg
           test -s assets/bar/items/bar-174.jpg
 
-      - name: Publish generated site to gh-pages
+      - name: Commit generated assets to main
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf .git/index.lock || true
-          git checkout -B gh-pages
-          git add -A
-          git commit -m "Publish generated menu images [skip ci]" || true
-          git push origin gh-pages --force
+          git add assets/menu assets/bar
+          if git diff --cached --quiet; then
+            echo "Generated assets already up to date"
+            exit 0
+          fi
+          git commit -m "Update generated menu images [generated-assets]"
+          git pull --rebase origin main
+          git push origin HEAD:main
