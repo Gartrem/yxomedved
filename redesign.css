@@ -115,3 +115,180 @@ footer{max-width:1530px;margin:auto;padding:34px clamp(28px,6vw,96px) 110px;disp
   .gallery-cta{width:100%;margin-top:20px}
   .reservation-banner-luxe{min-height:106px!important;border-radius:21px!important;padding:18px!important}.reservation-banner-luxe b{font-size:27px!important}.reservation-banner-luxe i{width:54px!important;height:54px!important;border-radius:16px!important}
 }
+/* ===== SIGNATURE KARAOKE UI V4 ===== */
+:root{
+  --sig-gold:#d6b47b;
+  --sig-gold-hi:#f1d9ad;
+  --sig-wine:#8f1029;
+  --sig-wine-hi:#bd2140;
+  --sig-black:#090706;
+}
+
+/* Header booking: compact illuminated tab */
+.signature-header{
+  position:relative;display:inline-grid;grid-template-columns:8px auto 28px;align-items:center;gap:10px;height:42px;padding:0 7px 0 14px;
+  color:#f6eee5;background:linear-gradient(135deg,rgba(23,15,13,.96),rgba(8,6,5,.98));
+  border:1px solid rgba(214,180,123,.28);
+  clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px));
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
+  font-size:8px;letter-spacing:.11em;text-transform:uppercase;overflow:hidden;transition:.25s var(--ease)
+}
+.signature-header:before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--sig-wine-hi),var(--sig-gold),transparent);
+  transform:scaleX(.45);opacity:.55;transition:.25s
+}
+.signature-header:hover{transform:translateY(-2px);border-color:rgba(241,217,173,.46)}
+.signature-header:hover:before{transform:scaleX(1);opacity:1}
+.signature-header-dot{width:7px;height:7px;border-radius:50%;background:#b91c39;box-shadow:0 0 0 3px rgba(185,28,57,.12),0 0 14px rgba(185,28,57,.65)}
+.signature-header b{font-weight:700}
+.signature-header i{width:28px;height:28px;display:grid;place-items:center;border-left:1px solid rgba(214,180,123,.18);font-style:normal;color:var(--sig-gold-hi);font-size:13px}
+
+/* Main signature CTA base */
+.sig-btn{
+  position:relative;isolation:isolate;display:grid;grid-template-columns:58px minmax(0,1fr) 56px;align-items:center;gap:14px;
+  min-width:290px;min-height:76px;padding:8px 8px 8px 12px;
+  color:#f8f0e8;background:#0b0807;border:1px solid rgba(214,180,123,.25);
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  box-shadow:0 20px 48px rgba(0,0,0,.3);overflow:hidden;transition:transform .28s var(--ease),filter .28s var(--ease)
+}
+.sig-btn:before{
+  content:"";position:absolute;z-index:-2;inset:0;
+  background:
+    linear-gradient(90deg,transparent 0 23%,rgba(214,180,123,.07) 23.2% 23.6%,transparent 23.8%),
+    radial-gradient(circle at 100% 0,rgba(214,180,123,.12),transparent 29%),
+    linear-gradient(145deg,#17100e,#090706 72%);
+}
+.sig-btn:after{
+  content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,transparent 0,var(--sig-wine-hi) 35%,var(--sig-gold) 70%,transparent 100%);
+  transform-origin:left;transform:scaleX(.32);opacity:.65;transition:transform .5s var(--ease),opacity .3s
+}
+.sig-btn:hover{transform:translateY(-4px);filter:brightness(1.06)}
+.sig-btn:hover:after{transform:scaleX(1);opacity:1}
+
+.sig-copy{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sig-copy small{font-size:7px;font-weight:700;letter-spacing:.21em;color:#9c8060;text-transform:uppercase}
+.sig-copy b{font:500 19px/1.05 var(--serif);letter-spacing:.005em;color:#f7ede3}
+.sig-action{
+  position:relative;width:56px;height:56px;display:grid;place-items:center;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+  background:linear-gradient(145deg,rgba(214,180,123,.14),rgba(214,180,123,.03));
+  border:1px solid rgba(214,180,123,.24)
+}
+.sig-action span{font-size:19px;color:var(--sig-gold-hi);transition:.28s var(--ease)}
+.sig-btn:hover .sig-action span{transform:translate(3px,-3px)}
+
+/* Equalizer identity */
+.sig-eq{height:48px;display:flex;align-items:center;justify-content:center;gap:4px;border-right:1px solid rgba(214,180,123,.16)}
+.sig-eq i{display:block;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--sig-gold-hi),var(--sig-wine-hi));box-shadow:0 0 8px rgba(173,28,57,.2)}
+.sig-eq i:nth-child(1){height:14px}.sig-eq i:nth-child(2){height:28px}.sig-eq i:nth-child(3){height:38px}.sig-eq i:nth-child(4){height:23px}.sig-eq i:nth-child(5){height:10px}
+.sig-btn:hover .sig-eq i:nth-child(1){animation:sigEq .7s .02s infinite alternate}.sig-btn:hover .sig-eq i:nth-child(2){animation:sigEq .55s .08s infinite alternate}.sig-btn:hover .sig-eq i:nth-child(3){animation:sigEq .8s .14s infinite alternate}.sig-btn:hover .sig-eq i:nth-child(4){animation:sigEq .6s .04s infinite alternate}.sig-btn:hover .sig-eq i:nth-child(5){animation:sigEq .75s .12s infinite alternate}
+@keyframes sigEq{to{height:9px}}
+
+/* Booking button = wine stage light */
+.sig-book:before{
+  background:
+    radial-gradient(circle at 10% 50%,rgba(170,20,50,.19),transparent 24%),
+    radial-gradient(circle at 95% 0,rgba(225,190,132,.12),transparent 28%),
+    linear-gradient(135deg,#210b10 0,#120809 48%,#090706 100%)
+}
+.sig-book .sig-action{background:linear-gradient(145deg,#c99e63,#8f6337);border-color:rgba(255,231,190,.38)}
+.sig-book .sig-action span{color:#21120a}
+
+/* Menu button = editorial index strip */
+.sig-menu{background:#0a0807}
+.sig-menu-mark{height:48px;display:grid;align-content:center;gap:2px;border-right:1px solid rgba(214,180,123,.16)}
+.sig-menu-mark i{font:600 8px/1 var(--sans);letter-spacing:.14em;color:#7f6b58;font-style:normal}
+.sig-menu-mark i:nth-child(2){color:var(--sig-gold-hi);transform:translateX(6px)}
+.sig-menu:hover .sig-menu-mark i:nth-child(1){transform:translateX(4px)}.sig-menu:hover .sig-menu-mark i:nth-child(3){transform:translateX(-3px)}
+.sig-menu-mark i{transition:.25s var(--ease)}
+
+/* VIP = brass plaque / seal */
+.sig-vip{
+  grid-template-columns:72px minmax(0,1fr) 56px;
+  background:linear-gradient(145deg,#17110d,#090706)
+}
+.sig-vip:before{
+  background:
+    linear-gradient(90deg,transparent 0 25%,rgba(214,180,123,.09) 25.2% 25.5%,transparent 25.8%),
+    radial-gradient(circle at 8% 50%,rgba(214,180,123,.13),transparent 22%),
+    linear-gradient(145deg,#1c140f,#0a0706)
+}
+.sig-vip-seal{
+  width:58px;height:58px;display:grid;place-items:center;align-content:center;
+  border-radius:50%;border:1px solid rgba(241,217,173,.42);
+  box-shadow:inset 0 0 0 4px rgba(214,180,123,.05),0 0 0 1px rgba(214,180,123,.08);
+  background:radial-gradient(circle,rgba(214,180,123,.09),transparent 66%)
+}
+.sig-vip-seal small{font-size:5px;letter-spacing:.16em;color:#927654}.sig-vip-seal b{font:600 17px/.9 var(--serif);color:var(--sig-gold-hi)}
+.sig-vip .sig-action{background:linear-gradient(145deg,#d8b47b,#8f673e);border-color:rgba(255,236,201,.35)}
+.sig-vip .sig-action span{color:#21120a}
+
+/* Direct call = restrained */
+.sig-call{min-width:230px;grid-template-columns:48px minmax(0,1fr) 50px;background:rgba(8,6,5,.72)}
+.sig-call-mark{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(214,180,123,.18);border-radius:50%;color:#b99a72;font-size:15px}
+.sig-call .sig-action{width:50px;height:50px}
+
+/* Gallery = camera frame visual */
+.sig-gallery{width:max-content;min-width:260px;margin-top:28px}
+.sig-gallery-frame{width:48px;height:42px;display:grid;place-items:center;border:1px solid rgba(214,180,123,.24);position:relative}
+.sig-gallery-frame:before,.sig-gallery-frame:after{content:"";position:absolute;width:8px;height:8px;border-color:var(--sig-gold);opacity:.7}
+.sig-gallery-frame:before{left:-1px;top:-1px;border-left:2px solid;border-top:2px solid}
+.sig-gallery-frame:after{right:-1px;bottom:-1px;border-right:2px solid;border-bottom:2px solid}
+.sig-gallery-frame i{width:15px;height:15px;border:1px solid rgba(214,180,123,.45);border-radius:50%}
+
+/* Menu section buttons: not generic cards anymore */
+.menu-links{gap:12px}
+.menu-links a{
+  min-height:94px!important;border-radius:0!important;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  border:1px solid rgba(214,180,123,.18)!important;
+  background:linear-gradient(145deg,#130d0b,#090706)!important
+}
+.menu-links a:after{content:"";position:absolute;left:0;bottom:0;width:34%;height:2px;background:linear-gradient(90deg,var(--sig-wine-hi),var(--sig-gold));transition:.4s var(--ease)}
+.menu-links a:hover:after{width:100%}
+.menu-links a b{border-radius:0!important;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))}
+
+/* Reservation centerpiece */
+.reservation-signature{
+  position:relative;display:grid;grid-template-columns:88px minmax(0,1fr) 90px 70px;align-items:center;gap:22px;
+  min-height:142px;margin-top:14px;padding:18px 20px 18px 24px;
+  border:1px solid rgba(214,180,123,.22);color:#f8efe5;
+  clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));
+  background:
+    radial-gradient(circle at 11% 50%,rgba(154,16,44,.17),transparent 19%),
+    linear-gradient(135deg,#190b0e 0,#100a08 44%,#080605 100%);
+  box-shadow:0 28px 65px rgba(0,0,0,.3);overflow:hidden
+}
+.reservation-signature:after{content:"";position:absolute;left:0;bottom:0;width:42%;height:3px;background:linear-gradient(90deg,var(--sig-wine-hi),var(--sig-gold),transparent);transition:.5s var(--ease)}
+.reservation-signature:hover:after{width:100%}
+.reservation-code{
+  width:72px;height:72px;display:grid;place-items:center;border:1px solid rgba(214,180,123,.25);
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  font:600 10px var(--sans);letter-spacing:.12em;color:#b89466
+}
+.reservation-copy{display:flex;flex-direction:column}.reservation-copy small{font-size:7px;letter-spacing:.22em;color:#957758}.reservation-copy b{margin-top:6px;font:500 38px/.95 var(--serif)}.reservation-copy em{margin-top:7px;color:#756c64;font:500 8px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.reservation-signature>.sig-eq{border:0}
+.reservation-arrow{
+  width:64px;height:64px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#d6b47b,#987044);color:#21120a;font-size:22px;
+  clip-path:polygon(0 0,calc(100% - 13px) 0,100% 13px,100% 100%,13px 100%,0 calc(100% - 13px));
+  transition:.28s var(--ease)
+}
+.reservation-signature:hover .reservation-arrow{transform:translate(3px,-3px) rotate(-4deg)}
+
+@media(max-width:900px){
+  .sig-btn{min-width:0}
+  .reservation-signature{grid-template-columns:70px 1fr 60px}.reservation-signature>.sig-eq{display:none}.reservation-code{width:58px;height:58px}.reservation-copy b{font-size:31px}
+}
+@media(max-width:700px){
+  .signature-header{height:38px;grid-template-columns:7px auto 24px;padding-left:10px;gap:7px}.signature-header i{width:24px;height:24px}
+  .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+  .sig-btn{width:100%;grid-template-columns:50px minmax(0,1fr) 50px;min-height:70px;padding:7px 7px 7px 10px;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+  .sig-copy b{font-size:17px}.sig-action{width:50px;height:50px}.sig-eq{height:44px}.sig-vip{grid-template-columns:62px minmax(0,1fr) 50px}.sig-vip-seal{width:50px;height:50px}
+  .sig-gallery{width:100%;margin-top:20px}
+  .menu-links a{min-height:84px!important}
+  .reservation-signature{grid-template-columns:1fr 54px;gap:12px;min-height:118px;padding:18px;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
+  .reservation-code{display:none}.reservation-signature>.sig-eq{display:none}.reservation-copy b{font-size:28px}.reservation-arrow{width:54px;height:54px}
+}
