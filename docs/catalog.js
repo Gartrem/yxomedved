@@ -1,43 +1,90 @@
-const FOOD_SOURCE='menu.html';
-const BAR_SOURCE='bar.html';
 const BAR_GROUPS=[
-  {id:'all',label:'Все',cats:[]},{id:'cocktails',label:'Коктейли',cats:['cocktails','infusions']},{id:'wine',label:'Вино',cats:['glass','champagne','sparkling','wine-color','white-wine','red-wine']},{id:'strong',label:'Крепкий алкоголь',cats:['aperitif','liqueurs','rum','cognac','tequila','gin','vodka','single-malt','scotch','bourbon','irish']},{id:'beer',label:'Пиво',cats:['beer']},{id:'soft',label:'Безалкогольное',cats:['soft','coffee-tea']}
+  {id:'all',label:'Все',cats:[]},
+  {id:'cocktails',label:'Коктейли',cats:['cocktails','infusions']},
+  {id:'wine',label:'Вино',cats:['glass','champagne','sparkling','wine-color','white-wine','red-wine']},
+  {id:'strong',label:'Крепкий алкоголь',cats:['aperitif','liqueurs','rum','cognac','tequila','gin','vodka','single-malt','scotch','bourbon','irish']},
+  {id:'beer',label:'Пиво',cats:['beer']},
+  {id:'soft',label:'Безалкогольное',cats:['soft','coffee-tea']}
 ];
-const state={tab:'food',group:'all',data:{food:null,bar:null},query:''};
-const $=s=>document.querySelector(s);const mainSwitch=[...document.querySelectorAll('.main-switch button')];const catalog=$('#catalog'),status=$('#status'),groupNav=$('#groupNav'),categoryNav=$('#categoryNav'),search=$('#search'),resultCount=$('#resultCount');
-const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function normalizeSrc(src,sourceFile){if(!src)return'';try{return new URL(src,new URL(sourceFile,location.href)).href}catch{return src}}
-async function scrape(sourceFile){const res=await fetch(sourceFile,{cache:'no-store'});if(!res.ok)throw new Error('source '+res.status);const html=await res.text();const doc=new DOMParser().parseFromString(html,'text/html');const cats=[...doc.querySelectorAll('.cat')].map(cat=>({id:cat.id||crypto.randomUUID(),title:cat.querySelector('h2')?.textContent?.trim()||'Раздел',items:[...cat.querySelectorAll('.item')].map(item=>({name:item.querySelector('h3')?.textContent?.replace(/\s+/g,' ').trim()||'Позиция',desc:item.querySelector('p')?.textContent?.replace(/\s+/g,' ').trim()||'',price:item.querySelector('strong')?.textContent?.replace(/\s+/g,' ').trim()||'',img:normalizeSrc(item.querySelector('.item-photo,img')?.getAttribute('src')||'',sourceFile)}))})).filter(c=>c.items.length);if(!cats.length)throw new Error('empty');return cats}
-async function load(kind){if(state.data[kind])return;status.hidden=false;status.textContent='Загружаем меню…';try{state.data[kind]=await scrape(kind==='food'?FOOD_SOURCE:BAR_SOURCE)}catch(e){console.error(e);state.data[kind]=[];status.textContent='Не удалось загрузить меню. Обновите страницу.'}}
-function currentCats(){let cats=state.data[state.tab]||[];if(state.tab==='bar'&&state.group!=='all'){const g=BAR_GROUPS.find(x=>x.id===state.group);cats=cats.filter(c=>g?.cats.includes(c.id))}return cats}
-function visibleItems(c){const q=state.query.toLowerCase();return c.items.filter(x=>!q||`${x.name} ${x.desc} ${c.title}`.toLowerCase().includes(q))}
-function renderGroups(){groupNav.innerHTML='';if(state.tab!=='bar'){groupNav.hidden=true;return}groupNav.hidden=false;BAR_GROUPS.forEach(g=>{const b=document.createElement('button');b.textContent=g.label;b.className=g.id===state.group?'active':'';b.addEventListener('click',()=>{state.group=g.id;render()});groupNav.appendChild(b)})}
-function renderCategories(cats){
+const state={tab:new URLSearchParams(location.search).get('tab')==='bar'?'bar':'food',group:'all',query:''};
+const mainSwitch=[...document.querySelectorAll('.main-switch button')];
+const catalog=document.getElementById('catalog');
+const groupNav=document.getElementById('groupNav');
+const categoryNav=document.getElementById('categoryNav');
+const search=document.getElementById('search');
+const resultCount=document.getElementById('resultCount');
+const sections=[...catalog.querySelectorAll('.catalog-section')];
+
+function sectionAllowed(sec){
+  if(sec.dataset.tab!==state.tab)return false;
+  if(state.tab==='bar'&&state.group!=='all'){
+    const g=BAR_GROUPS.find(x=>x.id===state.group);
+    if(!g?.cats.includes(sec.dataset.cat))return false;
+  }
+  return true;
+}
+function renderGroups(){
+  groupNav.innerHTML='';
+  groupNav.hidden=state.tab!=='bar';
+  if(groupNav.hidden)return;
+  BAR_GROUPS.forEach(g=>{
+    const b=document.createElement('button');
+    b.type='button';b.textContent=g.label;b.className=g.id===state.group?'active':'';
+    b.addEventListener('click',()=>{state.group=g.id;applyFilters(true)});
+    groupNav.appendChild(b);
+  });
+}
+function renderCategories(){
   categoryNav.innerHTML='';
-  cats.forEach(c=>{
+  sections.filter(sectionAllowed).forEach(sec=>{
     const a=document.createElement('a');
-    a.href='#cat-'+c.id;
-    a.textContent=c.title;
+    a.href='#'+sec.id;
+    a.textContent=sec.dataset.title;
     a.addEventListener('click',e=>{
       e.preventDefault();
-      const target=document.getElementById('cat-'+c.id);
-      if(!target)return;
-      const stickyOffset=(document.querySelector('.catalog-header')?.offsetHeight||0)+(document.querySelector('.catalog-tools')?.offsetHeight||0)+18;
-      const top=window.scrollY+target.getBoundingClientRect().top-stickyOffset;
+      const header=document.querySelector('.catalog-header')?.offsetHeight||0;
+      const tools=document.querySelector('.catalog-tools')?.offsetHeight||0;
+      const top=window.scrollY+sec.getBoundingClientRect().top-header-tools-18;
       window.scrollTo({top,behavior:'smooth'});
-      activateCat(c.id);
+      categoryNav.querySelectorAll('a').forEach(x=>x.classList.toggle('active',x===a));
     });
     categoryNav.appendChild(a);
   });
 }
-function activateCat(id){
-  categoryNav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#cat-'+id));
+function applyFilters(userAction=false){
+  const q=state.query.toLowerCase();
+  let total=0;
+  sections.forEach(sec=>{
+    if(!sectionAllowed(sec)){sec.hidden=true;return}
+    let visible=0;
+    sec.querySelectorAll('.menu-item').forEach(item=>{
+      const ok=!q||(item.dataset.search||'').includes(q);
+      item.hidden=!ok;if(ok){visible++;total++}
+    });
+    sec.hidden=visible===0;
+  });
+  resultCount.textContent=total+' позиций';
+  renderGroups();renderCategories();setFeatured();
+  if(userAction){
+    const heroBottom=document.querySelector('.catalog-tools')?.getBoundingClientRect().bottom||0;
+    if(window.scrollY>heroBottom+120) window.scrollTo({top:Math.max(0,window.scrollY),behavior:'auto'});
+  }
 }
-function renderCatalog(cats){
-  const y=window.scrollY;
-  catalog.innerHTML='';let total=0,sectionNo=0;cats.forEach(c=>{const items=visibleItems(c);if(!items.length)return;sectionNo++;total+=items.length;const sec=document.createElement('section');sec.className='catalog-section';sec.id='cat-'+c.id;sec.innerHTML=`<header class="catalog-section-header"><span>${String(sectionNo).padStart(2,'0')}</span><h2>${esc(c.title)}</h2></header><div class="items-grid"></div>`;const grid=sec.querySelector('.items-grid');items.forEach((x,i)=>{const art=document.createElement('article');art.className='menu-item '+(state.tab==='bar'?'bar':'food');const priority=sectionNo===1&&i<2?' fetchpriority="high"':'';art.innerHTML=`${x.img?`<figure class="item-media"><img src="${esc(x.img)}" alt="${esc(x.name)}" loading="${priority?'eager':'lazy'}" decoding="async"${priority} onerror="this.closest('figure').remove()"></figure>`:''}<div class="item-copy"><h3>${esc(x.name)}</h3>${x.desc?`<p>${esc(x.desc)}</p>`:''}</div><strong>${esc(x.price)}</strong>`;grid.appendChild(art)});catalog.appendChild(sec)});resultCount.textContent=total+' позиций';if(!total)catalog.innerHTML='<div class="empty">Ничего не найдено</div>';status.hidden=true;observeSections();if(y>0)requestAnimationFrame(()=>window.scrollTo({top:y,behavior:'auto'}))}
-let sectionObserver;function observeSections(){sectionObserver?.disconnect();if(!('IntersectionObserver'in window))return;sectionObserver=new IntersectionObserver(entries=>{const hit=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(hit)activateCat(hit.target.id.replace('cat-',''),false)},{rootMargin:'-30% 0px -60% 0px',threshold:[0,.2,.5]});catalog.querySelectorAll('.catalog-section').forEach(s=>sectionObserver.observe(s))}
-function setFeatured(){const food=state.tab==='food';$('#featureMain').src=food?'assets/menu/items/food-025.jpg':'assets/bar/items/bar-079.jpg';$('#featureSide').src=food?'assets/menu/items/food-031.jpg':'assets/bar/items/bar-066.jpg';$('#featureMainEyebrow').textContent=food?'ГОРЯЧЕЕ':'COCKTAILS';$('#featureMainTitle').textContent=food?'Выбор кухни':'Авторский ритм';$('#featureSideEyebrow').textContent=food?'РОЛЛЫ':'WINE';$('#featureSideTitle').textContent=food?'Для компании':'Вино'}
-async function setTab(tab){state.tab=tab;state.group='all';mainSwitch.forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));history.replaceState(null,'',location.pathname+'?tab='+tab);await load(tab);setFeatured();render()}
-function render(){const cats=currentCats();renderGroups();renderCategories(cats);renderCatalog(cats)}
-mainSwitch.forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));search.addEventListener('input',()=>{state.query=search.value.trim();render()});setTab(new URLSearchParams(location.search).get('tab')==='bar'?'bar':'food');
+function setFeatured(){
+  const food=state.tab==='food';
+  document.getElementById('featureMain').src=food?'assets/menu/items/food-025.jpg':'assets/bar/items/bar-079.jpg';
+  document.getElementById('featureSide').src=food?'assets/menu/items/food-031.jpg':'assets/bar/items/bar-066.jpg';
+  document.getElementById('featureMainEyebrow').textContent=food?'ГОРЯЧЕЕ':'COCKTAILS';
+  document.getElementById('featureMainTitle').textContent=food?'Выбор кухни':'Авторский ритм';
+  document.getElementById('featureSideEyebrow').textContent=food?'РОЛЛЫ':'WINE';
+  document.getElementById('featureSideTitle').textContent=food?'Для компании':'Вино';
+}
+function setTab(tab){
+  state.tab=tab;state.group='all';
+  mainSwitch.forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  history.replaceState(null,'',location.pathname+'?tab='+tab);
+  applyFilters(false);
+}
+mainSwitch.forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
+search.addEventListener('input',()=>{state.query=search.value.trim();applyFilters(false)});
+setTab(state.tab);
