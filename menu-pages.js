@@ -25,7 +25,11 @@ items.forEach((item,i)=>{
     img.decoding='async';
     img.loading=i<6?'eager':'lazy';
     if(i<3) img.fetchPriority='high';
-    img.addEventListener('error',()=>{media.hidden=true},{once:true});
+    img.addEventListener('error',()=>{
+      img.removeAttribute('src');
+      img.alt='';
+      media.classList.add('image-missing');
+    },{once:true});
   }
 });
 
@@ -48,14 +52,5 @@ const chips=[...document.querySelectorAll('.chips a[href^="#"]')];
 const chipById=new Map(chips.map(a=>[a.getAttribute('href').slice(1),a]));
 function activateChip(id){
   chips.forEach(a=>a.classList.toggle('is-active',a===chipById.get(id)));
-  const active=chipById.get(id);
-  if(active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-}
-if('IntersectionObserver' in window && chips.length){
-  const observer=new IntersectionObserver(entries=>{
-    const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-    if(visible?.target?.id) activateChip(visible.target.id);
-  },{rootMargin:'-22% 0px -68% 0px',threshold:[0,.15,.35]});
-  cats.forEach(c=>observer.observe(c));
 }
 chips.forEach(a=>a.addEventListener('click',()=>activateChip(a.getAttribute('href').slice(1))));
