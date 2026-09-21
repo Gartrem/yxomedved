@@ -292,3 +292,136 @@ footer{max-width:1530px;margin:auto;padding:34px clamp(28px,6vw,96px) 110px;disp
   .reservation-signature{grid-template-columns:1fr 54px;gap:12px;min-height:118px;padding:18px;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
   .reservation-code{display:none}.reservation-signature>.sig-eq{display:none}.reservation-copy b{font-size:28px}.reservation-arrow{width:54px;height:54px}
 }
+/* ===== EXPERIENCE EMBLEMS V5 ===== */
+.experience-grid{
+  margin-top:72px;
+  border:1px solid rgba(226,194,143,.10);
+  background:linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,0));
+  overflow:hidden;
+}
+.experience-card{
+  position:relative;
+  min-height:350px;
+  padding:22px 22px 24px;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(133,15,39,.075),transparent 34%),
+    linear-gradient(180deg,rgba(14,10,9,.28),rgba(8,6,5,.55));
+  transition:background .35s var(--ease),border-color .35s var(--ease);
+}
+.experience-card:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:18%;
+  right:18%;
+  top:40px;
+  height:150px;
+  background:radial-gradient(ellipse,rgba(171,27,51,.12),transparent 68%);
+  filter:blur(18px);
+  opacity:.55;
+  transition:opacity .35s var(--ease),transform .45s var(--ease);
+}
+.experience-card:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--sig-wine-hi),var(--sig-gold),transparent);
+  transform:scaleX(.12);
+  opacity:0;
+  transition:transform .5s var(--ease),opacity .35s;
+}
+.experience-card:hover{
+  background:
+    radial-gradient(circle at 50% 34%,rgba(146,17,42,.13),transparent 39%),
+    linear-gradient(180deg,rgba(21,14,12,.48),rgba(8,6,5,.75));
+}
+.experience-card:hover:before{opacity:1;transform:scale(1.08)}
+.experience-card:hover:after{transform:scaleX(.78);opacity:.9}
+.experience-no{
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:2;
+  color:#8d7357!important;
+  font:600 7px/1 var(--sans)!important;
+  letter-spacing:.18em;
+}
+.experience-icon{
+  position:relative;
+  height:190px;
+  display:grid;
+  place-items:center;
+  margin-top:8px;
+}
+.experience-icon:before{
+  content:"";
+  position:absolute;
+  width:126px;height:126px;
+  border-radius:50%;
+  border:1px solid rgba(214,180,123,.07);
+  box-shadow:0 0 60px rgba(132,17,39,.08);
+}
+.experience-icon img{
+  position:relative;
+  z-index:1;
+  width:164px;
+  height:164px;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 26px rgba(0,0,0,.42));
+  transform:translateY(2px);
+  transition:transform .5s var(--ease),filter .45s var(--ease);
+}
+.experience-card:hover .experience-icon img{
+  transform:translateY(-5px) scale(1.045);
+  filter:drop-shadow(0 22px 30px rgba(0,0,0,.5)) drop-shadow(0 0 10px rgba(177,25,51,.13));
+}
+.experience-copy{
+  position:relative;
+  z-index:2;
+  padding-top:10px;
+  border-top:1px solid rgba(226,194,143,.075);
+}
+.experience-card h3{
+  margin:0 0 9px;
+  font:500 31px/.95 var(--serif);
+  color:#f3e9df;
+  letter-spacing:-.015em;
+}
+.experience-card p{
+  margin:0;
+  max-width:31ch;
+  color:#8f8780;
+  font-size:9px;
+  line-height:1.65;
+}
+@media(max-width:1050px){
+  .experience-card{min-height:330px}
+  .experience-icon{height:174px}
+  .experience-icon img{width:150px;height:150px}
+}
+@media(max-width:700px){
+  .experience-grid{
+    grid-template-columns:1fr 1fr;
+    margin-top:42px;
+  }
+  .experience-card{
+    min-height:260px;
+    padding:16px 14px 18px;
+  }
+  .experience-card:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .experience-no{top:13px;left:13px}
+  .experience-icon{height:145px;margin-top:2px}
+  .experience-icon:before{width:96px;height:96px}
+  .experience-icon img{width:128px;height:128px}
+  .experience-copy{padding-top:9px}
+  .experience-card h3{font-size:24px;margin-bottom:6px}
+  .experience-card p{font-size:8px;line-height:1.5}
+}
+@media(max-width:430px){
+  .experience-card{min-height:244px;padding:14px 12px 16px}
+  .experience-icon{height:134px}
+  .experience-icon img{width:118px;height:118px}
+  .experience-card h3{font-size:22px}
+}
