@@ -36,6 +36,8 @@ jobs:
               h1:document.querySelector('.mp-hero h1')?.innerText||'',
               items:document.querySelectorAll('.item').length,
               logo:document.querySelector('.mp-head img')?.getAttribute('src')||'',
+              visuals:document.querySelectorAll('.menu-visual').length,
+              loadedVisuals:[...document.querySelectorAll('.menu-visual img')].filter(img=>img.complete&&img.naturalWidth>0).length,
               overflow:document.documentElement.scrollWidth>innerWidth+1
             }));
             await page.locator('#q').fill(searchTerm);
@@ -49,6 +51,8 @@ jobs:
               && before.title.includes(expectedTitle)
               && before.items>=minItems
               && before.logo.includes('logo-glossy.png')
+              && before.visuals>=3
+              && before.loadedVisuals>=3
               && !before.overflow
               && after.visible>=1
               && after.emptyHidden===true;
