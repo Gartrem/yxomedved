@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<defs>
+ <radialGradient id="bg" cx="50%" cy="42%" r="66%"><stop offset="0" stop-color="#4d0d18"/><stop offset=".58" stop-color="#1b070b"/><stop offset="1" stop-color="#090506"/></radialGradient>
+ <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f5d59f"/><stop offset=".42" stop-color="#c69354"/><stop offset=".75" stop-color="#f0c77f"/><stop offset="1" stop-color="#865625"/></linearGradient>
+ <linearGradient id="r" x1="0" x2="1"><stop stop-color="#7d0d25"/><stop offset=".5" stop-color="#e42b50"/><stop offset="1" stop-color="#7d0d25"/></linearGradient>
+ <filter id="gl"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<circle cx="128" cy="128" r="112" fill="url(#bg)" stroke="url(#g)" stroke-width="4"/>
+<circle cx="128" cy="128" r="99" fill="none" stroke="#d6a765" stroke-width="1.3" opacity=".72"/>
+<circle cx="128" cy="128" r="88" fill="none" stroke="#74301f" stroke-width="2" opacity=".65"/>
+<path d="M32 82 Q62 47 92 64 L92 142 Q62 123 32 156Z" fill="#64101d" stroke="#d0a160" stroke-width="2"/>
+<path d="M224 82 Q194 47 164 64 L164 142 Q194 123 224 156Z" fill="#64101d" stroke="#d0a160" stroke-width="2"/>
+<path d="M46 76 Q70 56 88 68 M210 76 Q186 56 168 68" fill="none" stroke="#f3c986" stroke-width="2" opacity=".75"/>
+<g filter="url(#gl)" fill="none" stroke="url(#g)" stroke-linecap="round">
+ <path d="M76 60 L67 115" stroke-width="4"/><path d="M180 60 L189 115" stroke-width="4"/>
+</g>
+<g transform="translate(128 103)">
+ <path d="M-24 -32 Q0 -48 24 -32 L24 24 Q0 40 -24 24Z" fill="#17100e" stroke="url(#g)" stroke-width="5"/>
+ <g stroke="#d9aa66" stroke-width="4"><path d="M-18 -23H18"/><path d="M-19 -12H19"/><path d="M-20 -1H20"/><path d="M-18 10H18"/></g>
+ <path d="M0 37V73" stroke="url(#g)" stroke-width="6"/><path d="M-20 73H20" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+</g>
+<path d="M50 176 Q128 150 206 176 L195 202 Q128 218 61 202Z" fill="#24090d" stroke="url(#g)" stroke-width="3"/>
+<path d="M58 181 Q128 160 198 181" fill="none" stroke="url(#r)" stroke-width="3" filter="url(#gl)"/>
+<g fill="#f3ce91" filter="url(#gl)"><circle cx="78" cy="188" r="3"/><circle cx="103" cy="183" r="3"/><circle cx="128" cy="181" r="3"/><circle cx="153" cy="183" r="3"/><circle cx="178" cy="188" r="3"/></g>
+<g fill="#f4d49e" filter="url(#gl)"><path d="M128 8l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M18 128l4 7 7 4-7 4-4 7-4-7-7-4 7-4z"/><path d="M238 128l4 7 7 4-7 4-4 7-4-7-7-4 7-4z"/></g>
+</svg>
