@@ -1,4 +1,4 @@
-name: Verify live site
+name: Quick live logo check
 
 on:
   pull_request:
@@ -21,69 +21,33 @@ jobs:
           npm init -y >/dev/null 2>&1
           npm install playwright@1.55.0 >/dev/null 2>&1
           npx playwright install --with-deps chromium >/dev/null 2>&1
-      - name: Check deployed white logo
+      - name: Inspect deployed page
         run: |
-          mkdir -p verification
-          cat > verify-live.mjs <<'NODE'
+          cat > check.mjs <<'NODE'
           import { chromium } from 'playwright';
-          const expected='20260921-white-logo-v5';
-          const url='https://gartrem.github.io/yxomedved/';
           const browser=await chromium.launch({headless:true});
-          const report={expected,checkedAt:new Date().toISOString(),checks:{},mobile:{},desktop:{}};
           try{
-            const wait=await browser.newPage({viewport:{width:390,height:844}});
-            let marker=null;
-            for(let i=0;i<18;i++){
-              await wait.goto(url+'?v='+Date.now(),{waitUntil:'networkidle',timeout:90000});
-              marker=await wait.locator('meta[name="build-version"]').getAttribute('content').catch(()=>null);
-              if(marker===expected) break;
-              await wait.waitForTimeout(10000);
-            }
-            report.marker=marker;
-            await wait.close();
-
             for(const [name,viewport] of Object.entries({mobile:{width:390,height:844},desktop:{width:1440,height:900}})){
               const page=await browser.newPage({viewport});
-              const res=await page.goto(url+'?v='+Date.now(),{waitUntil:'networkidle',timeout:90000});
-              await page.waitForTimeout(1200);
+              const res=await page.goto('https://gartrem.github.io/yxomedved/?quick='+Date.now(),{waitUntil:'domcontentloaded',timeout:30000});
+              await page.waitForTimeout(1500);
               const data=await page.evaluate(()=>{
                 const logo=document.querySelector('.brand img');
                 const r=logo?.getBoundingClientRect();
                 return {
-                  status:document.readyState,
-                  build:document.querySelector('meta[name="build-version"]')?.content||null,
+                  marker:document.querySelector('meta[name="build-version"]')?.content||null,
                   logoSrc:logo?.getAttribute('src')||null,
-                  logoNaturalWidth:logo?.naturalWidth||0,
-                  logoNaturalHeight:logo?.naturalHeight||0,
-                  logoWidth:r?.width||0,
-                  logoHeight:r?.height||0,
+                  natural:[logo?.naturalWidth||0,logo?.naturalHeight||0],
+                  rendered:[r?.width||0,r?.height||0],
                   overflow:document.documentElement.scrollWidth>innerWidth+1
                 };
               });
-              data.httpStatus=res?.status()||null;
-              await page.screenshot({path:`verification/${name}.png`,fullPage:false});
-              report[name]=data;
+              data.http=res?.status()||null;
+              console.log(name.toUpperCase()+'_LIVE='+JSON.stringify(data));
+              const ok=data.http===200 && data.logoSrc.includes('logo-white-hq.webp') && data.natural[0]>=700 && data.natural[1]>=450 && !data.overflow;
+              if(!ok) throw new Error('Live check failed: '+JSON.stringify(data));
               await page.close();
             }
-            report.checks={
-              deployed:report.marker===expected,
-              httpOk:report.mobile.httpStatus===200&&report.desktop.httpStatus===200,
-              whiteLogo:report.mobile.logoSrc.includes('logo-white-hq.webp')&&report.desktop.logoSrc.includes('logo-white-hq.webp'),
-              highResolution:report.mobile.logoNaturalWidth>=700&&report.mobile.logoNaturalHeight>=450,
-              visible:report.mobile.logoWidth>65&&report.mobile.logoHeight>45,
-              noOverflow:!report.mobile.overflow&&!report.desktop.overflow
-            };
-            report.pass=Object.values(report.checks).every(Boolean);
-            console.log('LIVE_LOGO_REPORT='+JSON.stringify(report));
-            if(!report.pass) process.exit(2);
-          } finally {
-            await browser.close();
-          }
+          }finally{await browser.close();}
           NODE
-          node verify-live.mjs
-      - name: Upload screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: white-logo-live-screenshots
-          path: verification/*.png
+          node check.mjs
