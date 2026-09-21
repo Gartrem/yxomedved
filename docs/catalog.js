@@ -37,7 +37,6 @@ function renderGroups(){
     button.addEventListener('click',()=>{
       state.group=group.id;
       applyFilters();
-      document.querySelector('.category-nav')?.scrollIntoView({behavior:'smooth',block:'start'});
     });
     groupNav.appendChild(button);
   });
