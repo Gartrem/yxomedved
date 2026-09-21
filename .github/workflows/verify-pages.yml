@@ -40,26 +40,37 @@ jobs:
               loadedVisuals:[...document.querySelectorAll('.menu-visual img')].filter(img=>img.complete&&img.naturalWidth>0).length,
               categoryPhotos:document.querySelectorAll('.cat-photo').length,
               loadedCategoryPhotos:[...document.querySelectorAll('.cat-photo img')].filter(img=>img.complete&&img.naturalWidth>0).length,
+              categoryPhotoSrcs:[...document.querySelectorAll('.cat-photo img')].map(img=>img.getAttribute('src')),
               overflow:document.documentElement.scrollWidth>innerWidth+1
             }));
+            const categoryAssets = await page.evaluate(async()=>{
+              const srcs=[...document.querySelectorAll('.cat-photo img')].map(img=>img.src);
+              return Promise.all(srcs.map(async src=>{
+                try{
+                  const r=await fetch(src+'?assetcheck='+Date.now(),{cache:'no-store'});
+                  const bytes=await r.arrayBuffer();
+                  return {src,ok:r.ok,size:bytes.byteLength};
+                }catch(e){ return {src,ok:false,size:0}; }
+              }));
+            });
             await page.locator('#q').fill(searchTerm);
             await page.waitForTimeout(200);
             const after=await page.evaluate(()=>({
               visible:[...document.querySelectorAll('.item')].filter(x=>!x.hidden).length,
               emptyHidden:document.querySelector('#empty')?.hidden
             }));
-            console.log(path.toUpperCase()+'='+JSON.stringify({http:res?.status(),before,after}));
+            console.log(path.toUpperCase()+'='+JSON.stringify({http:res?.status(),before,categoryAssets,after}));
             const ok=res?.status()===200
               && before.title.includes(expectedTitle)
               && before.items>=minItems
               && before.logo.includes('logo-glossy.png')
               && (path==='menu.html'
-                    ? (before.categoryPhotos===9 && before.loadedCategoryPhotos===9)
+                    ? (before.categoryPhotos===9 && categoryAssets.length===9 && categoryAssets.every(x=>x.ok&&x.size>5000))
                     : (before.visuals>=3 && before.loadedVisuals>=3))
               && !before.overflow
               && after.visible>=1
               && after.emptyHidden===true;
-            if(!ok) throw new Error(path+' failed: '+JSON.stringify({before,after,http:res?.status()}));
+            if(!ok) throw new Error(path+' failed: '+JSON.stringify({before,categoryAssets,after,http:res?.status()}));
             await page.close();
           }
           try{
