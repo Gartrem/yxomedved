@@ -49,8 +49,8 @@ jobs:
               data.http=res?.status()||null;
               console.log(name.toUpperCase()+'_RESTORED='+JSON.stringify(data));
               const ok=data.http===200
-                && data.marker==='20260921-logo-v4'
-                && data.logoSrc.includes('logo.svg')
+                && data.marker==='20260921-restore-index-v2'
+                && data.logoSrc.includes('logo-glossy.png')
                 && /Больше/.test(data.title||'')
                 && data.cards===4
                 && data.customFeatureSvgs>=4
