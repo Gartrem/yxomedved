@@ -1,0 +1,10 @@
+const header=document.querySelector('.site-header');
+const burger=document.querySelector('.burger');
+const drawer=document.querySelector('.menu-drawer');
+const closeBtn=drawer?.querySelector('button');
+const setDrawer=open=>{drawer?.classList.toggle('open',open);drawer?.setAttribute('aria-hidden',String(!open));burger?.setAttribute('aria-expanded',String(open));document.body.classList.toggle('lock',open)};
+burger?.addEventListener('click',()=>setDrawer(true));
+closeBtn?.addEventListener('click',()=>setDrawer(false));
+drawer?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setDrawer(false)));
+const onScroll=()=>header?.classList.toggle('scrolled',scrollY>24);addEventListener('scroll',onScroll,{passive:true});onScroll();
+if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
