@@ -30,6 +30,44 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build menu category images
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+          mkdir -p assets/menu
+
+          python3 - <<'PY' > /tmp/yandex_download_url.txt
+          import json, urllib.parse, urllib.request
+          public = "https://disk.yandex.ru/i/AwPCn1kzQHqeXw"
+          api = "https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key=" + urllib.parse.quote(public, safe="")
+          with urllib.request.urlopen(api, timeout=30) as r:
+              print(json.load(r)["href"])
+          PY
+
+          curl -fL --retry 3 "$(cat /tmp/yandex_download_url.txt)" -o /tmp/kitchen-menu.pdf
+
+          render_page () {
+            local page="$1"
+            local name="$2"
+            pdftoppm -f "$page" -l "$page" -singlefile -jpeg -r 105 -jpegopt quality=82 /tmp/kitchen-menu.pdf "/tmp/$name"
+            mv "/tmp/$name.jpg" "assets/menu/$name.jpg"
+          }
+
+          render_page 2 food-2
+          render_page 4 food-4
+          render_page 6 food-6
+          render_page 7 food-7
+          render_page 8 food-8
+          render_page 11 food-11
+          render_page 13 food-13
+          render_page 15 food-15
+          render_page 16 food-16
+
+          test -s assets/menu/food-2.jpg
+          test -s assets/menu/food-16.jpg
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
