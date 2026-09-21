@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gartrem.github.io/yxomedved/sitemap.xml

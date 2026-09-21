@@ -1,14 +1,9 @@
-# Ухо & Медведь — redesign 2026
+# Ухо & Медведь — редизайн сайта
 
-Mobile-first static redesign for yxoimedved.com.
+Статический сайт для GitHub Pages. Основные файлы находятся в корне и зеркально в `docs/`, чтобы работать с любой из этих настроек Pages.
 
-## Stack
-- HTML
-- CSS
-- Vanilla JavaScript
+Сохранены существующий SVG-логотип, телефон, адрес, часы, ссылки на меню кухни и бара, фотоотчёты 2ГИС и бронирование через WhatsApp. Сайт представляет заведение как караоке-бар — это соответствует исходному содержимому.
 
-## Run locally
-Open `index.html` or run any static HTTP server.
+Для первого экрана и галереи использованы фотографии заведения из [2ГИС](https://2gis.ru/novosibirsk/firm/141265769806977/tab/photos), предоставленные владельцем в задании: кадр зала и коктейль. Кадры аккуратно обработаны по цвету и свету, затем сохранены в двух размерах WebP. Ссылка на исходную галерею доступна на сайте. В исходниках нет текстового меню и подтверждённых актуальных событий, поэтому они не добавлены.
 
-## Before production
-Replace draft hero artwork with final licensed source, confirm hours/menu/contacts, and connect analytics + production domain.
+Запуск: откройте `index.html` или выполните `python -m http.server 4173`.
