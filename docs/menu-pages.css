@@ -354,3 +354,8 @@ main{max-width:1360px}
   .food-catalog .item h3{font-size:21px}
   .food-catalog .item>strong{font-size:20px}
 }
+
+/* ===== LEGACY MENU SCROLL STABILITY V6 ===== */
+html,body,.food-catalog,.bar-catalog,.cat,.item,.item-media{overflow-anchor:none}
+.item-media.image-missing{background:linear-gradient(145deg,#160b0d,#090506)}
+.item-media.image-missing:before{content:"";position:absolute;inset:18%;border:1px solid rgba(216,170,112,.12);border-radius:50%;opacity:.45}
