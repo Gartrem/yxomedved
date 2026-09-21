@@ -1,4 +1,4 @@
-name: Verify item images live
+name: Verify live website
 
 on:
   pull_request:
@@ -16,44 +16,73 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Verify mirrors and static structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          cmp index.html docs/index.html
+          cmp redesign.css docs/redesign.css
+          cmp redesign.js docs/redesign.js
+          cmp catalog.html docs/catalog.html
+          cmp catalog.css docs/catalog.css
+          cmp catalog.js docs/catalog.js
+          ! grep -q "studioVisual" catalog.js
+          ! grep -q "restoreBarSprites" catalog.js
+          ! grep -q "IntersectionObserver" catalog.js
+          ! grep -q "scrollIntoView" catalog.js
+          test "$(grep -o 'class="menu-item food"' catalog.html | wc -l)" -eq 43
+          test "$(grep -o 'class="menu-item bar"' catalog.html | wc -l)" -eq 174
+          test "$(grep -o 'class="bar-mark"' catalog.html | wc -l)" -eq 174
       - name: Install Playwright
         run: |
           npm init -y >/dev/null 2>&1
           npm install playwright@1.55.0 >/dev/null 2>&1
           npx playwright install --with-deps chromium >/dev/null 2>&1
-      - name: Check live item images
+      - name: Verify local pages and scroll stability
+        shell: bash
         run: |
+          python3 -m http.server 4173 >/tmp/yxo-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
           cat > check.mjs <<'NODE'
           import { chromium } from 'playwright';
           const browser=await chromium.launch({headless:true});
-          const base='https://gartrem.github.io/yxomedved/';
-          async function inspect(path,expected,term){
-            const page=await browser.newPage({viewport:{width:390,height:844}});
-            const res=await page.goto(base+path+'?allphotos='+Date.now(),{waitUntil:'networkidle',timeout:60000});
-            await page.waitForTimeout(1600);
-            const data=await page.evaluate(async()=>{
-              const items=[...document.querySelectorAll('.item')];
-              const imgs=items.map(x=>x.querySelector('.item-photo')).filter(Boolean);
-              const checks=await Promise.all(imgs.map(async img=>{
-                const src=img.src;
-                try{
-                  const r=await fetch(src+(src.includes('?')?'&':'?')+'probe='+Date.now(),{cache:'no-store'});
-                  const b=await r.arrayBuffer();
-                  return {ok:r.ok,size:b.byteLength};
-                }catch(e){return {ok:false,size:0}}
-              }));
-              return {items:items.length,imgs:imgs.length,ok:checks.filter(x=>x.ok&&x.size>4000).length,overflow:document.documentElement.scrollWidth>innerWidth+1};
-            });
-            await page.locator('#q').fill(term); await page.waitForTimeout(120);
-            const visible=await page.evaluate(()=>[...document.querySelectorAll('.item')].filter(x=>!x.hidden).length);
-            console.log(path.toUpperCase()+'='+JSON.stringify({http:res?.status(),data,visible}));
-            if(res?.status()!==200||data.items!==expected||data.imgs!==expected||data.ok!==expected||data.overflow||visible<1)
-              throw new Error(path+' verification failed '+JSON.stringify({data,visible,http:res?.status()}));
-            await page.close();
-          }
           try{
-            await inspect('menu.html',43,'том ям');
-            await inspect('bar.html',174,'negroni');
-          }finally{await browser.close();}
+            for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
+              const page=await browser.newPage({viewport});
+              const response=await page.goto('http://127.0.0.1:4173/index.html',{waitUntil:'networkidle'});
+              if(response?.status()!==200) throw new Error('index failed');
+              const indexCheck=await page.evaluate(()=>({
+                overflow:document.documentElement.scrollWidth>innerWidth+1,
+                logo:[...document.images].some(img=>img.src.includes('logo-glossy.png')&&img.naturalWidth>0)
+              }));
+              if(indexCheck.overflow||!indexCheck.logo) throw new Error('index layout '+JSON.stringify(indexCheck));
+
+              await page.goto('http://127.0.0.1:4173/catalog.html?tab=food',{waitUntil:'networkidle'});
+              const base=await page.evaluate(()=>({
+                food:document.querySelectorAll('.menu-item.food').length,
+                bar:document.querySelectorAll('.menu-item.bar').length,
+                overflow:document.documentElement.scrollWidth>innerWidth+1
+              }));
+              if(base.food!==43||base.bar!==174||base.overflow) throw new Error('catalog structure '+JSON.stringify(base));
+
+              const positions=[];
+              const max=await page.evaluate(()=>document.documentElement.scrollHeight-innerHeight);
+              for(let y=0;y<=max;y+=Math.max(220,Math.floor(viewport.height*.65))){
+                await page.evaluate(y=>scrollTo(0,y),y);
+                await page.waitForTimeout(35);
+                positions.push(await page.evaluate(()=>scrollY));
+              }
+              for(let i=1;i<positions.length;i++){
+                if(positions[i]+4<positions[i-1]) throw new Error('passive scroll jumped '+JSON.stringify(positions.slice(Math.max(0,i-3),i+2)));
+              }
+
+              await page.locator('#search').fill('том ям');
+              await page.waitForTimeout(50);
+              const visible=await page.evaluate(()=>[...document.querySelectorAll('.menu-item.food')].filter(x=>!x.hidden&&x.offsetParent!==null).length);
+              if(visible<1) throw new Error('food search failed');
+              await page.close();
+            }
+          }finally{await browser.close()}
           NODE
           node check.mjs
