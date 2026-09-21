@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090807">
+  <meta name="description" content="Меню кухни и барная карта Ухо & Медведь.">
+  <title>Меню — Ухо & Медведь</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo-glossy.png?v=concept-v2">
+  <link rel="stylesheet" href="catalog.css?v=concept-v2">
+</head>
+<body>
+  <header class="catalog-header">
+    <a class="catalog-logo" href="index.html"><img src="assets/logo-glossy.png?v=concept-v2" alt="Ухо & Медведь"></a>
+    <div class="catalog-head-actions"><a class="back" href="index.html#menu">← На главную</a><a class="book" href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Бронь</a></div>
+  </header>
+  <main class="catalog-shell">
+    <section class="catalog-hero">
+      <p class="kicker">УХО & МЕДВЕДЬ · НОВОСИБИРСК</p>
+      <h1>Еда для вечера.<br><em>Напитки для ночи.</em></h1>
+      <p class="lead">Один каталог. Быстрый поиск. Понятные категории.</p>
+      <div class="main-switch" role="tablist" aria-label="Раздел меню"><button class="active" data-tab="food" role="tab">Еда</button><button data-tab="bar" role="tab">Напитки</button></div>
+    </section>
+    <section class="catalog-featured">
+      <figure><img id="featureMain" src="assets/menu/items/food-025.jpg" alt=""><figcaption><small id="featureMainEyebrow">ГОРЯЧЕЕ</small><b id="featureMainTitle">Выбор кухни</b></figcaption></figure>
+      <figure><img id="featureSide" src="assets/menu/items/food-031.jpg" alt=""><figcaption><small id="featureSideEyebrow">РОЛЛЫ</small><b id="featureSideTitle">Для компании</b></figcaption></figure>
+    </section>
+    <section class="catalog-tools"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Найти блюдо или напиток" autocomplete="off"></label><b id="resultCount"></b></section>
+    <nav class="group-nav" id="groupNav" aria-label="Группы меню"></nav><nav class="category-nav" id="categoryNav" aria-label="Категории"></nav>
+    <div id="status" class="status">Загружаем меню…</div><div id="catalog" class="catalog"></div>
+    <section class="catalog-cta"><small>ВЫБРАЛИ?</small><h2>Теперь можно<br><em>выбрать стол.</em></h2><a href="https://wa.me/79139168901?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%BB" target="_blank" rel="noopener">Забронировать стол ↗</a></section>
+  </main>
+  <footer class="catalog-footer"><img src="assets/logo-glossy.png?v=concept-v2" alt="Ухо & Медведь"><span>Советская, 33 · +7 (383) 292-89-01</span></footer>
+  <script src="catalog.js?v=concept-v2"></script>
+</body>
+</html>
