@@ -199,6 +199,17 @@ jobs:
           NODE
           node import-2gis.mjs
 
+      - name: Upload 2GIS selection artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: venue-2gis-selection
+          path: |
+            assets/venue/2gis/contact-sheet.jpg
+            assets/venue/2gis/candidate-*.webp
+            assets/venue/2gis/accepted-index.json
+          if-no-files-found: error
+          retention-days: 1
+
       - name: Commit imported photos
         shell: bash
         run: |
