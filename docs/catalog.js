@@ -1,3 +1,4 @@
+document.querySelectorAll('.bar-mark').forEach(el=>el.remove());
 const BAR_GROUPS=[
   {id:'all',label:'Все',cats:[]},
   {id:'cocktails',label:'Коктейли',cats:['cocktails','infusions']},
