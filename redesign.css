@@ -658,3 +658,310 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
   object-position:center 42%!important;
   filter:saturate(.88) contrast(1.05) brightness(.82)!important;
 }
+
+
+/* =========================================================
+   SIGNATURE BUTTON SYSTEM V25
+   Karaoke control / stage-key inspired UI
+   ========================================================= */
+:root{
+  --btn-wine:#99152f;
+  --btn-wine-2:#c31f43;
+  --btn-gold:#d1aa72;
+  --btn-gold-soft:#9e7a4d;
+  --btn-ink:#090807;
+  --btn-glass:rgba(18,12,10,.78);
+}
+
+/* Shared control shell */
+.button{
+  position:relative!important;
+  isolation:isolate;
+  min-height:54px!important;
+  padding:0 58px 0 58px!important;
+  gap:0!important;
+  border-radius:16px 6px 16px 6px!important;
+  overflow:hidden;
+  border:1px solid rgba(209,170,114,.26)!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  letter-spacing:.055em!important;
+  text-transform:uppercase;
+  box-shadow:0 12px 28px rgba(0,0,0,.18)!important;
+  transition:transform .22s var(--ease),border-color .22s,box-shadow .22s,filter .22s,background .22s!important;
+}
+.button:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+}
+.button:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:45px;
+  top:10px;
+  bottom:10px;
+  width:1px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.28),transparent);
+}
+.button-primary{
+  color:#fff!important;
+  background:linear-gradient(115deg,var(--btn-wine) 0%,#b11939 55%,var(--btn-wine-2) 100%)!important;
+  border-color:rgba(255,221,179,.22)!important;
+  box-shadow:
+    0 14px 34px rgba(109,10,35,.28),
+    inset 0 1px 0 rgba(255,255,255,.13),
+    inset 0 -1px 0 rgba(0,0,0,.25)!important;
+}
+.button-primary:before{
+  background:
+    radial-gradient(circle at 14px 50%,rgba(255,255,255,.14),transparent 24px),
+    linear-gradient(90deg,rgba(255,255,255,.04),transparent 35%);
+}
+.button-secondary{
+  color:#eadfce!important;
+  background:
+    linear-gradient(180deg,rgba(22,16,13,.92),rgba(8,7,6,.92))!important;
+  border-color:rgba(209,170,114,.42)!important;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.03)!important;
+}
+.button-secondary:before{
+  background:
+    linear-gradient(90deg,rgba(209,170,114,.08),transparent 32%),
+    repeating-linear-gradient(135deg,transparent 0 10px,rgba(255,255,255,.012) 10px 11px);
+}
+.button:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(225,187,132,.7)!important;
+  box-shadow:0 18px 38px rgba(0,0,0,.28)!important;
+}
+.button:active{transform:translateY(0) scale(.985)!important}
+
+/* Left control puck */
+.cta-mic,.secondary-icon{
+  position:absolute!important;
+  left:10px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:34px!important;
+  height:34px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:50%!important;
+  border:1px solid rgba(237,204,157,.28)!important;
+  background:
+    radial-gradient(circle at 35% 28%,rgba(255,255,255,.16),transparent 24%),
+    linear-gradient(145deg,rgba(38,25,20,.94),rgba(9,7,6,.98))!important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255,255,255,.02),
+    0 5px 12px rgba(0,0,0,.25)!important;
+}
+.cta-mic img,.secondary-icon img{
+  width:18px!important;
+  height:18px!important;
+  object-fit:contain!important;
+  filter:sepia(.25) saturate(.8) brightness(1.15)!important;
+}
+
+/* Right stage-key arrow */
+.cta-arrow{
+  position:absolute!important;
+  right:7px!important;
+  top:7px!important;
+  bottom:7px!important;
+  width:38px!important;
+  height:auto!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:11px 3px 11px 3px!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  background:rgba(0,0,0,.17)!important;
+  transition:background .2s,transform .2s!important;
+}
+.button-secondary .cta-arrow{border-color:rgba(209,170,114,.18)!important;background:rgba(209,170,114,.06)!important}
+.cta-arrow svg{width:17px!important;height:17px!important;stroke:currentColor!important;fill:none!important}
+.button:hover .cta-arrow{transform:translateX(2px)!important;background:rgba(255,255,255,.08)!important}
+
+/* Compact variants remain tactile */
+.button-compact,.button-small{
+  min-height:46px!important;
+  padding-left:50px!important;
+  padding-right:48px!important;
+  border-radius:14px 5px 14px 5px!important;
+  font-size:11px!important;
+}
+.button-compact .cta-mic,.button-small .cta-mic,
+.button-compact .secondary-icon,.button-small .secondary-icon{
+  left:8px!important;width:30px!important;height:30px!important;
+}
+.button-compact .cta-arrow,.button-small .cta-arrow{width:32px!important}
+
+/* Editorial links become slim stage keys */
+.text-link{
+  position:relative;
+  display:inline-flex!important;
+  align-items:center;
+  min-height:44px;
+  padding:0 46px 0 16px!important;
+  border:1px solid rgba(209,170,114,.24);
+  border-left:2px solid var(--btn-gold);
+  border-radius:3px 12px 3px 12px;
+  background:linear-gradient(90deg,rgba(209,170,114,.055),rgba(255,255,255,.012));
+  color:#e7d9c8!important;
+  font-family:var(--sans)!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:.11em!important;
+  text-transform:uppercase;
+}
+.text-link span{
+  position:absolute;
+  right:9px;
+  top:8px;
+  bottom:8px;
+  width:28px;
+  display:grid;
+  place-items:center;
+  border-left:1px solid rgba(209,170,114,.18);
+  color:var(--btn-gold)!important;
+}
+
+/* Menu choice links = two slim selector keys */
+.menu-links{
+  display:grid!important;
+  gap:8px!important;
+  margin-top:28px!important;
+  border-top:0!important;
+}
+.menu-links a{
+  min-height:52px;
+  padding:0 52px 0 18px!important;
+  position:relative;
+  display:flex!important;
+  align-items:center!important;
+  border:1px solid rgba(209,170,114,.18)!important;
+  border-left:3px solid rgba(209,170,114,.72)!important;
+  border-radius:4px 14px 4px 14px;
+  background:linear-gradient(90deg,rgba(209,170,114,.06),rgba(255,255,255,.01))!important;
+  font-family:var(--sans)!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.menu-links b{
+  position:absolute;
+  right:8px;
+  top:8px;
+  bottom:8px;
+  width:34px;
+  display:grid;
+  place-items:center;
+  border-left:1px solid rgba(209,170,114,.16);
+  color:var(--btn-gold)!important;
+}
+
+/* Contact tiles: act like large premium keys */
+.contact-grid a{
+  position:relative;
+  overflow:hidden;
+  border-radius:6px 18px 6px 18px;
+  transition:transform .2s,border-color .2s,background .2s;
+}
+.contact-grid a:after{
+  content:"→";
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  color:var(--btn-gold);
+  font-size:18px;
+}
+.contact-grid a:hover{transform:translateY(-2px);border-color:rgba(209,170,114,.36);background:rgba(209,170,114,.035)}
+
+/* Final CTA stronger, wider */
+.final-booking-button{
+  min-width:238px!important;
+  min-height:58px!important;
+}
+
+/* Better keyboard focus */
+.button:focus-visible,.text-link:focus-visible,.menu-links a:focus-visible,.contact-grid a:focus-visible{
+  outline:2px solid var(--btn-gold)!important;
+  outline-offset:3px!important;
+}
+
+/* MOBILE BUTTON SYSTEM */
+@media(max-width:700px){
+  .hero-cta{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+    width:100%!important;
+  }
+  .hero-cta .button{
+    width:100%!important;
+    min-height:54px!important;
+    justify-content:center!important;
+  }
+  .button{
+    min-height:52px!important;
+    padding-left:54px!important;
+    padding-right:52px!important;
+    font-size:12px!important;
+  }
+  .button-compact,.button-small{
+    min-height:48px!important;
+    padding-left:48px!important;
+    padding-right:44px!important;
+    font-size:11px!important;
+  }
+  .hall-copy .button{
+    width:100%!important;
+    max-width:290px!important;
+  }
+  .text-link{
+    width:100%!important;
+    max-width:330px;
+    min-height:48px;
+  }
+  .menu-links{width:100%!important}
+  .menu-links a{min-height:50px!important;font-size:11px!important}
+  .final-booking-button{
+    width:100%!important;
+    min-width:0!important;
+    min-height:54px!important;
+  }
+  .contact-grid a{
+    min-height:90px!important;
+    padding-right:54px!important;
+  }
+  .mobile-dock{
+    height:70px!important;
+    left:7px!important;
+    right:7px!important;
+    bottom:max(7px,env(safe-area-inset-bottom))!important;
+    border-radius:18px!important;
+  }
+  .mobile-dock a{
+    min-width:0!important;
+    padding:5px 2px!important;
+    touch-action:manipulation;
+  }
+  .mobile-dock small{font-size:8px!important;letter-spacing:.015em}
+  .mobile-dock .mobile-book{
+    border-radius:13px 4px 13px 4px!important;
+    border:1px solid rgba(255,255,255,.09)!important;
+  }
+  body{padding-bottom:max(86px,calc(78px + env(safe-area-inset-bottom)))!important}
+}
+@media(max-width:390px){
+  .button{font-size:11px!important}
+  .hero-cta .button{min-height:50px!important}
+  .cta-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .hall-copy .button{max-width:none!important}
+}
