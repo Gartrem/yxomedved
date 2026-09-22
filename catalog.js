@@ -1,4 +1,3 @@
-
 const BAR_GROUPS=[
   {id:'all',label:'Все',cats:[]},
   {id:'cocktails',label:'Коктейли',cats:['cocktails','infusions']},
@@ -7,19 +6,19 @@ const BAR_GROUPS=[
   {id:'beer',label:'Пиво',cats:['beer']},
   {id:'soft',label:'Безалкогольное',cats:['soft','coffee-tea']}
 ];
+
 const params=new URLSearchParams(location.search);
-menuPageIndex=Math.min(Math.max((Number(params.get('page'))||1)-1,0),MENU_PAGES.length-1);
 const state={tab:params.get('tab')==='bar'?'bar':'food',group:'all',query:''};
+
+const menuBook=document.getElementById('menuBook');
 const mainSwitch=[...document.querySelectorAll('.main-switch button')];
 const catalog=document.getElementById('catalog');
+const controls=document.querySelector('.catalog-controls');
 const groupNav=document.getElementById('groupNav');
 const categoryNav=document.getElementById('categoryNav');
 const search=document.getElementById('search');
 const resultCount=document.getElementById('resultCount');
-const sections=[...catalog.querySelectorAll('.catalog-section')];
-
-renderMenuThumbs();
-setMenuPage(menuPageIndex);
+const sections=catalog?[...catalog.querySelectorAll('.catalog-section')]:[];
 
 function sectionAllowed(section){
   if(section.dataset.tab!==state.tab)return false;
@@ -31,6 +30,7 @@ function sectionAllowed(section){
 }
 
 function renderGroups(){
+  if(!groupNav)return;
   groupNav.innerHTML='';
   groupNav.hidden=state.tab!=='bar';
   if(groupNav.hidden)return;
@@ -48,7 +48,13 @@ function renderGroups(){
 }
 
 function renderCategories(){
+  if(!categoryNav)return;
   categoryNav.innerHTML='';
+  if(state.tab!=='bar'){
+    categoryNav.hidden=true;
+    return;
+  }
+  categoryNav.hidden=false;
   sections.filter(sectionAllowed).forEach(section=>{
     const link=document.createElement('a');
     link.href='#'+section.id;
@@ -56,8 +62,8 @@ function renderCategories(){
     link.addEventListener('click',event=>{
       event.preventDefault();
       const header=document.querySelector('.catalog-header')?.offsetHeight||0;
-      const controls=document.querySelector('.catalog-controls')?.offsetHeight||0;
-      const top=window.scrollY+section.getBoundingClientRect().top-header-controls-18;
+      const controlsHeight=controls?.offsetHeight||0;
+      const top=window.scrollY+section.getBoundingClientRect().top-header-controlsHeight-18;
       window.scrollTo({top,behavior:'smooth'});
       categoryNav.querySelectorAll('a').forEach(item=>item.classList.toggle('active',item===link));
     });
@@ -65,18 +71,20 @@ function renderCategories(){
   });
 }
 
-function setFeatured(){
-  const food=state.tab==='food';
-  document.getElementById('featureMain').src=food?'assets/menu/items/food-025.jpg':'assets/cocktail-960.webp';
-  document.getElementById('featureSide').src=food?'assets/menu/items/food-031.jpg':'assets/cocktail-520.webp';
-  document.getElementById('featureMainEyebrow').textContent=food?'КУХНЯ':'BAR';
-  document.getElementById('featureMainTitle').textContent=food?'Выбор кухни':'Коктейльный ритм';
-  document.getElementById('featureSideEyebrow').textContent=food?'РОЛЛЫ':'NIGHT';
-  document.getElementById('featureSideTitle').textContent=food?'Для компании':'Бар';
-}
-
 function applyFilters(){
-  const query=state.query.toLowerCase();
+  if(menuBook)menuBook.hidden=state.tab!=='food';
+  if(controls)controls.hidden=state.tab!=='bar';
+  if(catalog)catalog.hidden=state.tab!=='bar';
+
+  if(state.tab==='food'){
+    sections.forEach(section=>section.hidden=true);
+    if(resultCount)resultCount.textContent='';
+    renderGroups();
+    renderCategories();
+    return;
+  }
+
+  const query=(state.query||'').toLowerCase();
   let total=0;
   sections.forEach(section=>{
     if(!sectionAllowed(section)){section.hidden=true;return}
@@ -88,27 +96,35 @@ function applyFilters(){
     });
     section.hidden=visible===0;
   });
-  resultCount.textContent=total+' позиций';
+  if(resultCount)resultCount.textContent=total+' позиций';
   renderGroups();
   renderCategories();
-  setFeatured();
 }
 
 function setTab(tab){
-  state.tab=tab;
-  document.body.dataset.catalogTab=tab;
+  state.tab=tab==='bar'?'bar':'food';
+  document.body.dataset.catalogTab=state.tab;
   state.group='all';
+
   mainSwitch.forEach(button=>{
-    const active=button.dataset.tab===tab;
+    const active=button.dataset.tab===state.tab;
     button.classList.toggle('active',active);
     button.setAttribute('aria-selected',String(active));
   });
-  const tabUrl=new URL(location.href);tabUrl.searchParams.set('tab',tab);tabUrl.searchParams.delete('page');history.replaceState(null,'',tabUrl.pathname+'?'+tabUrl.searchParams.toString());
+
+  const tabUrl=new URL(location.href);
+  tabUrl.searchParams.set('tab',state.tab);
+  history.replaceState(null,'',tabUrl.pathname+'?'+tabUrl.searchParams.toString()+tabUrl.hash);
+
   applyFilters();
 }
 
 mainSwitch.forEach(button=>button.addEventListener('click',()=>setTab(button.dataset.tab)));
-search.addEventListener('input',()=>{state.query=search.value.trim();applyFilters()});
+if(search){
+  search.addEventListener('input',()=>{
+    state.query=search.value.trim();
+    applyFilters();
+  });
+}
+
 setTab(state.tab);
-
-
