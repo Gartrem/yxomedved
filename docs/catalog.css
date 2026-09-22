@@ -1264,3 +1264,22 @@ body[data-catalog-tab="food"] .category-nav{
 .menu-item.bar{
   grid-template-columns:minmax(0,1fr) auto!important;
 }
+
+
+/* MOBILE: HIDE SEARCH V31 */
+@media(max-width:620px){
+  .catalog-controls{
+    display:none!important;
+  }
+  #search,
+  #resultCount,
+  .catalog-controls .search{
+    display:none!important;
+  }
+  body[data-catalog-tab="bar"] .catalog-controls{
+    display:none!important;
+  }
+  .group-nav{
+    padding-top:10px!important;
+  }
+}
