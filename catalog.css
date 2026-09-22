@@ -766,3 +766,79 @@ body[data-catalog-tab="food"] .menu-lightbox{
     display:none;
   }
 }
+
+
+/* FOOD VERTICAL MENU V19 */
+body[data-catalog-tab="food"]{
+  background:#030708;
+}
+body[data-catalog-tab="food"] .catalog-shell{
+  width:100%;
+  max-width:none;
+  padding:0;
+}
+body[data-catalog-tab="food"] .catalog-hero{
+  min-height:0;
+  display:block;
+  padding:10px 0 11px;
+  border-bottom:1px solid rgba(213,170,115,.14);
+  background:#050403;
+}
+body[data-catalog-tab="food"] .catalog-hero-copy{
+  display:block;
+  width:100%;
+  max-width:none;
+}
+body[data-catalog-tab="food"] .catalog-hero-copy>.kicker,
+body[data-catalog-tab="food"] .catalog-hero-copy>h1,
+body[data-catalog-tab="food"] .catalog-hero-copy>.lead,
+body[data-catalog-tab="food"] .catalog-featured{
+  display:none!important;
+}
+body[data-catalog-tab="food"] .main-switch{
+  display:grid;
+  width:min(650px,calc(100% - 32px));
+  margin:0 auto;
+}
+body[data-catalog-tab="food"] .catalog-controls,
+body[data-catalog-tab="food"] .group-nav,
+body[data-catalog-tab="food"] .category-nav,
+body[data-catalog-tab="food"] #catalog,
+body[data-catalog-tab="food"] .catalog-cta,
+body[data-catalog-tab="food"] .catalog-footer{
+  display:none!important;
+}
+.menu-pages-list{
+  width:min(1040px,calc(100% - 28px));
+  margin:24px auto 44px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.menu-pages-list img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  border:1px solid rgba(213,170,115,.18);
+  background:#05090a;
+  box-shadow:0 18px 48px rgba(0,0,0,.26);
+}
+@media(max-width:620px){
+  body[data-catalog-tab="food"] .catalog-hero{
+    padding:8px 0 9px;
+  }
+  body[data-catalog-tab="food"] .main-switch{
+    width:calc(100% - 18px);
+  }
+  .menu-pages-list{
+    width:100%;
+    margin:0;
+    gap:6px;
+  }
+  .menu-pages-list img{
+    border-left:0;
+    border-right:0;
+    box-shadow:none;
+  }
+}
