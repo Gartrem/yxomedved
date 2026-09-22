@@ -1156,3 +1156,27 @@ body[data-catalog-tab="food"] .menu-pages-list img:last-child{
     min-height:52px!important;
   }
 }
+
+
+/* CATALOG MOBILE + DUPLICATE ARROW FIX V26 */
+.catalog-head-actions .book>span,
+.catalog-cta .button>span{display:none!important}
+
+@media(max-width:620px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .catalog-header{gap:8px!important}
+  .catalog-head-actions{min-width:0!important}
+  .catalog-head-actions .button{
+    max-width:128px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .catalog-shell{padding-left:10px!important;padding-right:10px!important}
+  .menu-pages-list{width:100%!important}
+  .menu-pages-list img{width:calc(100% + 2px)!important;margin-left:-1px!important}
+}
+@media(max-width:390px){
+  .catalog-logo img{width:78px!important}
+  .catalog-head-actions .button{max-width:112px!important;font-size:9px!important}
+}
