@@ -91,6 +91,7 @@ function applyFilters(){
 
 function setTab(tab){
   state.tab=tab;
+  document.body.dataset.catalogTab=tab;
   state.group='all';
   mainSwitch.forEach(button=>{
     const active=button.dataset.tab===tab;
