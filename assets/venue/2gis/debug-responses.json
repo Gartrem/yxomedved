@@ -2,36 +2,46 @@
   {
     "url": "https://2gis.ru/novosibirsk/firm/141265769806977/tab/info",
     "ct": "text/html; charset=utf-8",
-    "status": 302
-  },
-  {
-    "url": "https://2gis.ru/museum?return_url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo",
-    "ct": "text/html; charset=utf-8",
     "status": 200
   },
   {
-    "url": "https://d-assets.2gis.ru/museum/opera.png",
-    "ct": "image/png",
-    "status": 200
-  },
-  {
-    "url": "https://d-assets.2gis.ru/museum/museum.js",
+    "url": "https://d-assets.2gis.ru/3027.ae722af4c1c8bedd1084.js",
     "ct": "application/javascript",
     "status": 200
   },
   {
-    "url": "https://d-assets.2gis.ru/museum/google-chrome.png",
-    "ct": "image/png",
+    "url": "https://d-assets.2gis.ru/8415.c4131a92c7be4332e64d.js",
+    "ct": "application/javascript",
     "status": 200
   },
   {
-    "url": "https://d-assets.2gis.ru/museum/mozilla-firefox.png",
-    "ct": "image/png",
+    "url": "https://d-assets.2gis.ru/6559.cfc0234fb391f2ad13f1.js",
+    "ct": "application/javascript",
     "status": 200
   },
   {
-    "url": "https://d-assets.2gis.ru/museum/icon200.png",
-    "ct": "image/png",
+    "url": "https://d-assets.2gis.ru/core.16ac12404a6cc7ded54f.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/6946.425f867a8212cf2629c9.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/2978.c8201e7a779f5feb2487.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/5115.09d202e5f85010fd0a1d.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/clickstream/cs-0.8.9.js",
+    "ct": "application/javascript",
     "status": 200
   },
   {
@@ -40,43 +50,1153 @@
     "status": 200
   },
   {
-    "url": "https://2gis.ru/novosibirsk/gallery/firm/141265769806977",
-    "ct": "text/html; charset=utf-8",
-    "status": 302
-  },
-  {
-    "url": "https://2gis.ru/museum?return_url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Fgallery%2Ffirm%2F141265769806977",
-    "ct": "text/html; charset=utf-8",
+    "url": "https://d-assets.2gis.ru/afScript/script.js",
+    "ct": "application/javascript",
     "status": 200
   },
   {
-    "url": "https://d-assets.2gis.ru/fonts/SBSansText-Regular.woff2",
+    "url": "https://d-assets.2gis.ru/9596.20f5db888f6289f6928d.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/fonts/SBSansText-Semibold.woff2",
     "ct": "font/woff2",
     "status": 200
   },
   {
-    "url": "https://d-assets.2gis.ru/museum/icon200.png",
-    "ct": "image/png",
-    "status": 200
-  },
-  {
-    "url": "https://d-assets.2gis.ru/museum/google-chrome.png",
-    "ct": "image/png",
-    "status": 200
-  },
-  {
-    "url": "https://d-assets.2gis.ru/museum/mozilla-firefox.png",
-    "ct": "image/png",
-    "status": 200
-  },
-  {
-    "url": "https://d-assets.2gis.ru/museum/opera.png",
-    "ct": "image/png",
-    "status": 200
-  },
-  {
-    "url": "https://d-assets.2gis.ru/museum/museum.js",
+    "url": "https://d-assets.2gis.ru/5427.a69fb9d9140d7206b807.js",
     "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/fonts/SBSansText-Medium.woff2",
+    "ct": "font/woff2",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/9352.157978cd43dff78e3b7a.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/272.3b3a4e22ea9cdaad8f1a.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/5701.03950643881bc632f853.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/infoTab.b78caeb193ab64922ec6.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/storyViewer.f47793cf1abebc62c72d.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/mediaViewer.406e6fefea5d799a96e2.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/2549.3932d970818a2c0c70ac.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/friendsOnMapMarkers.eb85e6dc1728c5e4891e.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/tUgcMarkers.e9f41a6b6da87a8df720.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/2296.72d039fdcb39f718199d.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/gdprCookieBanner.ae061ae898f0b0d444bd.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/date-fns_ru.3bb16af6ebe695356bb7.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/favoritesMarkers.0cde93de424496eef00c.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/privacyPolicyBanner.7863d9d120fad546eae5.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/globalRealtyMarkers.21b8ccffc7176f96f3ae.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/map3d.1734bff3ba54047e9584.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/redux.e3fef2450e71d582f71e.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/react.e66e59284077b4bbb620.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/jquery-1.3.2.3a091fe8aacf3ae04c6d.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://counter.yadro.ru/hit;2gis/online/ru/novosibirsk?t38.6;r;s1440*1000*24;uhttps%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo0.2838613984270917",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/vendor.1edfdb38250dfac5c4a6.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/app.e64144abeb3f16b21465.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://www.tns-counter.ru/V13a***R%3E*2gis_ru/ru/UTF-8/tmsec=2gis_site/325500605",
+    "ct": "image/gif",
+    "status": 302
+  },
+  {
+    "url": "https://www.tns-counter.ru/V13a***R%3E*2gis_ru/ru/UTF-8/tmsec=2gis_site/342988186",
+    "ct": "image/gif",
+    "status": 302
+  },
+  {
+    "url": "https://www.tns-counter.ru/V13b***R%3E*2gis_ru/ru/UTF-8/tmsec=2gis_site/325500605",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://www.tns-counter.ru/V13b***R%3E*2gis_ru/ru/UTF-8/tmsec=2gis_site/342988186",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/map2d.e9a77c31ca515db53245.css",
+    "ct": "text/css",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/rarity.49af205bd4919ee4c20b.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/map2d.6af4b8c2bf432daabca9.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/rarity-2d.8a493ad40b1df7fb8699.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/images/0b44156a764b58ed464d.svg",
+    "ct": "image/svg+xml",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/images/7a71d5ab347ce67a8594.svg",
+    "ct": "image/svg+xml",
+    "status": 200
+  },
+  {
+    "url": "https://disk.2gis.com/rubricator/bar20bd6068bc164b6e75eb28eb560020d8.svg",
+    "ct": "image/svg+xml",
+    "status": 200
+  },
+  {
+    "url": "https://disk.2gis.com/rubricator/restaurantac12d4238799c182714ec89562877877.svg",
+    "ct": "image/svg+xml",
+    "status": 200
+  },
+  {
+    "url": "blob:https://2gis.ru/3b6ee480-a6ac-4914-96f6-35ed3979ec01",
+    "ct": "text/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/auth/refresh",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/metrics",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47864&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://catalog.api.2gis.ru/3.0/profile/data?key=c7f1a769-c8a5-4636-b14d-d8c987808a12&user_id=6ca06138-1311-4b06-ad94-b74c07fe4058&stat%5Bsid%5D=e0559670-c861-43ac-8490-d026a45b735d&stat%5Buser%5D=6ca06138-1311-4b06-ad94-b74c07fe4058&shv=2026-09-16-19&r=791531220",
+    "ct": "application/json; charset=UTF-8",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47859&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://jam.api.2gis.com/scores?view=82.9053676988803,55.03521234161674,82.9273403011197,55.02360165838326&z=16",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://keys.api.2gis.com/public/v1/keys/0df33216-aeab-4768-a36b-a4267cafea02/services/tiles-raster-api",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47859&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47860&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47862&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47861&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47858&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47860&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47863&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47860&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://public-api.reviews.2gis.com/3.0/objects/ratings/light?key=6e7e1929-4ea9-4a5d-8c05-d601860389bd&object_ids=141265769806977&locale=ru_RU",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47864&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47863&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47859&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://gigs.api.2gis.ru/v1/getAllowedSegments",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47864&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47862&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47860&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47861&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47861&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile2.maps.2gis.com/v2/tiles?x=47858&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47859&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47861&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47860&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47863&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47858&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47862&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://api.photo.2gis.com/3.0/objects/141265769806977/albums/all/media?key=gYu1s9N1wP&page_size=20&locale=ru_RU&preview_size=656x340%2C328x170%2C232x232%2C176x176%2C116x116%2C88x88",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://top-fwz1.mail.ru/counter?_=0.9643283939406859;id=3514482;u=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo;title=%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1;s=1440*1000;vp=1440*1000;touch=0;hds=1;sid=ab994351947537b5;ver=60.6.0;tz=0%2FUTC;st=1790065878334;ct=3584/3591/3591//1546;rt=1547/1232/0/0/0/1547/1886/2274/2274/2528/2400/2528/2654/2779;gl=u;ni=10//4g/0/0/;lvid=1790065878995%3A1790065878998%3A1%3A5ea1e68810c487c2ef3e70fa0e7c9f47;opts=jst-ym%2Cwda%2Ccnhp%3Dh2%2Ccs%3D19684-48997-19984;visible=true;js=13",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47863&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile1.maps.2gis.com/v2/tiles?x=47864&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47859&y=20720&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/metrics",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://mc.yandex.com/watch/837864?wmode=7&page-url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo&charset=utf-8&uah=chu%0A%22Chromium%22%3Bv%3D%22140%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224%22%2C%22HeadlessChrome%22%3Bv%3D%22140%22%0Acha%0Ax86%0Achb%0A64%0Achf%0A140.0.7339.16%0Achl%0A%22Chromium%22%3Bv%3D%22140.0.7339.16%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224.0.0.0%22%2C%22HeadlessChrome%22%3Bv%3D%22140.0.7339.16%22%0Achm%0A%3F0%0Achp%0AWindows%0Achv%0A10.0&browser-info=pv%3A1%3Avf%3Ajesqi0jmtise82j1f4lgaogsknnemz%3Afu%3A0%3Aen%3Autf-8%3Ala%3Aru-RU%3Av%3A2652%3Acn%3A1%3Adp%3A0%3Als%3A1206986107622%3Ahid%3A642407285%3Az%3A0%3Ai%3A20260922083118%3Aet%3A1790065878%3Ac%3A1%3Arn%3A196767630%3Arqn%3A1%3Au%3A1790065878263590809%3Aw%3A1440x1000%3As%3A1440x1000x24%3Ask%3A1%3Afp%3A1272%3Awv%3A2%3Ads%3A191%2C307%2C574%2C452%2C0%2C0%2C%2C1401%2C0%2C%2C%2C%2C2929%3Aco%3A0%3Ahdl%3A1%3Antf%3A1%3Ans%3A1790065875405%3Aadb%3A2%3Arqnl%3A1%3Ast%3A1790065879%3At%3A%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1&t=clt(1476)gdpr(14)clc(0-0-0)rqnt(1)aw(1)rcm(1)cdl(na)eco(42010116)ti(1)",
+    "ct": "",
+    "status": 302
+  },
+  {
+    "url": "https://tile0.maps.2gis.com/v2/tiles?x=47863&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47864&y=20719&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47858&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47858&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47862&y=20721&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47862&y=20717&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://tile3.maps.2gis.com/v2/tiles?x=47861&y=20718&z=16&v=1&r=g&key=0df33216-aeab-4768-a36b-a4267cafea02&ts=online_sd",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://mc.yandex.com/watch/837864/1?wmode=7&page-url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo&charset=utf-8&uah=chu%0A%22Chromium%22%3Bv%3D%22140%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224%22%2C%22HeadlessChrome%22%3Bv%3D%22140%22%0Acha%0Ax86%0Achb%0A64%0Achf%0A140.0.7339.16%0Achl%0A%22Chromium%22%3Bv%3D%22140.0.7339.16%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224.0.0.0%22%2C%22HeadlessChrome%22%3Bv%3D%22140.0.7339.16%22%0Achm%0A%3F0%0Achp%0AWindows%0Achv%0A10.0&browser-info=pv%3A1%3Avf%3Ajesqi0jmtise82j1f4lgaogsknnemz%3Afu%3A0%3Aen%3Autf-8%3Ala%3Aru-RU%3Av%3A2652%3Acn%3A1%3Adp%3A0%3Als%3A1206986107622%3Ahid%3A642407285%3Az%3A0%3Ai%3A20260922083118%3Aet%3A1790065878%3Ac%3A1%3Arn%3A196767630%3Arqn%3A1%3Au%3A1790065878263590809%3Aw%3A1440x1000%3As%3A1440x1000x24%3Ask%3A1%3Afp%3A1272%3Awv%3A2%3Ads%3A191%2C307%2C574%2C452%2C0%2C0%2C%2C1401%2C0%2C%2C%2C%2C2929%3Aco%3A0%3Ahdl%3A1%3Antf%3A1%3Ans%3A1790065875405%3Aadb%3A2%3Arqnl%3A1%3Ast%3A1790065879%3At%3A%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1&t=clt%281476%29gdpr%2814%29clc%280-0-0%29rqnt%281%29aw%281%29rcm%281%29cdl%28na%29eco%2842010116%29ti%281%29&redirnss=1",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/photo-gallery/69cd3f5e-f8a7-4d1e-8492-5428814492a9_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/video-gallery/620f2dc7-bc8c-4afd-bcc9-f230c4353847_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/log",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://filekeeper-vod.2gis.com/80338a12-c2a5-4f54-bc68-149877758eb9-2gis-ugc-vod-transcoded/sdr-2-sdr-preview/8ddf71c34e889534baa18ede6caf23f53f57cf76/index.mpd",
+    "ct": "binary/octet-stream",
+    "status": 200
+  },
+  {
+    "url": "https://advisor.api.2gis.ru/api/3.0/advise/gta?key=c7f1a769-c8a5-4636-b14d-d8c987808a12",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://mc.yandex.com/watch/837864?wmode=7&page-url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo&charset=utf-8&uah=chu%0A%22Chromium%22%3Bv%3D%22140%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224%22%2C%22HeadlessChrome%22%3Bv%3D%22140%22%0Acha%0Ax86%0Achb%0A64%0Achf%0A140.0.7339.16%0Achl%0A%22Chromium%22%3Bv%3D%22140.0.7339.16%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224.0.0.0%22%2C%22HeadlessChrome%22%3Bv%3D%22140.0.7339.16%22%0Achm%0A%3F0%0Achp%0AWindows%0Achv%0A10.0&hittoken=1790065879_3329932db1b4be762d0a2d8a4e159d8e5020a7ba49e892e929ff0166cfb97636&browser-info=pv%3A1%3Aar%3A1%3Avf%3Ajesqi0jmtise82j1f4lgaogsknnemz%3Afu%3A0%3Aen%3Autf-8%3Ala%3Aru-RU%3Av%3A2652%3Acn%3A1%3Adp%3A1%3Als%3A1206986107622%3Ahid%3A642407285%3Az%3A0%3Ai%3A20260922083119%3Aet%3A1790065879%3Ac%3A1%3Arn%3A1008754569%3Arqn%3A2%3Au%3A1790065878263590809%3Aw%3A1440x1000%3As%3A1440x1000x24%3Ask%3A1%3Awv%3A2%3Aco%3A0%3Ahdl%3A1%3Antf%3A1%3Ans%3A1790065875405%3Aadb%3A2%3Arqnl%3A1%3Ast%3A1790065880%3At%3A%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1&t=gdpr(14)mc(h-1)clc(0-0-0)rqnt(2)aw(1)rcm(1)cdl(na)eco(42010116)w2s(0)ti(1)",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://ams2-cdn.2gis.com/previews/1254752490906189824/6ea05473-335a-4104-9c1f-7028b901bf09/2/ru/image_125x125.png?api-version=2.0",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/log",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://top-fwz1.mail.ru/tracker?_=0.7690561085055627;id=3514482;u=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo;title=%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1;s=1440*1000;vp=1440*1000;touch=0;hds=1;sid=ab994351947537b5;ver=60.6.0;tz=0%2FUTC;st=1790065878334;nt=0/0/1790065875405/////0/3/194/194/501/334/502/1077/1528/1083/2929/2929/2929/5424/5425/5426;ct=3584/3591/3591/3594/1546;rt=1547/1232/0/0/0/1547/1886/2274/2274/2528/2400/2528/2654/2779;gl=u;ni=10//4g/0/0/;lvid=1790065878995%3A1790065880832%3A2%3A5ea1e68810c487c2ef3e70fa0e7c9f47;opts=jst-ym%2Cwda%2Ccnhp%3Dh2%2Ccs%3D19684-48997-19984;visible=true;js=13;e=RT%2Fload;et=1790065880831",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/metrics",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/log",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/log",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/metrics",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/2064.1701450c604a48c4c4fd.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/5446.a4a59a0dbcf3a25b45e6.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/4223.4032594838a118655ec7.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/mediaTab.8d899b13dae53455c64e.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://mc.yandex.com/clmap/837864?page-url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo&pointer-click=rn%3A221232653%3Ax%3A32680%3Ay%3A32767%3At%3A74%3Ap%3A%3BA4AA1AA1AAAAAAAA1A1AAA1AAAA2AAAAA1%3AX%3A352%3AY%3A407&hidv2=5557106765545078973&browser-info=u%3A1790065878263590809%3Av%3A2652%3Avf%3Ajesqi0jmtise82j1f4lgaogsknnemz%3Arqnl%3A1%3Ast%3A1790065886&t=gdpr(14)ti(1)",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://top-fwz1.mail.ru/tracker?_=0.5912067564056064;id=3514482;u=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo;title=%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1;s=1440*1000;vp=1440*1000;touch=0;hds=1;sid=ab994351947537b5;ver=60.6.0;tz=0%2FUTC;st=1790065878334;ct=3584/3591/3591/3594/1546;rt=1547/1232/0/0/0/1547/1886/2274/2274/2528/2400/2528/2654/2779;gl=u;ni=10//4g/0/0/;detect=0;lvid=1790065878995%3A1790065885945%3A3%3A5ea1e68810c487c2ef3e70fa0e7c9f47;opts=jst-ym%2Cwda%2Ccnhp%3Dh2%2Ccs%3D19684-48997-19984;fpid=2EnJ2x6-HMIwO43H1EZ1W;visible=true;js=13;e=CE%3A%2F_click%3Boutgoing%3Bhttps%3A%2F%2F2gis.ru%2Fnovosibirsk%2Fgallery%2Ffirm%2F141265769806977",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://filekeeper-vod.2gis.com/80338a12-c2a5-4f54-bc68-149877758eb9-2gis-ugc-vod-transcoded/sdr-2-sdr-preview/8ddf71c34e889534baa18ede6caf23f53f57cf76/index.mpd",
+    "ct": "binary/octet-stream",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/metrics",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/photo-gallery/d1f1ae48-c964-41ac-913f-2599b27f7b21_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://advisor.api.2gis.ru/api/3.0/advise/gta?key=c7f1a769-c8a5-4636-b14d-d8c987808a12",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://ams2-cdn.2gis.com/previews/1255761868761333760/2134c859-b796-458e-90a7-937d6f7faae4/9/ru/696x344?api-version=2.0",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://ams2-cdn.2gis.com/previews/1251216169889693696/331ccd73-d7cb-4723-a401-8c642aae18f1/9/ru/696x344?api-version=2.0",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/images/branch/0/30258560081932267_11d9_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/metrics",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://www.tns-counter.ru/V13a***R%3E*2gis_ru/ru/UTF-8/tmsec=2gis_site/513083493",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/images/branch/0/30258560080333770_53b9_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://ext.clickstream.sbrf.ru/metrics/ecosystem/2gis",
+    "ct": "",
+    "status": 204
+  },
+  {
+    "url": "https://mc.yandex.com/watch/837864?wmode=7&page-url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Fphotos&page-ref=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo&charset=utf-8&uah=chu%0A%22Chromium%22%3Bv%3D%22140%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224%22%2C%22HeadlessChrome%22%3Bv%3D%22140%22%0Acha%0Ax86%0Achb%0A64%0Achf%0A140.0.7339.16%0Achl%0A%22Chromium%22%3Bv%3D%22140.0.7339.16%22%2C%22Not%3DA%3FBrand%22%3Bv%3D%2224.0.0.0%22%2C%22HeadlessChrome%22%3Bv%3D%22140.0.7339.16%22%0Achm%0A%3F0%0Achp%0AWindows%0Achv%0A10.0&hittoken=1790065879_3329932db1b4be762d0a2d8a4e159d8e5020a7ba49e892e929ff0166cfb97636&browser-info=pv%3A1%3Aar%3A1%3Avf%3Ajesqi0jmtise82j1f4lgaogsknnemz%3Afu%3A1%3Aen%3Autf-8%3Ala%3Aru-RU%3Av%3A2652%3Acn%3A1%3Adp%3A1%3Als%3A1206986107622%3Ahid%3A642407285%3Az%3A0%3Ai%3A20260922083126%3Aet%3A1790065887%3Ac%3A1%3Arn%3A428783846%3Arqn%3A3%3Au%3A1790065878263590809%3Aw%3A1440x1000%3As%3A1440x1000x24%3Ask%3A1%3Awv%3A2%3Ads%3A%2C%2C%2C%2C%2C%2C%2C%2C%2C5424%2C5425%2C1%2C%3Aco%3A0%3Ahdl%3A1%3Antf%3A1%3Aeu%3A2%3Ans%3A1790065875405%3Aadb%3A2%3Arqnl%3A1%3Ast%3A1790065887%3At%3A%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1&t=gdpr(14)mc(h-1)clc(1-352-407)rqnt(3)aw(1)rcm(1)csu(0)cdl(na)eco(42010116)prs(2)cac(0)cae(0)wss(2)w2s(0)evt(1484)fid(280)ti(1)",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/_/log",
+    "ct": "application/json; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://ams2-cdn.2gis.com/previews/1251216169889693696/331ccd73-d7cb-4723-a401-8c642aae18f1/7/ru/image_48x48.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/0630ba50-6736-4fdf-9249-89ee4f0c5d84_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/photo-gallery/904c114e-22a3-4ed2-b31c-8b26470e627c_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/0/30258560173238941_51e0_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/0/30258560080914758_e7c2_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/photo-gallery/f7326aaf-b448-434c-b0dc-70b74b2e6171_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/0a41dbfa-d972-466f-a164-249738e1e8f1_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/a97f40f4-7d23-463d-83be-9851b3ac8997_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i0.photo.2gis.com/photo-gallery/83df980a-fecb-4cc0-b4c2-d63d5b846a77_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/0/30258560082412183_3dbc_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/photo-gallery/ff723efa-ca12-4bc3-915c-272bee12fc46_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/images/branch/0/30258560086580080_76c8_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://api.photo.2gis.com/3.0/objects/141265769806977/albums/all/media?key=gYu1s9N1wP&page_size=20&locale=ru_RU&preview_size=656x340%2C328x170%2C232x232%2C176x176%2C116x116%2C88x88&page_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTA2NzA2NzksImFsYnVtX2lkIjoiYWxsIiwibGFzdF9waG90b19pZCI6MzAyNTg1NjAyNTAwMDI3ODEsImxhc3RfZWxlbWVudF9pbmRleCI6MTksImlzX2Zyb21fYnVpbGRpbmciOmZhbHNlLCJkaXNjb3ZlcnlfcGhvdG9faWQiOm51bGwsIm1peGVkX3ZpZGVvX2lkIjozMDI1ODU2MDI0NDUyMTYwMiwic2ltaWxhcl9tZWRpYV9pZCI6bnVsbH0.lT4q8j90LLMNGCTRW2koB6x9d6aR7Q-Ks5o7mvZkWbA",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/photo-gallery/34a516cf-a529-477f-8b9f-cffce883a6fa_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/0/30258560080989038_93b1_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/images/branch/1/140737515666141_94c0_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/0/30258560085151982_1de7_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/photo-gallery/faad8a79-6b84-41fc-9384-152c896b41d3_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/photo-gallery/9971a5da-af0a-4d9a-a6c6-ae3822ae4857_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/0/30258560171855146_2ca6_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/images/branch/0/30258560171855147_d621_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/photo-gallery/f455da76-125a-475a-bc50-3d3fb79a8c6a_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/e5a3023b-239b-425e-84b4-c3f1c1de3081_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/images/branch/0/30258560084231310_3f29_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/photo-gallery/9c054f9e-3666-4218-bc13-793cdb9e8a5a_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://top-fwz1.mail.ru/tracker?_=0.07044550485700285;id=3514482;u=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Fphotos;title=%D0%A3%D1%85%D0%BE%26%D0%BC%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D1%8C%2C%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%B1%D0%B0%D1%80%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5-%D0%BA%D0%BB%D1%83%D0%B1%D1%8B%20%2F%20%D0%B1%D0%B0%D1%80%D1%8B%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%20%E2%80%94%202%D0%93%D0%98%D0%A1;s=1440*1000;vp=1440*1000;touch=0;hds=1;sid=ab994351947537b5;ver=60.6.0;tz=0%2FUTC;st=1790065878334;ct=3584/3591/3591/3594/1546;rt=1547/1232/0/0/0/1547/1886/2274/2274/2528/2400/2528/2654/2779;gl=u;ni=10//4g/0/0/;detect=0;lvid=1790065878995%3A1790065895832%3A4%3A5ea1e68810c487c2ef3e70fa0e7c9f47;opts=jst-ym%2Cwda%2Ccnhp%3Dh2%2Ccs%3D19684-48997-19984;fpid=2EnJ2x6-HMIwO43H1EZ1W;visible=true;js=13;e=PVT%2F15",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://i2.photo.2gis.com/images/branch/0/30258560084054339_0fc8_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i2.photo.2gis.com/photo-gallery/ce64dd5f-180b-4bc1-a5c4-6b7057aa6232_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/photo-gallery/d35336d6-84ff-43d8-a0f3-0358fe3e1267_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/images/branch/0/30258560171855144_5da6_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/photo-gallery/46135f5f-31c0-43fb-95e7-e87aa47b1c90_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/0/30258560173238943_a219_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/77a18d67-c5e8-427a-bcbc-4aeb5c961c6c_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://api.photo.2gis.com/3.0/objects/141265769806977/albums/all/media?key=gYu1s9N1wP&page_size=20&locale=ru_RU&preview_size=656x340%2C328x170%2C232x232%2C176x176%2C116x116%2C88x88&page_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTA2NzA2OTUsImFsYnVtX2lkIjoiYWxsIiwibGFzdF9waG90b19pZCI6MzAyNTg1NjAyNTE2ODg4ODUsImxhc3RfZWxlbWVudF9pbmRleCI6MzksImlzX2Zyb21fYnVpbGRpbmciOmZhbHNlLCJkaXNjb3ZlcnlfcGhvdG9faWQiOm51bGwsIm1peGVkX3ZpZGVvX2lkIjozMDI1ODU2MDI0NDUyMTYwMiwic2ltaWxhcl9tZWRpYV9pZCI6bnVsbH0.e-ARQl8ChbiDLoRhZVAkLkr6I-wCS_QoXD5m9NkkNjQ",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/photo-gallery/965e6ca7-aad7-4d11-b81f-17d1c93b8dc7_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/photo-gallery/3d9f5a37-23c7-4e5a-8a6a-c6feae76fa91_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/images/branch/0/30258560084732577_bda9_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i2.photo.2gis.com/images/branch/0/30258560140635652_70ea_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/images/branch/1/140737494702517_c51e_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i0.photo.2gis.com/images/branch/0/30258560050116097_2992_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/images/branch/0/30258560140635658_6ae2_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/9e26f9d0-78ee-48f5-9640-6b3425a961d2_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/images/branch/0/30258560084118548_3424_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/photo-gallery/5c59a0f8-eec6-4054-a41a-40bc1093a15e_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/photo-gallery/8791e9e7-0fab-448e-9c33-4db3a5849678_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i0.photo.2gis.com/photo-gallery/9d5a5079-cda8-4db5-bbd2-35a877a3230f_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/images/branch/0/30258560104740513_1e67_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/photo-gallery/f037cb45-ac99-4e85-b31e-5f035ce2b691_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/07e92d6e-6243-4e99-af02-055898c708ac_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/images/branch/0/30258560084930793_b0a5_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/images/branch/0/30258560104686717_65c8_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/images/branch/0/30258560086396331_e4e3_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://api.photo.2gis.com/3.0/objects/141265769806977/albums/all/media?key=gYu1s9N1wP&page_size=20&locale=ru_RU&preview_size=656x340%2C328x170%2C232x232%2C176x176%2C116x116%2C88x88&page_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTA2NzA2OTcsImFsYnVtX2lkIjoiYWxsIiwibGFzdF9waG90b19pZCI6MzAyNTg1NjAwODI1Njk0OTIsImxhc3RfZWxlbWVudF9pbmRleCI6NTksImlzX2Zyb21fYnVpbGRpbmciOmZhbHNlLCJkaXNjb3ZlcnlfcGhvdG9faWQiOm51bGwsIm1peGVkX3ZpZGVvX2lkIjozMDI1ODU2MDI0NDUyMTYwMiwic2ltaWxhcl9tZWRpYV9pZCI6bnVsbH0.OpUvHd8RfXXLi8mgzwIB9TvBUk7eaECg4qyCYPmuxKA",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/photo-gallery/9fafb285-de37-44dd-a5a3-77d196f21c15_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/images/branch/0/30258560173238942_32bb_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/photo-gallery/6d9228f4-28fa-406e-b967-9fa3b9678dbb_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/photo-gallery/62b776d6-676d-454f-ac3e-972ca1b1d0df_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/0/30258560086753338_cb7d_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/images/branch/0/30258560140635671_d68a_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/images/branch/1/140737520441775_0714_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/dbe6cd1f-5331-41fe-84b2-f14089d453d3_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/51e1e7e0-9d26-4f75-b0d9-58652a761cc1_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/images/branch/0/30258560167372411_6f1f_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/photo-gallery/819d8cd8-73ca-40b3-9809-522d94aaae1a_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i8.photo.2gis.com/images/branch/0/30258560171855145_b774_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/0cfd041d-f7ae-4f93-8ed1-a64828a5a299_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/15d4c4e4-6a8f-444b-844a-8bb7d5e6aa08_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/images/branch/0/30258560140635683_3c93_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/1/140737493068040_3f1f_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/photo-gallery/d5c11c59-4285-4dc5-894f-5fb0382f8f7f_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/images/branch/1/140737515480196_c038_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://api.photo.2gis.com/3.0/objects/141265769806977/albums/all/media?key=gYu1s9N1wP&page_size=20&locale=ru_RU&preview_size=656x340%2C328x170%2C232x232%2C176x176%2C116x116%2C88x88&page_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTA2NzA2OTgsImFsYnVtX2lkIjoiYWxsIiwibGFzdF9waG90b19pZCI6MTQwNzM3NTE1NDgwMTk2LCJsYXN0X2VsZW1lbnRfaW5kZXgiOjc5LCJpc19mcm9tX2J1aWxkaW5nIjpmYWxzZSwiZGlzY292ZXJ5X3Bob3RvX2lkIjpudWxsLCJtaXhlZF92aWRlb19pZCI6MzAyNTg1NjAyNDQ1MjE2MDIsInNpbWlsYXJfbWVkaWFfaWQiOm51bGx9.sXCZ9KXcLlGGbxKj__TxK5Vq_yqv7fdvguJrcjuGBY8",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/images/branch/0/30258560140635649_cfcf_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://mc.yandex.com/watch/837864?page-url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Fphotos&charset=utf-8&hidv2=5557108529771315232&hittoken=1790065879_3329932db1b4be762d0a2d8a4e159d8e5020a7ba49e892e929ff0166cfb97636&browser-info=nb%3A1%3Acl%3A1484%3Aar%3A1%3Avf%3Ajesqi0jmtise82j1f4lgaogsknnemz%3Afu%3A0%3Aen%3Autf-8%3Ala%3Aru-RU%3Av%3A2652%3Acn%3A1%3Adp%3A1%3Als%3A1206986107622%3Ahid%3A642407285%3Az%3A0%3Ai%3A20260922083140%3Aet%3A1790065901%3Ac%3A1%3Arn%3A920686465%3Arqn%3A4%3Au%3A1790065878263590809%3Aw%3A1440x1000%3As%3A1440x1000x24%3Ask%3A1%3Awv%3A2%3Aco%3A0%3Ahdl%3A1%3Antf%3A1%3Aeu%3A2%3Ans%3A1790065875405%3Aadb%3A2%3Arqnl%3A1%3Ast%3A1790065901&t=gdpr(14)mc(h-2)clc(1-352-407)rqnt(4)aw(1)rcm(1)csu(0)cdl(na)eco(42010116)prs(2)cac(0)cae(0)wss(2)w2s(0)evt(1484)ti(0)&force-urlencoded=1",
+    "ct": "image/gif",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/photo-gallery/9b8d41da-ce63-43b2-9bb2-40b4d66dbe6e_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/0/30258560140635665_b5d1_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/photo-gallery/4f09850c-b3c6-483f-a533-67f4862052cd_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/0/30258560095816111_be14_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/1/140737503186540_5c1f_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/0/30258560140635661_fa26_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/photo-gallery/6e13c916-e775-4421-aeb6-a01bb7d0cdaf_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i5.photo.2gis.com/images/branch/1/140737503186539_3161_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i1.photo.2gis.com/photo-gallery/acfedf6b-a297-47f0-b880-f395cd1b2ee8_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/cdbb4dd4-1929-423d-b117-8f2a1b5aef16_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/photo-gallery/5f84a3f6-20c5-4745-8aed-e3452e0b573a_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i3.photo.2gis.com/images/branch/0/30258560082569492_56f0_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/photo-gallery/a3d9e501-8692-46ea-b1d8-dab8199149cf_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i9.photo.2gis.com/photo-gallery/11bdb6f8-0aef-48f6-bbd6-a534382bf7c0_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/images/branch/0/30258560171855143_42b3_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://api.photo.2gis.com/3.0/objects/141265769806977/albums/all/media?key=gYu1s9N1wP&page_size=20&locale=ru_RU&preview_size=656x340%2C328x170%2C232x232%2C176x176%2C116x116%2C88x88&page_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTA2NzA3MDAsImFsYnVtX2lkIjoiYWxsIiwibGFzdF9waG90b19pZCI6MzAyNTg1NjAzMzkxNTgyNDEsImxhc3RfZWxlbWVudF9pbmRleCI6MTAwLCJpc19mcm9tX2J1aWxkaW5nIjpmYWxzZSwiZGlzY292ZXJ5X3Bob3RvX2lkIjpudWxsLCJtaXhlZF92aWRlb19pZCI6MzAyNTg1NjAyNDQ1MjE2MDIsInNpbWlsYXJfbWVkaWFfaWQiOm51bGx9.SvSyrSKW-KdHneeUMlpIGYTBH3qgwC1PLvhioKlDCCk",
+    "ct": "application/json",
+    "status": 200
+  },
+  {
+    "url": "https://i2.photo.2gis.com/images/branch/0/30258560068302752_b7f9_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i6.photo.2gis.com/images/branch/1/140737531623177_fc17_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i4.photo.2gis.com/images/geo/0/30258560102231037_d46f_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://s1.bss.2gis.com/bss-ext/3",
+    "ct": "",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/images/branch/0/30258560093960250_e636_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i0.photo.2gis.com/photo-gallery/d7d54e57-8246-4e5a-a926-3a832c5b69c4_328x170.jpg",
+    "ct": "image/jpeg",
+    "status": 200
+  },
+  {
+    "url": "https://i7.photo.2gis.com/photo-gallery/d2a89f1f-2a49-4aa6-8652-6eaf6310e3ae_328x170.jpg",
+    "ct": "image/jpeg",
     "status": 200
   }
 ]
