@@ -651,3 +651,10 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
 .vip-art{
   display:none!important;
 }
+
+
+/* EXPERIENCE REAL STAGE V24 */
+.experience-visual img{
+  object-position:center 42%!important;
+  filter:saturate(.88) contrast(1.05) brightness(.82)!important;
+}
