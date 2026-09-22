@@ -9,9 +9,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: import-2gis-venue-photos
+  cancel-in-progress: true
+
 jobs:
   import:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
@@ -151,7 +156,7 @@ jobs:
           for(const item of all){
             if(accepted.length>=18) break;
             try{
-              const r=await fetch(item.url,{headers:{'User-Agent':'Mozilla/5.0','Referer':'https://2gis.ru/'}});
+              const r=await fetch(item.url,{headers:{'User-Agent':'Mozilla/5.0','Referer':'https://2gis.ru/'},signal:AbortSignal.timeout(15000)});
               if(!r.ok) continue;
               const buf=Buffer.from(await r.arrayBuffer());
               const meta=await sharp(buf).metadata();
