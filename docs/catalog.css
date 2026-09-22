@@ -1283,3 +1283,76 @@ body[data-catalog-tab="food"] .category-nav{
     padding-top:10px!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE FOOD RELIABILITY V36
+   Responsive lightweight pages + Safari-safe layout
+   ========================================================= */
+body[data-catalog-tab="food"] .menu-pages-list{
+  display:block!important;
+  width:min(1040px,100%)!important;
+  margin:0 auto!important;
+  padding:0!important;
+  overflow:visible!important;
+  line-height:0!important;
+  font-size:0!important;
+}
+body[data-catalog-tab="food"] .menu-page-picture{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  line-height:0!important;
+}
+body[data-catalog-tab="food"] .menu-page-picture + .menu-page-picture{
+  margin-top:-1px!important;
+}
+body[data-catalog-tab="food"] .menu-page-picture img{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+  -webkit-clip-path:none!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+  transform:none!important;
+  vertical-align:top!important;
+  background:#030708!important;
+}
+@media(max-width:620px){
+  body[data-catalog-tab="food"]{
+    background:#030708!important;
+  }
+  body[data-catalog-tab="food"] .catalog-shell{
+    width:100%!important;
+    max-width:none!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  body[data-catalog-tab="food"] .menu-pages-list{
+    width:100%!important;
+    min-height:100vh!important;
+    contain:none!important;
+  }
+  body[data-catalog-tab="food"] .menu-page-picture{
+    width:100%!important;
+    content-visibility:auto;
+    contain-intrinsic-size:auto 100vw;
+  }
+  body[data-catalog-tab="food"] .menu-page-picture:first-child,
+  body[data-catalog-tab="food"] .menu-page-picture:nth-child(2){
+    content-visibility:visible;
+  }
+  body[data-catalog-tab="food"] .menu-page-picture img{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+  }
+}
