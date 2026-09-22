@@ -842,3 +842,42 @@ body[data-catalog-tab="food"] .catalog-footer{
     box-shadow:none;
   }
 }
+
+
+/* FOOD SEAMLESS MENU V20 */
+body[data-catalog-tab="food"],
+body[data-catalog-tab="food"] .catalog-shell,
+body[data-catalog-tab="food"] .menu-pages-list{
+  background:#030708;
+}
+body[data-catalog-tab="food"] .catalog-hero{
+  border-bottom:0;
+  background:#030708;
+}
+body[data-catalog-tab="food"] .menu-pages-list{
+  width:min(1040px,100%);
+  margin:0 auto;
+  gap:0;
+  padding:0;
+}
+body[data-catalog-tab="food"] .menu-pages-list img{
+  width:100%;
+  margin:0;
+  padding:0;
+  border:0!important;
+  outline:0;
+  box-shadow:none!important;
+  background:transparent;
+  vertical-align:top;
+}
+@media(max-width:620px){
+  body[data-catalog-tab="food"] .menu-pages-list{
+    width:100%;
+    margin:0;
+    gap:0;
+  }
+  body[data-catalog-tab="food"] .menu-pages-list img{
+    border:0!important;
+    box-shadow:none!important;
+  }
+}
