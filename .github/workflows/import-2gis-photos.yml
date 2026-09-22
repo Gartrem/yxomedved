@@ -36,15 +36,16 @@ jobs:
           import { chromium } from 'playwright';
           import sharp from 'sharp';
 
-          const gallery='https://2gis.ru/novosibirsk/gallery/firm/141265769806977';
+          const info='https://2gis.ru/novosibirsk/firm/141265769806977/tab/info';
           const outDir='assets/venue/2gis';
           await fs.mkdir(outDir,{recursive:true});
 
           const found=new Map();
           const add=(url,meta={})=>{
             if(!url || typeof url!=='string') return;
-            if(!/https:\/\/i\d+\.photo\.2gis\.com\//.test(url)) return;
-            if(/profile|logo|photo-providers/.test(url)) return;
+            if(!/^https?:\/\//.test(url)) return;
+            if(!/(?:photo\.2gis\.com|cachizer\d*\.2gis\.com|images\.2gis\.com)/i.test(url)) return;
+            if(/profile|logo|photo-providers|sprite|marker|icon/i.test(url)) return;
             let clean=url.replace(/_(?:232x232|328x170|656x340|64x64|320x|640x|1920x)(?=\.[a-z]+(?:\?|$))/i,'');
             clean=clean.replace(/\?.*$/,'');
             if(!found.has(clean)) found.set(clean,{url:clean,...meta});
@@ -73,18 +74,21 @@ jobs:
           });
           const page=await context.newPage();
 
+          const responseUrls=[];
           page.on('response',async response=>{
             try{
               const ct=response.headers()['content-type']||'';
-              if(!ct.includes('json')) return;
               const u=response.url();
+              if(/2gis/i.test(u)) responseUrls.push({url:u,ct,status:response.status()});
+              if(/^image\//i.test(ct)){add(u,{source:'network-image',contentType:ct});return}
+              if(!ct.includes('json')) return;
               if(!/2gis|photo|gallery|review/i.test(u)) return;
               const data=await response.json();
               walk(data,{responseUrl:u});
             }catch{}
           });
 
-          await page.goto(gallery,{waitUntil:'domcontentloaded',timeout:90000});
+          await page.goto(info,{waitUntil:'domcontentloaded',timeout:90000});
           await page.waitForTimeout(7000);
 
           for(const txt of ['Принять','Согласен','Понятно']){
@@ -92,7 +96,17 @@ jobs:
             if(await b.isVisible().catch(()=>false)) await b.click().catch(()=>{});
           }
 
-          for(let i=0;i<10;i++){
+          const photoLink=page.locator('a[href*="/gallery/firm/141265769806977"], a[href*="/tab/photos"]').first();
+          if(await photoLink.isVisible().catch(()=>false)){
+            await photoLink.click();
+          }else{
+            const byText=page.getByText(/Фото\s*\d+/).first();
+            if(await byText.isVisible().catch(()=>false)) await byText.click();
+            else await page.goto('https://2gis.ru/novosibirsk/gallery/firm/141265769806977',{waitUntil:'domcontentloaded',timeout:90000});
+          }
+          await page.waitForTimeout(8000);
+
+          for(let i=0;i<14;i++){
             await page.mouse.wheel(0,1300);
             await page.waitForTimeout(900);
           }
@@ -108,7 +122,9 @@ jobs:
           });
           domUrls.forEach(u=>add(u,{source:'dom'}));
 
-          await page.screenshot({path:'/tmp/2gis-gallery.png',fullPage:false}).catch(()=>{});
+          await page.screenshot({path:path.join(outDir,'debug-gallery.jpg'),fullPage:false,type:'jpeg',quality:80}).catch(()=>{});
+          await fs.writeFile(path.join(outDir,'debug-responses.json'),JSON.stringify(responseUrls.slice(-1500),null,2));
+          await fs.writeFile(path.join(outDir,'debug-html.html'),await page.content().catch(()=>'')); 
           await browser.close();
 
           const all=[...found.values()];
@@ -137,7 +153,9 @@ jobs:
           }
           await fs.writeFile(path.join(outDir,'accepted-index.json'),JSON.stringify(accepted,null,2));
 
-          if(!accepted.length) throw new Error('No usable 2GIS photos were collected');
+          if(!accepted.length){
+            console.log('No usable photos yet; committing debug output for inspection');
+          }
 
           const thumbs=[];
           const cellW=360,cellH=260,cols=3;
@@ -148,10 +166,12 @@ jobs:
             const composite=await sharp(img).composite([{input:label,top:0,left:0}]).jpeg({quality:85}).toBuffer();
             thumbs.push(composite);
           }
-          const rows=Math.ceil(thumbs.length/cols);
-          const sheet=sharp({create:{width:cellW*cols,height:cellH*rows,channels:3,background:'#111'}});
-          const comps=thumbs.map((input,i)=>({input,left:(i%cols)*cellW,top:Math.floor(i/cols)*cellH}));
-          await sheet.composite(comps).jpeg({quality:88}).toFile(path.join(outDir,'contact-sheet.jpg'));
+          if(thumbs.length){
+            const rows=Math.ceil(thumbs.length/cols);
+            const sheet=sharp({create:{width:cellW*cols,height:cellH*rows,channels:3,background:'#111'}});
+            const comps=thumbs.map((input,i)=>({input,left:(i%cols)*cellW,top:Math.floor(i/cols)*cellH}));
+            await sheet.composite(comps).jpeg({quality:88}).toFile(path.join(outDir,'contact-sheet.jpg'));
+          }
           console.log('accepted',accepted.length);
           NODE
           node import-2gis.mjs
