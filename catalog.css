@@ -1039,3 +1039,120 @@ body[data-catalog-tab="food"] .menu-pages-list img:last-child{
     margin-bottom:0!important;
   }
 }
+
+
+/* =========================================================
+   CATALOG SIGNATURE CONTROLS V25
+   ========================================================= */
+.catalog-header .button,
+.catalog-cta .button{
+  position:relative!important;
+  min-height:48px!important;
+  padding:0 46px 0 18px!important;
+  border-radius:14px 5px 14px 5px!important;
+  overflow:hidden;
+  text-transform:uppercase;
+  letter-spacing:.07em!important;
+  font-size:11px!important;
+  font-weight:700!important;
+}
+.catalog-header .button:after,
+.catalog-cta .button:after{
+  content:"→";
+  position:absolute;
+  right:7px;
+  top:7px;
+  bottom:7px;
+  width:30px;
+  display:grid;
+  place-items:center;
+  border-left:1px solid rgba(255,255,255,.14);
+  border-radius:8px 3px 8px 3px;
+  background:rgba(0,0,0,.12);
+  color:inherit;
+}
+.catalog-header .back:after{content:"←"}
+.catalog-header .back .arrow-left{display:none}
+.catalog-header .button-primary,
+.catalog-cta .button-primary{
+  background:linear-gradient(115deg,#99152f,#c31f43)!important;
+  border-color:rgba(232,198,151,.18)!important;
+  box-shadow:0 12px 28px rgba(92,8,30,.23),inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+.catalog-header .button-secondary{
+  background:linear-gradient(180deg,rgba(19,14,12,.94),rgba(7,6,5,.94))!important;
+  border-color:rgba(209,170,114,.36)!important;
+}
+
+/* Main food/bar switch = hardware toggle */
+.main-switch{
+  padding:4px!important;
+  gap:4px!important;
+  border:1px solid rgba(209,170,114,.2)!important;
+  border-radius:16px 6px 16px 6px!important;
+  background:rgba(8,6,5,.84)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+.main-switch button{
+  position:relative;
+  min-height:44px!important;
+  border-radius:11px 4px 11px 4px!important;
+  letter-spacing:.08em!important;
+}
+.main-switch button.active{
+  background:linear-gradient(115deg,#8d112a,#c31f43)!important;
+  box-shadow:0 7px 18px rgba(95,9,31,.22),inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+
+/* Category filters = small channel keys */
+.group-nav button,.category-nav a{
+  min-height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px 3px 10px 3px!important;
+  border-color:rgba(209,170,114,.17)!important;
+  background:rgba(255,255,255,.012)!important;
+  letter-spacing:.075em!important;
+}
+.group-nav button.active,.category-nav a.active{
+  background:linear-gradient(115deg,rgba(132,16,42,.92),rgba(183,27,59,.92))!important;
+  border-color:rgba(209,170,114,.3)!important;
+  color:#fff!important;
+}
+
+@media(max-width:620px){
+  .catalog-header{
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+  .catalog-logo img{width:86px!important}
+  .catalog-head-actions{gap:6px!important}
+  .catalog-head-actions .button{
+    min-height:42px!important;
+    padding-left:12px!important;
+    padding-right:38px!important;
+    font-size:10px!important;
+  }
+  .catalog-head-actions .button:after{width:26px!important;right:5px!important}
+  .main-switch{
+    width:100%!important;
+    border-radius:14px 5px 14px 5px!important;
+  }
+  .main-switch button{min-width:0!important;min-height:46px!important;font-size:10px!important}
+  .group-nav,.category-nav{
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .group-nav::-webkit-scrollbar,.category-nav::-webkit-scrollbar{display:none}
+  .group-nav button,.category-nav a{
+    min-height:40px!important;
+    padding-left:13px!important;
+    padding-right:13px!important;
+    font-size:9px!important;
+  }
+  .catalog-cta>.button{
+    width:100%!important;
+    min-height:52px!important;
+  }
+}
