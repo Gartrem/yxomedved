@@ -20,3 +20,12 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')setDrawer(fa
 function syncHeader(){header?.classList.toggle('scrolled',window.scrollY>24)}
 window.addEventListener('scroll',syncHeader,{passive:true});
 syncHeader();
+
+
+// MOBILE MENU NAV FIX V35
+drawer?.querySelectorAll('a[href^="catalog.html"]').forEach(link=>{
+  link.addEventListener('click',event=>{
+    event.preventDefault();
+    window.location.href=link.getAttribute('href')||'catalog.html?tab=food&v=35';
+  });
+});
