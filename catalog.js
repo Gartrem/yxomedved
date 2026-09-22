@@ -5,7 +5,7 @@ const MENU_PAGES=[
   'Паста и пельмени','Дракон','Роллы','Горячие закуски','Горячие закуски',
   'Десерты','Десерты','Контакты'
 ];
-let menuPageIndex=Math.min(Math.max((Number(params.get('page'))||1)-1,0),MENU_PAGES.length-1);
+let menuPageIndex=0;
 const menuBook=document.getElementById('menuBook');
 const menuArt=document.getElementById('menuArt');
 const menuPage=document.getElementById('menuPage');
@@ -109,6 +109,7 @@ const BAR_GROUPS=[
   {id:'soft',label:'Безалкогольное',cats:['soft','coffee-tea']}
 ];
 const params=new URLSearchParams(location.search);
+menuPageIndex=Math.min(Math.max((Number(params.get('page'))||1)-1,0),MENU_PAGES.length-1);
 const state={tab:params.get('tab')==='bar'?'bar':'food',group:'all',query:''};
 const mainSwitch=[...document.querySelectorAll('.main-switch button')];
 const catalog=document.getElementById('catalog');
