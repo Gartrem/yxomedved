@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#030708">
+  <title>Меню кухни — Ухо & Медведь</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#030708;color:#f5eee6;font-family:Arial,sans-serif}
+    body{padding-top:62px}
+    .food-head{
+      position:fixed;z-index:50;top:0;left:0;right:0;height:62px;
+      display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+      padding:7px 10px;border-bottom:1px solid rgba(209,170,114,.18);
+      background:rgba(3,7,8,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+    }
+    .food-head img{width:74px;height:46px;object-fit:contain}
+    .food-head .bar-link,.food-head .book{
+      min-height:42px;display:flex;align-items:center;justify-content:center;
+      padding:0 13px;border-radius:11px 4px 11px 4px;text-decoration:none;
+      font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase
+    }
+    .bar-link{justify-self:end;color:#dfc9ae;border:1px solid rgba(209,170,114,.3);background:#0c0908}
+    .book{color:#fff;border:1px solid rgba(255,255,255,.08);background:linear-gradient(115deg,#8e112b,#c31f43)}
+    .pages{width:min(1040px,100%);margin:0 auto;line-height:0}
+    .pages img{
+      display:block;width:100%;height:auto;margin:0;padding:0;border:0;outline:0;background:#030708
+    }
+    .pages img+img{margin-top:-1px}
+    @media(max-width:520px){
+      .food-head{grid-template-columns:auto 1fr auto;height:58px;padding:6px 7px}
+      body{padding-top:58px}
+      .food-head img{width:66px;height:42px}
+      .food-head .bar-link,.food-head .book{min-height:40px;padding:0 10px;font-size:9px}
+    }
+    @media(max-width:380px){
+      .food-head .bar-link{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="food-head">
+    <a href="index.html" aria-label="На главную"><img src="assets/logo-glossy.png" alt="Ухо & Медведь"></a>
+    <a class="bar-link" href="catalog.html?tab=bar&v=37">Барная карта</a>
+    <a class="book" href="tel:+73832928901">Бронь</a>
+  </header>
+  <main class="pages" aria-label="Меню кухни">
+    <img src="assets/menu-book/pages/menu-01.webp?v=37" alt="Страница меню 1" loading="eager" decoding="async" fetchpriority="high">
+    <img src="assets/menu-book/pages/menu-02.webp?v=37" alt="Страница меню 2" loading="eager" decoding="async">
+    <img src="assets/menu-book/pages/menu-03.webp?v=37" alt="Страница меню 3" loading="eager" decoding="async">
+    <img src="assets/menu-book/pages/menu-04.webp?v=37" alt="Страница меню 4" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-05.webp?v=37" alt="Страница меню 5" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-06.webp?v=37" alt="Страница меню 6" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-07.webp?v=37" alt="Страница меню 7" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-08.webp?v=37" alt="Страница меню 8" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-09.webp?v=37" alt="Страница меню 9" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-10.webp?v=37" alt="Страница меню 10" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-11.webp?v=37" alt="Страница меню 11" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-12.webp?v=37" alt="Страница меню 12" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-13.webp?v=37" alt="Страница меню 13" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-14.webp?v=37" alt="Страница меню 14" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-15.webp?v=37" alt="Страница меню 15" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-16.webp?v=37" alt="Страница меню 16" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-17.webp?v=37" alt="Страница меню 17" loading="lazy" decoding="async">
+    <img src="assets/menu-book/pages/menu-18.webp?v=37" alt="Страница меню 18" loading="lazy" decoding="async">
+  </main>
+</body>
+</html>
