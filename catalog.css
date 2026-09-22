@@ -979,3 +979,63 @@ body[data-catalog-tab="food"] .menu-pages-list img{
     );
   }
 }
+
+
+/* FOOD HARD-CROP SEAMS V24 */
+body[data-catalog-tab="food"] .menu-pages-list{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:0!important;
+  row-gap:0!important;
+  overflow:hidden!important;
+  line-height:0!important;
+  background:#030708!important;
+}
+
+body[data-catalog-tab="food"] .menu-pages-list img{
+  display:block!important;
+  flex:none!important;
+  width:calc(100% + 4px)!important;
+  max-width:none!important;
+  height:auto!important;
+  margin-left:-2px!important;
+  padding:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  outline:0!important;
+
+  /* Disable the previous transparency mask: it exposed the dark page background. */
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+
+  /* Remove the dark strip baked into the top and bottom of each generated page. */
+  clip-path:inset(24px 0 24px 0);
+  margin-top:-24px!important;
+  margin-bottom:-24px!important;
+}
+
+body[data-catalog-tab="food"] .menu-pages-list img:first-child{
+  clip-path:inset(0 0 24px 0);
+  margin-top:0!important;
+}
+
+body[data-catalog-tab="food"] .menu-pages-list img:last-child{
+  clip-path:inset(24px 0 0 0);
+  margin-bottom:0!important;
+}
+
+@media(max-width:620px){
+  body[data-catalog-tab="food"] .menu-pages-list img{
+    clip-path:inset(18px 0 18px 0);
+    margin-top:-18px!important;
+    margin-bottom:-18px!important;
+  }
+  body[data-catalog-tab="food"] .menu-pages-list img:first-child{
+    clip-path:inset(0 0 18px 0);
+    margin-top:0!important;
+  }
+  body[data-catalog-tab="food"] .menu-pages-list img:last-child{
+    clip-path:inset(18px 0 0 0);
+    margin-bottom:0!important;
+  }
+}
