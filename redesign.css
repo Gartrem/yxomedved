@@ -1256,3 +1256,35 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
   }
   .mobile-dock small{font-size:8px!important}
 }
+
+
+/* MOBILE PHONE ICON V33 */
+@media(max-width:700px){
+  .mobile-dock .dock-phone{
+    width:30px!important;
+    height:30px!important;
+    flex:0 0 30px!important;
+    display:grid!important;
+    place-items:center!important;
+    background:none!important;
+    filter:none!important;
+    color:#d6ad72!important;
+  }
+  .mobile-dock .dock-phone::before,
+  .mobile-dock .dock-phone::after{
+    display:none!important;
+    content:none!important;
+    background:none!important;
+  }
+  .mobile-dock .dock-phone svg{
+    display:block!important;
+    width:22px!important;
+    height:22px!important;
+    fill:none!important;
+    stroke:currentColor!important;
+    stroke-width:1.7!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+    overflow:visible!important;
+  }
+}
