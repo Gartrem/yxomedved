@@ -153,24 +153,26 @@ jobs:
           await fs.writeFile(path.join(outDir,'source-index.json'),JSON.stringify(all,null,2));
 
           const accepted=[];
-          for(const item of all){
-            if(accepted.length>=18) break;
+          const downloads=await Promise.all(all.slice(0,36).map(async item=>{
             try{
-              const r=await fetch(item.url,{headers:{'User-Agent':'Mozilla/5.0','Referer':'https://2gis.ru/'},signal:AbortSignal.timeout(15000)});
-              if(!r.ok) continue;
+              const r=await fetch(item.url,{headers:{'User-Agent':'Mozilla/5.0','Referer':'https://2gis.ru/'},signal:AbortSignal.timeout(12000)});
+              if(!r.ok) return null;
               const buf=Buffer.from(await r.arrayBuffer());
               const meta=await sharp(buf).metadata();
-              if((meta.width||0)<500 || (meta.height||0)<500) continue;
-              const n=String(accepted.length+1).padStart(2,'0');
-              const dest=path.join(outDir,`candidate-${n}.webp`);
-              await sharp(buf)
-                .rotate()
-                .resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true})
-                .modulate({saturation:0.9,brightness:0.96})
-                .webp({quality:88,smartSubsample:true})
-                .toFile(dest);
-              accepted.push({...item,file:dest,width:meta.width,height:meta.height});
-            }catch(e){console.log('skip',item.url,e.message)}
+              if((meta.width||0)<500 || (meta.height||0)<500) return null;
+              return {item,buf,meta};
+            }catch(e){console.log('skip',item.url,e.message);return null}
+          }));
+          for(const row of downloads.filter(Boolean).slice(0,18)){
+            const n=String(accepted.length+1).padStart(2,'0');
+            const dest=path.join(outDir,`candidate-${n}.webp`);
+            await sharp(row.buf)
+              .rotate()
+              .resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true})
+              .modulate({saturation:0.9,brightness:0.96})
+              .webp({quality:88,smartSubsample:true})
+              .toFile(dest);
+            accepted.push({...row.item,file:dest,width:row.meta.width,height:row.meta.height});
           }
           await fs.writeFile(path.join(outDir,'accepted-index.json'),JSON.stringify(accepted,null,2));
 
