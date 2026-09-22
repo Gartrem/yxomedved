@@ -1228,7 +1228,7 @@ body[data-catalog-tab="food"] .category-nav{
 
 
 /* BAR CLEAN LAYOUT V29 */
-.bar-mark{display:none!important}
+
 .menu-item.bar{
   grid-template-columns:minmax(0,1fr) auto!important;
   gap:18px!important;
@@ -1242,4 +1242,25 @@ body[data-catalog-tab="food"] .category-nav{
     min-height:82px!important;
     padding:12px 10px!important;
   }
+}
+
+
+/* HARD REMOVE BAR BADGES V30 */
+.bar-mark,
+.bar-mark::before,
+.bar-mark::after{
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  width:0!important;
+  height:0!important;
+  min-width:0!important;
+  min-height:0!important;
+  border:0!important;
+  padding:0!important;
+  margin:0!important;
+  content:none!important;
+}
+.menu-item.bar{
+  grid-template-columns:minmax(0,1fr) auto!important;
 }
