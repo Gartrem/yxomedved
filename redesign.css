@@ -1122,3 +1122,137 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
     padding-right:14px!important;
   }
 }
+
+
+/* =========================================================
+   MOBILE DOCK: 3 ACTIONS V32
+   Left: call · Center: booking · Right: address
+   ========================================================= */
+@media(max-width:700px){
+  .mobile-dock{
+    position:fixed!important;
+    z-index:90!important;
+    left:10px!important;
+    right:10px!important;
+    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    width:auto!important;
+    height:74px!important;
+    padding:5px!important;
+    display:grid!important;
+    grid-template-columns:1fr 1.18fr 1fr!important;
+    align-items:stretch!important;
+    gap:5px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(209,170,114,.24)!important;
+    border-radius:20px!important;
+    background:rgba(7,5,4,.96)!important;
+    backdrop-filter:blur(20px)!important;
+    -webkit-backdrop-filter:blur(20px)!important;
+    box-shadow:0 16px 44px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.025)!important;
+  }
+  .mobile-dock>a{
+    position:relative!important;
+    min-width:0!important;
+    width:100%!important;
+    height:100%!important;
+    margin:0!important;
+    padding:6px 3px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:3px!important;
+    border:1px solid transparent!important;
+    border-radius:15px!important;
+    color:#a99b8f!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    transform:none!important;
+    overflow:hidden!important;
+    touch-action:manipulation;
+  }
+  .mobile-dock>a:before,
+  .mobile-dock>a:after{
+    display:none!important;
+    content:none!important;
+  }
+  .mobile-dock .mobile-book{
+    color:#fff4e8!important;
+    border-color:rgba(232,194,139,.28)!important;
+    border-radius:15px 5px 15px 5px!important;
+    background:
+      radial-gradient(circle at 32% 18%,rgba(255,255,255,.12),transparent 28%),
+      linear-gradient(145deg,#7d0d27 0%,#a91535 58%,#c21d42 100%)!important;
+    box-shadow:
+      0 8px 20px rgba(101,8,31,.28),
+      inset 0 1px 0 rgba(255,255,255,.08)!important;
+  }
+  .mobile-dock .mobile-call,
+  .mobile-dock .mobile-address{
+    border-color:rgba(209,170,114,.08)!important;
+  }
+  .mobile-dock .dock-icon{
+    width:28px!important;
+    height:28px!important;
+    flex:0 0 28px!important;
+    display:grid!important;
+    place-items:center!important;
+    overflow:visible!important;
+  }
+  .mobile-dock .dock-icon img{
+    width:27px!important;
+    height:27px!important;
+    max-width:none!important;
+    object-fit:contain!important;
+  }
+  .mobile-dock .dock-phone{
+    width:29px!important;
+    height:29px!important;
+    flex-basis:29px!important;
+    background-image:url("assets/ui/phone.png?v=4")!important;
+    background-repeat:no-repeat!important;
+    background-position:center!important;
+    background-size:29px 29px!important;
+    filter:drop-shadow(0 2px 5px rgba(215,171,103,.15))!important;
+  }
+  .mobile-dock .dock-phone::after{display:none!important}
+  .mobile-dock .mobile-book .dock-mic{
+    width:30px!important;
+    height:30px!important;
+    flex-basis:30px!important;
+    border:0!important;
+    border-radius:0!important;
+  }
+  .mobile-dock .mobile-book .dock-mic img{
+    width:30px!important;
+    height:30px!important;
+    filter:drop-shadow(0 2px 7px rgba(230,182,105,.22))!important;
+  }
+  .mobile-dock small{
+    display:block!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+    color:inherit!important;
+    font-size:9px!important;
+    font-weight:500!important;
+    line-height:1!important;
+    letter-spacing:.01em!important;
+  }
+  .mobile-dock .mobile-book small{
+    font-weight:700!important;
+  }
+  body{
+    padding-bottom:max(96px,calc(86px + env(safe-area-inset-bottom)))!important;
+  }
+}
+@media(max-width:380px){
+  .mobile-dock{
+    left:7px!important;
+    right:7px!important;
+    height:70px!important;
+    grid-template-columns:1fr 1.15fr 1fr!important;
+  }
+  .mobile-dock small{font-size:8px!important}
+}
