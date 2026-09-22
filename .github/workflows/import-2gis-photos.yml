@@ -1,0 +1,166 @@
+name: Import 2GIS venue photos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-2gis-photos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install scraper dependencies
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 sharp@0.33.5 >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+
+      - name: Collect and process public 2GIS gallery photos
+        shell: bash
+        run: |
+          cat > import-2gis.mjs <<'NODE'
+          import fs from 'node:fs/promises';
+          import path from 'node:path';
+          import { chromium } from 'playwright';
+          import sharp from 'sharp';
+
+          const gallery='https://2gis.ru/novosibirsk/gallery/firm/141265769806977';
+          const outDir='assets/venue/2gis';
+          await fs.mkdir(outDir,{recursive:true});
+
+          const found=new Map();
+          const add=(url,meta={})=>{
+            if(!url || typeof url!=='string') return;
+            if(!/https:\/\/i\d+\.photo\.2gis\.com\//.test(url)) return;
+            if(/profile|logo|photo-providers/.test(url)) return;
+            let clean=url.replace(/_(?:232x232|328x170|656x340|64x64|320x|640x|1920x)(?=\.[a-z]+(?:\?|$))/i,'');
+            clean=clean.replace(/\?.*$/,'');
+            if(!found.has(clean)) found.set(clean,{url:clean,...meta});
+          };
+          const walk=(x,meta={})=>{
+            if(!x) return;
+            if(typeof x==='string'){add(x,meta);return}
+            if(Array.isArray(x)){for(const v of x) walk(v,meta);return}
+            if(typeof x==='object'){
+              const next={...meta};
+              for(const k of ['photoId','source','category','createdAt','modifiedAt','width','height']){
+                if(x[k]!=null) next[k]=x[k];
+              }
+              for(const [k,v] of Object.entries(x)){
+                if(typeof v==='string' && (k.toLowerCase().includes('url') || v.includes('photo.2gis.com'))) add(v,next);
+                else if(typeof v==='object') walk(v,next);
+              }
+            }
+          };
+
+          const browser=await chromium.launch({headless:true});
+          const context=await browser.newContext({
+            viewport:{width:1440,height:1000},
+            userAgent:'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36',
+            locale:'ru-RU'
+          });
+          const page=await context.newPage();
+
+          page.on('response',async response=>{
+            try{
+              const ct=response.headers()['content-type']||'';
+              if(!ct.includes('json')) return;
+              const u=response.url();
+              if(!/2gis|photo|gallery|review/i.test(u)) return;
+              const data=await response.json();
+              walk(data,{responseUrl:u});
+            }catch{}
+          });
+
+          await page.goto(gallery,{waitUntil:'domcontentloaded',timeout:90000});
+          await page.waitForTimeout(7000);
+
+          for(const txt of ['Принять','Согласен','Понятно']){
+            const b=page.getByText(txt,{exact:false}).first();
+            if(await b.isVisible().catch(()=>false)) await b.click().catch(()=>{});
+          }
+
+          for(let i=0;i<10;i++){
+            await page.mouse.wheel(0,1300);
+            await page.waitForTimeout(900);
+          }
+
+          const domUrls=await page.evaluate(()=>{
+            const out=[];
+            document.querySelectorAll('img').forEach(img=>{if(img.currentSrc) out.push(img.currentSrc); if(img.src) out.push(img.src)});
+            document.querySelectorAll('*').forEach(el=>{
+              const bg=getComputedStyle(el).backgroundImage;
+              for(const m of bg.matchAll(/url\(["']?(https?:\/\/[^"'\)]+)["']?\)/g)) out.push(m[1]);
+            });
+            return out;
+          });
+          domUrls.forEach(u=>add(u,{source:'dom'}));
+
+          await page.screenshot({path:'/tmp/2gis-gallery.png',fullPage:false}).catch(()=>{});
+          await browser.close();
+
+          const all=[...found.values()];
+          console.log('candidate urls',all.length);
+          await fs.writeFile(path.join(outDir,'source-index.json'),JSON.stringify(all,null,2));
+
+          const accepted=[];
+          for(const item of all){
+            if(accepted.length>=18) break;
+            try{
+              const r=await fetch(item.url,{headers:{'User-Agent':'Mozilla/5.0','Referer':'https://2gis.ru/'}});
+              if(!r.ok) continue;
+              const buf=Buffer.from(await r.arrayBuffer());
+              const meta=await sharp(buf).metadata();
+              if((meta.width||0)<500 || (meta.height||0)<500) continue;
+              const n=String(accepted.length+1).padStart(2,'0');
+              const dest=path.join(outDir,`candidate-${n}.webp`);
+              await sharp(buf)
+                .rotate()
+                .resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true})
+                .modulate({saturation:0.9,brightness:0.96})
+                .webp({quality:88,smartSubsample:true})
+                .toFile(dest);
+              accepted.push({...item,file:dest,width:meta.width,height:meta.height});
+            }catch(e){console.log('skip',item.url,e.message)}
+          }
+          await fs.writeFile(path.join(outDir,'accepted-index.json'),JSON.stringify(accepted,null,2));
+
+          if(!accepted.length) throw new Error('No usable 2GIS photos were collected');
+
+          const thumbs=[];
+          const cellW=360,cellH=260,cols=3;
+          for(let i=0;i<accepted.length;i++){
+            const file=accepted[i].file;
+            const img=await sharp(file).resize(cellW,cellH,{fit:'cover'}).jpeg({quality:82}).toBuffer();
+            const label=Buffer.from(`<svg width="${cellW}" height="${cellH}"><rect x="0" y="0" width="76" height="38" fill="rgba(0,0,0,.72)"/><text x="12" y="27" font-family="Arial" font-size="21" fill="white">#${String(i+1).padStart(2,'0')}</text></svg>`);
+            const composite=await sharp(img).composite([{input:label,top:0,left:0}]).jpeg({quality:85}).toBuffer();
+            thumbs.push(composite);
+          }
+          const rows=Math.ceil(thumbs.length/cols);
+          const sheet=sharp({create:{width:cellW*cols,height:cellH*rows,channels:3,background:'#111'}});
+          const comps=thumbs.map((input,i)=>({input,left:(i%cols)*cellW,top:Math.floor(i/cols)*cellH}));
+          await sheet.composite(comps).jpeg({quality:88}).toFile(path.join(outDir,'contact-sheet.jpg'));
+          console.log('accepted',accepted.length);
+          NODE
+          node import-2gis.mjs
+
+      - name: Commit imported photos
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/venue/2gis
+          git commit -m "Import venue photos from 2GIS gallery" || exit 0
+          git push
