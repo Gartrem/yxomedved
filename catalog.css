@@ -1180,3 +1180,27 @@ body[data-catalog-tab="food"] .menu-pages-list img:last-child{
   .catalog-logo img{width:78px!important}
   .catalog-head-actions .button{max-width:112px!important;font-size:9px!important}
 }
+
+
+/* =========================================================
+   NO ARROWS V27
+   ========================================================= */
+.catalog-header .button:after,
+.catalog-cta .button:after{
+  display:none!important;
+  content:none!important;
+}
+.catalog-header .back .arrow-left,
+.catalog-head-actions .book>span,
+.catalog-cta .button>span{
+  display:none!important;
+}
+.catalog-header .button,
+.catalog-cta .button{
+  padding-right:18px!important;
+}
+@media(max-width:620px){
+  .catalog-head-actions .button{
+    padding-right:12px!important;
+  }
+}
