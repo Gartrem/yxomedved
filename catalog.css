@@ -921,3 +921,61 @@ body[data-catalog-tab="food"] .menu-pages-list img + img{
     margin-top:-1px!important;
   }
 }
+
+
+/* FOOD SOFT-SEAM MENU V23 */
+body[data-catalog-tab="food"] .menu-pages-list{
+  overflow:hidden;
+  background:#030708!important;
+}
+
+/* Subsequent pages overlap the previous one.
+   The transparent-to-opaque mask creates a soft cross-fade instead of a black seam. */
+body[data-catalog-tab="food"] .menu-pages-list img + img{
+  margin-top:-42px!important;
+  -webkit-mask-image:linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0,0,0,.18) 8px,
+    rgba(0,0,0,.55) 20px,
+    #000 42px,
+    #000 100%
+  );
+  mask-image:linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0,0,0,.18) 8px,
+    rgba(0,0,0,.55) 20px,
+    #000 42px,
+    #000 100%
+  );
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+}
+
+/* Slight enlargement hides any baked-in hairline/border on the generated page edges. */
+body[data-catalog-tab="food"] .menu-pages-list img{
+  width:calc(100% + 4px)!important;
+  max-width:none!important;
+  margin-left:-2px!important;
+}
+
+@media(max-width:620px){
+  body[data-catalog-tab="food"] .menu-pages-list img + img{
+    margin-top:-28px!important;
+    -webkit-mask-image:linear-gradient(
+      to bottom,
+      transparent 0,
+      rgba(0,0,0,.3) 7px,
+      #000 28px,
+      #000 100%
+    );
+    mask-image:linear-gradient(
+      to bottom,
+      transparent 0,
+      rgba(0,0,0,.3) 7px,
+      #000 28px,
+      #000 100%
+    );
+  }
+}
