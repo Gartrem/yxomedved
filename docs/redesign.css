@@ -588,3 +588,34 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
     filter:drop-shadow(0 2px 5px rgba(215,171,103,.18));
   }
 }
+
+/* ===== PHONE BACKGROUND FIX V18 ===== */
+@media(max-width:700px){
+  .mobile-dock .dock-phone{
+    position:relative;
+    width:40px;
+    height:40px;
+    display:block;
+    flex:none;
+    background-image:url("assets/ui/phone.png?v=4");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:40px 40px;
+    filter:drop-shadow(0 2px 5px rgba(215,171,103,.18));
+    opacity:1;
+    visibility:visible;
+  }
+  .mobile-dock .dock-phone::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:url("assets/ui/phone.png?v=4");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:40px 40px;
+    pointer-events:none;
+  }
+  .mobile-dock .dock-phone img{
+    display:none !important;
+  }
+}
