@@ -550,3 +550,20 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
     filter:drop-shadow(0 3px 10px rgba(230,182,105,.24));
   }
 }
+
+/* ===== PHONE ICON VISIBILITY FIX V16 ===== */
+@media(max-width:700px){
+  .mobile-dock .dock-phone{
+    width:36px;
+    height:36px;
+  }
+  .mobile-dock .dock-phone img{
+    display:block;
+    width:36px;
+    height:36px;
+    max-width:none;
+    object-fit:contain;
+    filter:none;
+    opacity:1;
+  }
+}
