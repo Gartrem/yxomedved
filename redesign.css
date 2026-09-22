@@ -183,7 +183,7 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
 .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .event-poster{position:relative;aspect-ratio:4/5;min-height:380px;padding:24px;display:flex;align-items:flex-end;overflow:hidden;border:1px solid var(--line);background:#0c0707}
 .event-poster:before,.event-poster:after{content:"";position:absolute;inset:0}
-.event-poster:before{background:radial-gradient(circle at 60% 18%,rgba(181,25,58,.3),transparent 22%),linear-gradient(145deg,#18080d,#080504 68%)}
+.event-poster:before{background:linear-gradient(180deg,rgba(8,5,4,.08),rgba(8,5,4,.72)),url("assets/venue/event-2gis.webp") center/cover no-repeat}
 .event-two:before{background:linear-gradient(180deg,rgba(8,5,4,.10),rgba(8,5,4,.74)),url("assets/venue/party-2gis.webp") center/cover no-repeat}
 .event-three:before{background:linear-gradient(180deg,rgba(8,5,4,.10),rgba(8,5,4,.74)),url("assets/venue/lounge-2gis.webp") center/cover no-repeat}
 .event-poster:after{inset:auto 0 0;height:2px;background:linear-gradient(90deg,var(--wine),var(--gold),transparent);opacity:.45}
