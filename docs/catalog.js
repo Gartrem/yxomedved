@@ -1,105 +1,4 @@
 
-const MENU_PAGES=[
-  'Обложка','Салаты','Салат с ростбифом','Фирменные плато','Фирменные плато',
-  'Холодные закуски','Супы','Горячие блюда','Горячие блюда','Горячие блюда',
-  'Паста и пельмени','Дракон','Роллы','Горячие закуски','Горячие закуски',
-  'Десерты','Десерты','Контакты'
-];
-let menuPageIndex=0;
-const menuBook=document.getElementById('menuBook');
-const menuArt=document.getElementById('menuArt');
-const menuPage=document.getElementById('menuPage');
-const menuPrev=document.getElementById('menuPrev');
-const menuNext=document.getElementById('menuNext');
-const menuThumbs=document.getElementById('menuThumbs');
-const menuPageCurrent=document.getElementById('menuPageCurrent');
-const menuPageTotal=document.getElementById('menuPageTotal');
-const menuPageTitle=document.getElementById('menuPageTitle');
-const menuLightbox=document.getElementById('menuLightbox');
-const menuLightboxArt=document.getElementById('menuLightboxArt');
-const menuLightboxTitle=document.getElementById('menuLightboxTitle');
-const menuLightboxCount=document.getElementById('menuLightboxCount');
-
-function menuSpritePosition(index){
-  const col=index%6,row=Math.floor(index/6);
-  return (col*20)+'% '+(row*50)+'%';
-}
-function applyMenuSprite(el,index){if(el)el.style.backgroundPosition=menuSpritePosition(index)}
-function renderMenuThumbs(){
-  if(!menuThumbs)return;
-  menuThumbs.innerHTML='';
-  MENU_PAGES.forEach((title,index)=>{
-    const b=document.createElement('button');
-    b.type='button';
-    b.className='menu-book-thumb'+(index===menuPageIndex?' active':'');
-    b.setAttribute('aria-label','Страница '+(index+1)+': '+title);
-    const art=document.createElement('span');
-    art.className='menu-book-art';
-    applyMenuSprite(art,index);
-    const n=document.createElement('small');
-    n.textContent=String(index+1).padStart(2,'0');
-    b.append(art,n);
-    b.addEventListener('click',()=>setMenuPage(index,true));
-    menuThumbs.appendChild(b);
-  });
-}
-function setMenuPage(index,scrollThumb=false){
-  menuPageIndex=(index+MENU_PAGES.length)%MENU_PAGES.length;
-  applyMenuSprite(menuArt,menuPageIndex);
-  applyMenuSprite(menuLightboxArt,menuPageIndex);
-  if(menuPageCurrent)menuPageCurrent.textContent=String(menuPageIndex+1).padStart(2,'0');
-  if(menuPageTotal)menuPageTotal.textContent=String(MENU_PAGES.length).padStart(2,'0');
-  if(menuPageTitle)menuPageTitle.textContent=MENU_PAGES[menuPageIndex];
-  if(menuLightboxTitle)menuLightboxTitle.textContent=MENU_PAGES[menuPageIndex];
-  if(menuLightboxCount)menuLightboxCount.textContent=String(menuPageIndex+1).padStart(2,'0')+' / '+MENU_PAGES.length;
-  const thumbs=[...document.querySelectorAll('.menu-book-thumb')];
-  thumbs.forEach((thumb,i)=>thumb.classList.toggle('active',i===menuPageIndex));
-  if(scrollThumb)thumbs[menuPageIndex]?.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-  if(state.tab==='food'){
-    const u=new URL(location.href);
-    u.searchParams.set('tab','food');
-    u.searchParams.set('page',String(menuPageIndex+1));
-    history.replaceState(null,'',u.pathname+'?'+u.searchParams.toString());
-  }
-}
-function menuStep(delta){setMenuPage(menuPageIndex+delta,true)}
-menuPrev?.addEventListener('click',()=>menuStep(-1));
-menuNext?.addEventListener('click',()=>menuStep(1));
-document.getElementById('menuLightboxPrev')?.addEventListener('click',()=>menuStep(-1));
-document.getElementById('menuLightboxNext')?.addEventListener('click',()=>menuStep(1));
-menuPage?.addEventListener('click',()=>{
-  if(typeof menuLightbox?.showModal==='function'){
-    menuLightbox.showModal();document.body.classList.add('menu-lightbox-open');
-  }
-});
-document.getElementById('menuLightboxClose')?.addEventListener('click',()=>{
-  menuLightbox?.close();document.body.classList.remove('menu-lightbox-open');
-});
-menuLightbox?.addEventListener('click',e=>{
-  if(e.target===menuLightbox){menuLightbox.close();document.body.classList.remove('menu-lightbox-open')}
-});
-menuLightbox?.addEventListener('close',()=>document.body.classList.remove('menu-lightbox-open'));
-document.addEventListener('keydown',e=>{
-  if(state.tab!=='food')return;
-  if(e.key==='ArrowLeft')menuStep(-1);
-  if(e.key==='ArrowRight')menuStep(1);
-});
-let menuSwipeX=null;
-function swipeStart(e){menuSwipeX=(e.touches?.[0]?.clientX??e.clientX)}
-function swipeEnd(e){
-  if(menuSwipeX===null)return;
-  const x=(e.changedTouches?.[0]?.clientX??e.clientX);
-  const d=x-menuSwipeX;menuSwipeX=null;
-  if(Math.abs(d)>48)menuStep(d<0?1:-1);
-}
-menuPage?.addEventListener('touchstart',swipeStart,{passive:true});
-menuPage?.addEventListener('touchend',swipeEnd,{passive:true});
-menuLightbox?.addEventListener('touchstart',swipeStart,{passive:true});
-menuLightbox?.addEventListener('touchend',swipeEnd,{passive:true});
-renderMenuThumbs();
-setMenuPage(menuPageIndex);
-
-
 const BAR_GROUPS=[
   {id:'all',label:'Все',cats:[]},
   {id:'cocktails',label:'Коктейли',cats:['cocktails','infusions']},
@@ -118,6 +17,9 @@ const categoryNav=document.getElementById('categoryNav');
 const search=document.getElementById('search');
 const resultCount=document.getElementById('resultCount');
 const sections=[...catalog.querySelectorAll('.catalog-section')];
+
+renderMenuThumbs();
+setMenuPage(menuPageIndex);
 
 function sectionAllowed(section){
   if(section.dataset.tab!==state.tab)return false;
@@ -201,7 +103,7 @@ function setTab(tab){
     button.classList.toggle('active',active);
     button.setAttribute('aria-selected',String(active));
   });
-  const tabUrl=new URL(location.href);tabUrl.searchParams.set('tab',tab);if(tab==='food')tabUrl.searchParams.set('page',String(menuPageIndex+1));else tabUrl.searchParams.delete('page');history.replaceState(null,'',tabUrl.pathname+'?'+tabUrl.searchParams.toString());
+  const tabUrl=new URL(location.href);tabUrl.searchParams.set('tab',tab);tabUrl.searchParams.delete('page');history.replaceState(null,'',tabUrl.pathname+'?'+tabUrl.searchParams.toString());
   applyFilters();
 }
 
@@ -210,5 +112,3 @@ search.addEventListener('input',()=>{state.query=search.value.trim();applyFilter
 setTab(state.tab);
 
 
-// Initialize menu book after catalog state exists.
-if(document.getElementById('menuBook')){renderMenuThumbs();setMenuPage(menuPageIndex);}

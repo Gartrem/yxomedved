@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/logo-glossy.png">
-  <link rel="stylesheet" href="catalog.css?v=menu-viewer-v15">
+  <link rel="stylesheet" href="catalog.css?v=menu-seamless-v20">
 </head>
 <body>
   <header class="catalog-header">
@@ -39,38 +39,27 @@
     </section>
 
 
-    <section class="menu-book" id="menuBook" aria-label="Меню кухни по страницам">
-      <div class="menu-book-heading">
-        <div>
-          <p class="kicker">НОВОЕ МЕНЮ · УХО &amp; МЕДВЕДЬ</p>
-          <h2>Меню<br><em>по страницам.</em></h2>
-          <p>Листайте стрелками или свайпом. Нажмите на страницу, чтобы открыть её крупнее.</p>
-        </div>
-        <div class="menu-book-counter" aria-live="polite"><b id="menuPageCurrent">01</b><span>/</span><span id="menuPageTotal">18</span></div>
-      </div>
-
-      <div class="menu-book-viewer">
-        <button class="menu-book-arrow menu-book-arrow-prev" id="menuPrev" type="button" aria-label="Предыдущая страница">←</button>
-        <button class="menu-book-page" id="menuPage" type="button" aria-label="Открыть текущую страницу крупнее">
-          <span class="menu-book-art" id="menuArt" aria-hidden="true"></span>
-        </button>
-        <button class="menu-book-arrow menu-book-arrow-next" id="menuNext" type="button" aria-label="Следующая страница">→</button>
-      </div>
-
-      <div class="menu-book-meta">
-        <strong id="menuPageTitle">Обложка</strong>
-        <span>Свайп ← →</span>
-      </div>
-      <div class="menu-book-thumbs" id="menuThumbs" aria-label="Страницы меню"></div>
+    <section class="menu-pages-list" id="menuBook" aria-label="Меню кухни">
+      <img src="assets/menu-book/pages-hq/menu-01.webp?v=19" alt="Страница меню 1" loading="eager" fetchpriority="high" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-02.webp?v=19" alt="Страница меню 2" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-03.webp?v=19" alt="Страница меню 3" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-04.webp?v=19" alt="Страница меню 4" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-05.webp?v=19" alt="Страница меню 5" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-06.webp?v=19" alt="Страница меню 6" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-07.webp?v=19" alt="Страница меню 7" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-08.webp?v=19" alt="Страница меню 8" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-09.webp?v=19" alt="Страница меню 9" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-10.webp?v=19" alt="Страница меню 10" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-11.webp?v=19" alt="Страница меню 11" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-12.webp?v=19" alt="Страница меню 12" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-13.webp?v=19" alt="Страница меню 13" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-14.webp?v=19" alt="Страница меню 14" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-15.webp?v=19" alt="Страница меню 15" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-16.webp?v=19" alt="Страница меню 16" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-17.webp?v=19" alt="Страница меню 17" loading="lazy" decoding="async">
+      <img src="assets/menu-book/pages-hq/menu-18.webp?v=19" alt="Страница меню 18" loading="lazy" decoding="async">
     </section>
 
-    <dialog class="menu-lightbox" id="menuLightbox" aria-label="Увеличенная страница меню">
-      <button class="menu-lightbox-close" id="menuLightboxClose" type="button" aria-label="Закрыть">×</button>
-      <button class="menu-lightbox-arrow menu-lightbox-prev" id="menuLightboxPrev" type="button" aria-label="Предыдущая страница">←</button>
-      <div class="menu-lightbox-page"><span class="menu-book-art" id="menuLightboxArt" aria-hidden="true"></span></div>
-      <button class="menu-lightbox-arrow menu-lightbox-next" id="menuLightboxNext" type="button" aria-label="Следующая страница">→</button>
-      <div class="menu-lightbox-caption"><strong id="menuLightboxTitle">Обложка</strong><span id="menuLightboxCount">01 / 18</span></div>
-    </dialog>
 
     <section class="catalog-controls" aria-label="Фильтры меню">
       <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Найти блюдо или напиток" autocomplete="off"></label>
@@ -1269,6 +1258,6 @@
     <img src="assets/logo-glossy.png" alt="Ухо & Медведь">
     <span>Советская, 33 · +7 (383) 292-89-01</span>
   </footer>
-  <script src="catalog.js?v=menu-viewer-v15"></script>
+  <script src="catalog.js?v=menu-vertical-v19"></script>
 </body>
 </html>
