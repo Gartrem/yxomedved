@@ -20,11 +20,15 @@ const menuLightboxArt=document.getElementById('menuLightboxArt');
 const menuLightboxTitle=document.getElementById('menuLightboxTitle');
 const menuLightboxCount=document.getElementById('menuLightboxCount');
 
-function menuSpritePosition(index){
-  const col=index%6,row=Math.floor(index/6);
-  return (col*20)+'% '+(row*50)+'%';
+function menuPageSrc(index){
+  return 'assets/menu-book/pages/menu-'+String(index+1).padStart(2,'0')+'.webp?v=17';
 }
-function applyMenuSprite(el,index){if(el)el.style.backgroundPosition=menuSpritePosition(index)}
+function applyMenuSprite(el,index){
+  if(!el)return;
+  el.style.backgroundImage='url("'+menuPageSrc(index)+'")';
+  el.style.backgroundPosition='center';
+  el.style.backgroundSize='cover';
+}
 function renderMenuThumbs(){
   if(!menuThumbs)return;
   menuThumbs.innerHTML='';
