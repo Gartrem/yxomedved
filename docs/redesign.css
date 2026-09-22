@@ -620,3 +620,15 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
     display:none !important;
   }
 }
+
+
+/* MENU CARDS CACHE-BUST V21 */
+.menu-shot,.menu-shot-bar{
+  height:620px!important;
+  min-height:620px!important;
+}
+.menu-shot img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
