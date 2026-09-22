@@ -632,3 +632,22 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
   height:100%!important;
   object-fit:cover!important;
 }
+
+
+/* PREMIUM HALL IMAGERY V23 */
+.hall>img{
+  filter:saturate(.9) contrast(1.04) brightness(.82)!important;
+}
+.hall-main>img{
+  object-position:center 52%!important;
+}
+.hall-vip{
+  background:#0b0706!important;
+}
+.hall-vip>img{
+  object-position:center 48%!important;
+}
+.hall-vip:before,
+.vip-art{
+  display:none!important;
+}
