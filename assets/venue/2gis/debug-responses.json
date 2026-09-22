@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://2gis.ru/novosibirsk/firm/141265769806977/tab/info",
+    "ct": "text/html; charset=utf-8",
+    "status": 302
+  },
+  {
+    "url": "https://2gis.ru/museum?return_url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Ffirm%2F141265769806977%2Ftab%2Finfo",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/opera.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/museum.js",
+    "ct": "application/javascript",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/google-chrome.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/mozilla-firefox.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/icon200.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/fonts/SBSansText-Regular.woff2",
+    "ct": "font/woff2",
+    "status": 200
+  },
+  {
+    "url": "https://2gis.ru/novosibirsk/gallery/firm/141265769806977",
+    "ct": "text/html; charset=utf-8",
+    "status": 302
+  },
+  {
+    "url": "https://2gis.ru/museum?return_url=https%3A%2F%2F2gis.ru%2Fnovosibirsk%2Fgallery%2Ffirm%2F141265769806977",
+    "ct": "text/html; charset=utf-8",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/fonts/SBSansText-Regular.woff2",
+    "ct": "font/woff2",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/icon200.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/google-chrome.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/mozilla-firefox.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/opera.png",
+    "ct": "image/png",
+    "status": 200
+  },
+  {
+    "url": "https://d-assets.2gis.ru/museum/museum.js",
+    "ct": "application/javascript",
+    "status": 200
+  }
+]
