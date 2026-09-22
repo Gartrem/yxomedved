@@ -1082,3 +1082,43 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
   .section-copy h2,.section-heading h2,.contacts-heading h2{font-size:40px!important}
   .mobile-dock small{font-size:7px!important}
 }
+
+
+/* =========================================================
+   NO ARROWS V27
+   Remove all decorative arrow controls across the site.
+   ========================================================= */
+.cta-arrow,
+.text-link span,
+.menu-links b,
+.contact-grid a:after,
+.menu-drawer nav a:after{
+  display:none!important;
+  content:none!important;
+}
+.button{
+  padding-right:20px!important;
+}
+.button-compact,.button-small{
+  padding-right:16px!important;
+}
+.text-link{
+  padding-right:16px!important;
+}
+.menu-links a{
+  padding-right:18px!important;
+}
+.menu-drawer nav a{
+  padding-right:14px!important;
+}
+.contact-grid a{
+  padding-right:18px!important;
+}
+@media(max-width:700px){
+  .button{
+    padding-right:18px!important;
+  }
+  .button-compact,.button-small{
+    padding-right:14px!important;
+  }
+}
