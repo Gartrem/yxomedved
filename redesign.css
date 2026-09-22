@@ -567,3 +567,24 @@ h2 em{color:var(--gold-light);font-style:italic;font-weight:500}
     opacity:1;
   }
 }
+
+/* ===== PHONE PNG FIX V17 ===== */
+@media(max-width:700px){
+  .mobile-dock .dock-phone{
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    overflow:visible;
+  }
+  .mobile-dock .dock-phone img{
+    display:block !important;
+    width:40px !important;
+    height:40px !important;
+    max-width:none !important;
+    object-fit:contain;
+    opacity:1 !important;
+    visibility:visible !important;
+    filter:drop-shadow(0 2px 5px rgba(215,171,103,.18));
+  }
+}
