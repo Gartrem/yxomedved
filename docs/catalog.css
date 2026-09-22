@@ -51,14 +51,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,inp
 .menu-item.food strong{align-self:start;justify-self:end;margin:18px 17px 0 0;color:var(--gold-light);font:600 22px/1 var(--serif);white-space:nowrap}
 
 /* BAR — no fabricated product images */
-.menu-item.bar{display:grid;grid-template-columns:74px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:104px;padding:13px 15px}
-.bar-mark{position:relative;width:58px;height:58px;display:grid;place-items:center;border:1px solid rgba(193,160,113,.2);border-radius:50%;background:radial-gradient(circle,rgba(143,16,41,.11),transparent 68%)}
-.bar-mark:before{content:"BAR";color:#a98a63;font-size:6px;font-weight:700;letter-spacing:.15em}
-.bar-mark:after{content:"";position:absolute;width:24px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:rotate(-35deg)}
-.bar-section[data-cat="beer"] .bar-mark:before{content:"BEER"}.bar-section[data-cat="soft"] .bar-mark:before,.bar-section[data-cat="coffee-tea"] .bar-mark:before{content:"SOFT"}
-.bar-section[data-cat="cocktails"] .bar-mark:before,.bar-section[data-cat="infusions"] .bar-mark:before{content:"MIX"}
-.bar-section[data-cat="glass"] .bar-mark:before,.bar-section[data-cat="champagne"] .bar-mark:before,.bar-section[data-cat="sparkling"] .bar-mark:before,.bar-section[data-cat="wine-color"] .bar-mark:before,.bar-section[data-cat="white-wine"] .bar-mark:before,.bar-section[data-cat="red-wine"] .bar-mark:before{content:"WINE"}
-.bar-section[data-cat="aperitif"] .bar-mark:before,.bar-section[data-cat="liqueurs"] .bar-mark:before,.bar-section[data-cat="rum"] .bar-mark:before,.bar-section[data-cat="cognac"] .bar-mark:before,.bar-section[data-cat="tequila"] .bar-mark:before,.bar-section[data-cat="gin"] .bar-mark:before,.bar-section[data-cat="vodka"] .bar-mark:before,.bar-section[data-cat="single-malt"] .bar-mark:before,.bar-section[data-cat="scotch"] .bar-mark:before,.bar-section[data-cat="bourbon"] .bar-mark:before,.bar-section[data-cat="irish"] .bar-mark:before{content:"SPIRIT"}
+.menu-item.bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;min-height:88px;padding:15px 18px}
 .menu-item.bar .item-copy{min-width:0}.menu-item.bar h3{margin:0;font:500 23px/1.08 var(--serif);overflow-wrap:anywhere}.menu-item.bar p{margin:7px 0 0;color:#999088;font-size:13px;line-height:1.45}.menu-item.bar strong{color:var(--gold-light);font:600 18px var(--serif);white-space:nowrap}
 
 .empty{grid-column:1/-1;padding:34px;border:1px dashed var(--line);color:#857b73;text-align:center;font:500 24px var(--serif)}
@@ -74,7 +67,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,inp
   .catalog-featured{display:flex;overflow:auto;gap:8px;margin:0 -13px;padding:0 13px 5px;scroll-snap-type:x mandatory}.catalog-featured figure,.feature-main,.feature-side{flex:0 0 78vw;height:290px;scroll-snap-align:start}
   .catalog-controls{top:64px;margin:12px -13px 0;padding:9px 13px}.catalog-controls>b{display:none}.group-nav{margin:0 -13px;padding:10px 13px}.category-nav{margin:0 -13px;padding:0 13px 18px}
   .catalog-section{scroll-margin-top:155px;padding-top:36px}.catalog-section-header{margin-bottom:14px}.menu-item.food{padding-bottom:15px}.menu-item.food .item-copy{padding:14px 0 0 14px}.menu-item.food h3{font-size:24px}.menu-item.food p{font-size:14px}.menu-item.food strong{font-size:21px;margin:15px 13px 0 0}
-  .menu-item.bar{grid-template-columns:58px minmax(0,1fr) auto;gap:10px;min-height:92px;padding:10px}.bar-mark{width:48px;height:48px}.menu-item.bar h3{font-size:19px}.menu-item.bar p{font-size:12px}.menu-item.bar strong{font-size:17px}
+  .menu-item.bar{grid-template-columns:minmax(0,1fr) auto;gap:12px;min-height:82px;padding:12px 10px}.menu-item.bar h3{font-size:19px}.menu-item.bar p{font-size:12px}.menu-item.bar strong{font-size:17px}
   .catalog-cta{padding:40px 19px}.catalog-footer{flex-direction:column;align-items:flex-start;gap:12px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
@@ -1231,4 +1224,22 @@ body[data-catalog-tab="food"] .catalog-controls,
 body[data-catalog-tab="food"] .group-nav,
 body[data-catalog-tab="food"] .category-nav{
   display:none!important;
+}
+
+
+/* BAR CLEAN LAYOUT V29 */
+.bar-mark{display:none!important}
+.menu-item.bar{
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:18px!important;
+  min-height:88px!important;
+  padding:15px 18px!important;
+}
+@media(max-width:620px){
+  .menu-item.bar{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:12px!important;
+    min-height:82px!important;
+    padding:12px 10px!important;
+  }
 }
