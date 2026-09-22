@@ -1204,3 +1204,31 @@ body[data-catalog-tab="food"] .menu-pages-list img:last-child{
     padding-right:12px!important;
   }
 }
+
+
+/* BAR ROUTING FIX V28 */
+.menu-pages-list[hidden],
+.catalog-controls[hidden],
+.group-nav[hidden],
+.category-nav[hidden],
+#catalog[hidden],
+.catalog-section[hidden],
+.menu-item[hidden]{
+  display:none!important;
+}
+
+body[data-catalog-tab="bar"] .menu-pages-list{
+  display:none!important;
+}
+body[data-catalog-tab="bar"] #catalog{
+  display:block!important;
+}
+body[data-catalog-tab="bar"] .catalog-controls{
+  display:flex!important;
+}
+body[data-catalog-tab="food"] #catalog,
+body[data-catalog-tab="food"] .catalog-controls,
+body[data-catalog-tab="food"] .group-nav,
+body[data-catalog-tab="food"] .category-nav{
+  display:none!important;
+}
