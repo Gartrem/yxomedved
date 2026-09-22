@@ -96,10 +96,6 @@ menuPage?.addEventListener('touchstart',swipeStart,{passive:true});
 menuPage?.addEventListener('touchend',swipeEnd,{passive:true});
 menuLightbox?.addEventListener('touchstart',swipeStart,{passive:true});
 menuLightbox?.addEventListener('touchend',swipeEnd,{passive:true});
-renderMenuThumbs();
-setMenuPage(menuPageIndex);
-
-
 const BAR_GROUPS=[
   {id:'all',label:'Все',cats:[]},
   {id:'cocktails',label:'Коктейли',cats:['cocktails','infusions']},
@@ -118,6 +114,9 @@ const categoryNav=document.getElementById('categoryNav');
 const search=document.getElementById('search');
 const resultCount=document.getElementById('resultCount');
 const sections=[...catalog.querySelectorAll('.catalog-section')];
+
+renderMenuThumbs();
+setMenuPage(menuPageIndex);
 
 function sectionAllowed(section){
   if(section.dataset.tab!==state.tab)return false;
